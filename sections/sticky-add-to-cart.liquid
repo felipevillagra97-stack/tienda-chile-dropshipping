@@ -1,0 +1,279 @@
+{% comment %}
+  Section: sticky-add-to-cart.liquid
+  Barra flotante de compra (Sticky Add to Cart) de alta conversión para dispositivos móviles y escritorio.
+  Aparece automáticamente cuando el usuario hace scroll y pasa el botón principal de compra.
+{% endcomment %}
+
+{% if template.name == 'product' and section.settings.enable_sticky_cart %}
+  <div id="shopify-sticky-atc" class="sticky-atc-bar" style="display: none;">
+    <div class="sticky-atc-container">
+      <div class="sticky-atc-product-info">
+        {% if product.featured_image != blank %}
+          <img src="{{ product.featured_image | image_url: width: 80, height: 80, crop: 'center' }}"
+               alt="{{ product.title | escape }}"
+               class="sticky-atc-img"
+               width="45"
+               height="45"
+               loading="lazy">
+        {% endif %}
+        <div class="sticky-atc-details">
+          <span class="sticky-atc-title">{{ product.title | truncate: 35 }}</span>
+          <span class="sticky-atc-price" id="sticky-atc-price">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>
+        </div>
+      </div>
+
+      <div class="sticky-atc-actions">
+        {% if product.variants.size > 1 %}
+          <select id="sticky-atc-variant-select" class="sticky-atc-select">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}"
+                      data-price="{{ variant.price | money_without_trailing_zeros }}"
+                      {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                      {% unless variant.available %}disabled{% endunless %}>
+                {{ variant.title }} {% unless variant.available %} (Agotado){% endunless %}
+              </option>
+            {% endfor %}
+          </select>
+        {% else %}
+          <input type="hidden" id="sticky-atc-variant-id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% endif %}
+
+        <button type="button"
+                id="sticky-atc-button"
+                class="sticky-atc-btn"
+                style="background-color: {{ section.settings.btn_bg_color }}; color: {{ section.settings.btn_text_color }};">
+          <span class="sticky-atc-btn-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+          </span>
+          <span class="sticky-atc-btn-text">{{ section.settings.btn_text | default: 'COMPRAR AHORA' }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sticky-atc-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+      z-index: 999;
+      padding: 10px 16px;
+      transition: transform 0.3s ease-in-out;
+      border-top: 1px solid #e5e7eb;
+    }
+    .sticky-atc-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sticky-atc-product-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .sticky-atc-img {
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid #e5e7eb;
+    }
+    .sticky-atc-details {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .sticky-atc-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #111827;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-atc-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: #047857;
+    }
+    .sticky-atc-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .sticky-atc-select {
+      padding: 8px 12px;
+      font-size: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background-color: #f9fafb;
+      max-width: 150px;
+      color: #1f2937;
+    }
+    .sticky-atc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      animation: pulseBtn 2.2s infinite;
+      transition: all 0.2s ease;
+    }
+    .sticky-atc-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+    @keyframes pulseBtn {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    @media (max-width: 640px) {
+      .sticky-atc-title {
+        display: none;
+      }
+      .sticky-atc-select {
+        max-width: 110px;
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+      .sticky-atc-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+      .sticky-atc-bar {
+        padding: 8px 12px;
+      }
+    }
+  </style>
+
+  <script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var stickyBar = document.getElementById('shopify-sticky-atc');
+      if (!stickyBar) return;
+
+      var mainForm = document.querySelector('form[action*="/cart/add"]');
+      var mainBtn = mainForm ? mainForm.querySelector('[type="submit"], [name="add"]') : null;
+
+      // Detectar scroll para mostrar u ocultar la barra flotante
+      window.addEventListener('scroll', function() {
+        if (!mainBtn) {
+          if (window.scrollY > 400) {
+            stickyBar.style.display = 'block';
+          } else {
+            stickyBar.style.display = 'none';
+          }
+          return;
+        }
+
+        var rect = mainBtn.getBoundingClientRect();
+        if (rect.bottom < 0) {
+          stickyBar.style.display = 'block';
+        } else {
+          stickyBar.style.display = 'none';
+        }
+      });
+
+      // Manejar selector de variantes
+      var variantSelect = document.getElementById('sticky-atc-variant-select');
+      var priceEl = document.getElementById('sticky-atc-price');
+      if (variantSelect && priceEl) {
+        variantSelect.addEventListener('change', function() {
+          var selectedOption = variantSelect.options[variantSelect.selectedIndex];
+          var newPrice = selectedOption.getAttribute('data-price');
+          if (newPrice) priceEl.textContent = newPrice;
+
+          // Sincronizar con el selector principal si existe
+          var mainVariantInput = document.querySelector('input[name="id"], select[name="id"]');
+          if (mainVariantInput) {
+            mainVariantInput.value = selectedOption.value;
+            mainVariantInput.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        });
+      }
+
+      // Manejar clic en Comprar
+      var stickyBtn = document.getElementById('sticky-atc-button');
+      if (stickyBtn) {
+        stickyBtn.addEventListener('click', function() {
+          var variantId = variantSelect ? variantSelect.value : (document.getElementById('sticky-atc-variant-id') ? document.getElementById('sticky-atc-variant-id').value : null);
+          if (!variantId) {
+            var idInput = document.querySelector('input[name="id"]');
+            if (idInput) variantId = idInput.value;
+          }
+
+          if (!variantId) return;
+
+          stickyBtn.disabled = true;
+          stickyBtn.querySelector('.sticky-atc-btn-text').textContent = 'Agregando...';
+
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ id: variantId, quantity: 1 })
+          })
+          .then(function(res) { return res.json(); })
+          .then(function() {
+            window.location.href = '/checkout';
+          })
+          .catch(function(err) {
+            console.error('Error al agregar:', err);
+            window.location.href = '/cart';
+          });
+        });
+      }
+    });
+  })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Sticky Add to Cart",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_cart",
+      "label": "Activar barra flotante de compra",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Texto del botón",
+      "default": "COMPRAR AHORA"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Color de fondo del botón",
+      "default": "#16a34a"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Color del texto del botón",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

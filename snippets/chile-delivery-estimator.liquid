@@ -1,0 +1,62 @@
+{% comment %}
+  Snippet: chile-delivery-estimator.liquid
+  Calcula dinámicamente fechas de entrega estimadas para Chile (Santiago y Regiones)
+  Genera urgencia y confianza en la página de producto.
+{% endcomment %}
+
+<div class="chile-delivery-estimator-box" style="margin: {{ block.settings.margin_top | default: 12 }}px 0 {{ block.settings.margin_bottom | default: 12 }}px 0; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 10px 14px;">
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <span style="display: inline-block; width: 10px; height: 10px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); animation: pulseGreen 2s infinite;"></span>
+    <span style="font-size: 13px; font-weight: 600; color: #065f46;">
+      {{ block.settings.tag_text | default: 'Stock Disponible en Chile' }}
+    </span>
+  </div>
+
+  <div style="margin-top: 6px; font-size: 13px; color: #1f2937; line-height: 1.4;">
+    <span>{{ block.settings.prefix_text | default: 'Pide hoy y recibe entre el' }} </span>
+    <strong id="chile-delivery-dates" style="color: #047857; text-decoration: underline dotted;">Calculando fecha...</strong>
+    <span> {{ block.settings.destination_text | default: 'en Santiago y Regiones vía Starken / Blue Express.' }}</span>
+  </div>
+</div>
+
+<style>
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+</style>
+
+<script>
+(function() {
+  function addBusinessDays(startDate, daysToAdd) {
+    var curDate = new Date(startDate.getTime());
+    while (daysToAdd > 0) {
+      curDate.setDate(curDate.getDate() + 1);
+      // 0 = Sunday, 6 = Saturday
+      if (curDate.getDay() !== 0 && curDate.getDay() !== 6) {
+        daysToAdd--;
+      }
+    }
+    return curDate;
+  }
+
+  function formatChileDate(date) {
+    var dias = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+    var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    return dias[date.getDay()] + ' ' + date.getDate() + ' de ' + meses[date.getMonth()];
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var dateEl = document.getElementById('chile-delivery-dates');
+    if (dateEl) {
+      var today = new Date();
+      var minDays = {{ block.settings.min_days | default: 2 }};
+      var maxDays = {{ block.settings.max_days | default: 4 }};
+      var startDate = addBusinessDays(today, minDays);
+      var endDate = addBusinessDays(today, maxDays);
+      dateEl.textContent = formatChileDate(startDate) + ' y el ' + formatChileDate(endDate);
+    }
+  });
+})();
+</script>

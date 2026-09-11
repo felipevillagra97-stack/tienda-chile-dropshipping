@@ -1,0 +1,151 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title"
+        },
+        "price": {
+          "type": "price"
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector"
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "chile_urgency": {
+          "type": "chile_urgency_timer",
+          "settings": {
+            "timer_text": "¡Oferta especial por tiempo limitado!",
+            "duration_minutes": 15,
+            "show_stock_bar": true,
+            "stock_label": "Unidades en bodega Santiago:",
+            "stock_left": "7 unidades",
+            "stock_percentage": 22,
+            "margin_top": 12,
+            "margin_bottom": 12
+          }
+        },
+        "chile_delivery": {
+          "type": "chile_delivery_estimator",
+          "settings": {
+            "tag_text": "Stock Disponible en Chile",
+            "prefix_text": "Pide hoy y recibe entre el",
+            "destination_text": "en Santiago y Regiones vía Starken / Blue Express.",
+            "min_days": 2,
+            "max_days": 4,
+            "margin_top": 12,
+            "margin_bottom": 12
+          }
+        },
+        "chile_payments": {
+          "type": "chile_payment_badges",
+          "settings": {
+            "heading": "Pago 100% Seguro y Encriptado",
+            "show_subtitle": true,
+            "subtitle": "Aceptamos tarjetas de débito, crédito y transferencias en Chile.",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "chile_shipping": {
+          "type": "chile_shipping_badges",
+          "settings": {
+            "heading": "Envíos Rápidos y Seguros a Todo Chile",
+            "subheading": "Despachamos de 24 a 48 hrs hábiles con número de seguimiento en línea.",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "description": {
+          "type": "description"
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "chile_urgency",
+        "chile_delivery",
+        "chile_payments",
+        "chile_shipping",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_position": "left",
+        "gallery_layout": "stacked",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "disclosures": {
+      "type": "disclosures",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "disclosures",
+    "related-products"
+  ]
+}

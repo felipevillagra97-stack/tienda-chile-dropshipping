@@ -1,0 +1,154 @@
+{% comment %}
+  Section: whatsapp-support-button.liquid
+  Botón flotante de WhatsApp para atención y cierre de ventas en Chile.
+  Permite personalizar el número chileno (+56 9...), mensaje inicial dinámico y posición.
+{% endcomment %}
+
+{% if section.settings.enable_whatsapp %}
+  {% assign default_msg = section.settings.default_message %}
+  {% if template.name == 'product' and product %}
+    {% assign product_info = ' sobre el producto ' | append: product.title | append: ' - ' | append: shop.url | append: product.url %}
+    {% assign full_message = default_msg | append: product_info | url_encode %}
+  {% else %}
+    {% assign full_message = default_msg | url_encode %}
+  {% endif %}
+
+  <div id="shopify-whatsapp-bubble"
+       class="wa-float-container wa-pos-{{ section.settings.position }}"
+       style="bottom: {{ section.settings.bottom_offset }}px; {% if section.settings.position == 'left' %}left: 20px;{% else %}right: 20px;{% endif %}">
+    
+    {% if section.settings.show_tooltip %}
+      <div class="wa-tooltip">
+        <span class="wa-tooltip-text">{{ section.settings.tooltip_text | default: '¿Dudas con tu compra? ¡Escríbenos!' }}</span>
+      </div>
+    {% endif %}
+
+    <a href="https://wa.me/{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' }}?text={{ full_message }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="wa-btn"
+       aria-label="Contactar por WhatsApp">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16C2 18.72 2.775 21.26 4.12 23.42L2.5 29.5L8.74 27.91C10.84 29.2 13.33 29.97 16 29.97C23.732 29.97 30 23.702 30 15.97C30 8.238 23.732 2 16 2ZM12.04 8.7C11.75 8.04 11.41 8.03 10.98 8.01C10.63 8 10.22 8 9.81 8C9.4 8 8.74 8.16 8.18 8.77C7.62 9.38 6.03 10.87 6.03 13.9C6.03 16.93 8.24 19.82 8.55 20.23C8.86 20.64 12.8 27.05 19.06 29.47C24.27 31.48 25.32 30.73 26.44 30.63C27.56 30.53 30.01 29.17 30.52 27.74C31.03 26.31 31.03 25.08 30.88 24.82C30.73 24.56 30.32 24.41 29.7 24.1C29.08 23.79 26.04 22.29 25.48 22.08C24.92 21.87 24.51 21.77 24.1 22.38C23.69 22.99 22.52 24.41 22.16 24.82C21.8 25.23 21.44 25.28 20.82 24.97C20.2 24.66 18.23 24.02 15.89 21.93C14.07 20.3 12.84 18.29 12.48 17.67C12.12 17.06 12.44 16.73 12.75 16.42C13.03 16.14 13.37 15.69 13.68 15.33C13.99 14.97 14.09 14.71 14.3 14.3C14.51 13.89 14.41 13.53 14.26 13.22C14.11 12.91 12.98 10.15 12.04 8.7Z" fill="#ffffff"/>
+      </svg>
+    </a>
+  </div>
+
+  <style>
+    .wa-float-container {
+      position: fixed;
+      z-index: 998;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .wa-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: #25d366;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: pulseWA 2.5s infinite;
+    }
+    .wa-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+    .wa-tooltip {
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1f2937;
+      white-space: nowrap;
+      pointer-events: none;
+      animation: fadeInTooltip 0.4s ease;
+    }
+    @keyframes pulseWA {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    @media (max-width: 640px) {
+      .wa-tooltip {
+        display: none;
+      }
+      .wa-btn {
+        width: 50px;
+        height: 50px;
+      }
+      .wa-btn svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "WhatsApp Chile",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_whatsapp",
+      "label": "Activar botón flotante de WhatsApp",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Número de WhatsApp con código de país",
+      "default": "56912345678",
+      "info": "Ejemplo para Chile: 56912345678 (sin el signo +)"
+    },
+    {
+      "type": "text",
+      "id": "default_message",
+      "label": "Mensaje predeterminado",
+      "default": "¡Hola! Quisiera hacer una consulta"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Posición en la pantalla",
+      "options": [
+        { "value": "right", "label": "Abajo a la derecha" },
+        { "value": "left", "label": "Abajo a la izquierda" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "bottom_offset",
+      "label": "Distancia desde el borde inferior (px)",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "default": 75,
+      "unit": "px",
+      "info": "Ajusta la altura para no tapar la barra Sticky en móviles"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tooltip",
+      "label": "Mostrar burbuja de texto",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tooltip_text",
+      "label": "Texto de la burbuja",
+      "default": "¿Dudas con tu compra? ¡Escríbenos!"
+    }
+  ]
+}
+{% endschema %}
