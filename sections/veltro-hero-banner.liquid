@@ -1,0 +1,96 @@
+<section class="veltro-hero-banner" id="banner-{{ section.id }}">
+  <div class="veltro-banner-container">
+    <a href="{{ section.settings.banner_link | default: '/collections/all' }}" class="veltro-banner-click">
+      {%- if section.settings.banner_image != blank -%}
+        <img
+          src="{{ section.settings.banner_image | image_url: width: 2400 }}"
+          alt="{{ shop.name | escape }} - Banner Promocional"
+          class="veltro-img"
+          loading="eager"
+          width="{{ section.settings.banner_image.width }}"
+          height="{{ section.settings.banner_image.height }}"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'banner-veltro-final.png' | asset_url }}"
+          alt="VELTRO.cl - Soluciones para tu Hogar • Paga al Recibir"
+          class="veltro-img"
+          loading="eager"
+          width="1024"
+          height="571"
+        >
+      {%- endif -%}
+    </a>
+  </div>
+</section>
+
+<style>
+  .veltro-hero-banner {
+    width: 100%;
+    background: #030712;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .veltro-banner-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  .veltro-banner-click {
+    display: block;
+    width: 100%;
+    line-height: 0;
+    text-decoration: none;
+  }
+  .veltro-img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    .veltro-hero-banner {
+      background: #030712;
+    }
+    .veltro-img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Banner Veltro",
+  "tag": "section",
+  "class": "section-veltro-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Imagen de Banner (Opcional)",
+      "info": "Por defecto muestra el banner oficial de VELTRO (1024x571 px) sin recortar."
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Enlace del Banner",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner Veltro"
+    }
+  ]
+}
+{% endschema %}

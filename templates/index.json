@@ -1,51 +1,31 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+    "hero_banner": {
+      "type": "veltro-hero-banner",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "banner_link": "/collections/all"
+      }
+    },
+    "trust_bar": {
+      "type": "veltro-trust-bar",
+      "settings": {
+        "p1_title": "Envíos a Todo Chile",
+        "p1_desc": "Despacho rápido 24-48 hrs con Blue Express y Starken.",
+        "p2_title": "Paga al Recibir en Casa",
+        "p2_desc": "Paga en efectivo o transferencia cuando llegue tu paquete.",
+        "p3_title": "Garantía de Satisfacción",
+        "p3_desc": "30 días de respaldo oficial. Compra 100% garantizada.",
+        "p4_title": "Soporte vía WhatsApp",
+        "p4_desc": "Atención personalizada para resolver todas tus dudas."
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "title": "Productos Destacados",
+        "heading_size": "h1",
+        "description": "Aprovecha nuestras ofertas exclusivas con despacho express y pago contra entrega en todo Chile.",
+        "show_description": true,
         "description_style": "body",
         "collection": "all",
         "products_to_show": 8,
@@ -55,21 +35,22 @@
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
+        "show_rating": true,
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },
   "order": [
-    "image_banner",
+    "hero_banner",
+    "trust_bar",
     "featured_collection"
   ]
 }
