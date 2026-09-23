@@ -21,6 +21,9 @@
   endif
 
   assign media_count = product.media.size
+  if media_count == 0
+    assign media_count = 2
+  endif
   if section.settings.hide_variants and media_count > 1 and variant_images.size > 0
     assign media_count = media_count | minus: variant_images.size | plus: 1
   endif
@@ -83,6 +86,40 @@
             constrain_to_viewport: section.settings.constrain_to_viewport,
             lazy_load: false
           %}
+        </li>
+      {%- endif -%}
+      {%- if product.media.size == 0 -%}
+        <li
+          id="Slide-{{ section.id }}-fallback-1"
+          class="product__media-item grid__item slider__slide is-active product__media-item--single"
+          data-media-id="{{ section.id }}-fallback-1"
+        >
+          <div class="product__media media media--transparent" style="position: relative; overflow: hidden; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0;">
+            <img
+              src="{{ 'producto-limpiador-vapor.png' | asset_url }}"
+              alt="{{ product.title | escape }}"
+              style="width: 100%; height: auto; display: block; object-fit: contain;"
+              loading="eager"
+              width="1254"
+              height="1254"
+            >
+          </div>
+        </li>
+        <li
+          id="Slide-{{ section.id }}-fallback-2"
+          class="product__media-item grid__item slider__slide"
+          data-media-id="{{ section.id }}-fallback-2"
+        >
+          <div class="product__media media media--transparent" style="position: relative; overflow: hidden; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; margin-top: 16px;">
+            <img
+              src="{{ 'banner-limpiador-vapor.png' | asset_url }}"
+              alt="Kit de 6 accesorios incluidos"
+              style="width: 100%; height: auto; display: block; object-fit: contain;"
+              loading="lazy"
+              width="1983"
+              height="793"
+            >
+          </div>
         </li>
       {%- endif -%}
       {%- for media in product.media -%}

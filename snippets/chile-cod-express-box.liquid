@@ -533,9 +533,9 @@
 
 <script>
 (function() {
-  var basePrice = {{ product.price }};
+  var basePrice = {{ product.price | default: 4299000 }};
   var currentQty = 1;
-  var productTitle = {{ product.title | json }};
+  var productTitle = {{ product.title | default: 'Limpiadora a Vapor Multifuncional 2500W' | json }};
 
   function formatMoneyCLP(cents) {
     var num = Math.round(cents / 100);
@@ -618,7 +618,7 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        id: {{ product.selected_or_first_available_variant.id | default: product.variants.first.id }},
+        id: {{ product.selected_or_first_available_variant.id | default: product.variants.first.id | default: 0 }},
         quantity: currentQty,
         properties: {
           'Modalidad': 'Pago Contra Entrega (COD)',

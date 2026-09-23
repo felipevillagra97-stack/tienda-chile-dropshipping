@@ -55,7 +55,7 @@
           <span class="vapor-rating-text"><strong>4.9 / 5.0</strong> • +362 clientes satisfechos en Chile</span>
         </div>
 
-        <h1 class="vapor-title">Limpiadora a Vapor de Alta Presión 2500W (4 BAR) + Kit de 6 Accesorios</h1>
+        <h1 class="vapor-title">{% if product != blank and product.title != blank %}{{ product.title }}{% else %}Limpiadora a Vapor de Alta Presión 2500W (4 BAR) + Kit de 6 Accesorios{% endif %}</h1>
         
         <p class="vapor-short-desc">
           Derrite la grasa pegada de años, elimina hongos en juntas de baño y desinfecta bacterias en segundos con vapor continuo a <strong>105°C</strong>. Limpia tu cocina, tapices y auto sin gastar en productos químicos tóxicos.
@@ -64,8 +64,8 @@
         <!-- CAJA DE PRECIO -->
         <div class="vapor-price-card">
           <div class="vapor-price-flex">
-            <span class="vapor-current-price">$42.990</span>
-            <span class="vapor-old-price">$53.990</span>
+            <span class="vapor-current-price">{% if product != blank and product.price > 0 %}{{ product.price | money }}{% else %}$42.990{% endif %}</span>
+            <span class="vapor-old-price">{% if product != blank and product.compare_at_price > 0 %}{{ product.compare_at_price | money }}{% elsif product != blank and product.price > 0 %}{{ product.price | times: 1.25 | money }}{% else %}$53.990{% endif %}</span>
             <span class="vapor-discount-tag">20% DESCUENTO</span>
           </div>
           <div class="vapor-stock-alert">
