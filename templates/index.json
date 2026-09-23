@@ -3,7 +3,7 @@
     "hero_banner": {
       "type": "veltro-hero-banner",
       "settings": {
-        "banner_link": "#landing-vapor-section"
+        "banner_link": "/products/vapor-pro-limpiador-a-vapor"
       }
     },
     "trust_bar": {
@@ -27,7 +27,7 @@
         "subheading": "Disuelve grasa quemada, hongos en junturas de baño y suciedad en motores de auto en segundos con vapor continuo a 105°C y 4 BAR de presión.",
         "price": "$42.990",
         "old_price": "$53.990",
-        "btn_link": "#landing-vapor-section"
+        "btn_link": "/products/vapor-pro-limpiador-a-vapor"
       }
     },
     "landing_product": {

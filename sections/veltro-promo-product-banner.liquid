@@ -15,7 +15,7 @@
 
     <!-- IMAGEN PANORÁMICA DEL PRODUCTO (DE TU PC) -->
     <div class="promo-image-wrapper">
-      <a href="{{ section.settings.btn_link | default: '#landing-vapor-section' }}" class="promo-img-link" onclick="if(document.getElementById('landing-vapor-section')){event.preventDefault();document.getElementById('landing-vapor-section').scrollIntoView({behavior:'smooth'});}">
+      <a href="{{ section.settings.btn_link | default: '/products/vapor-pro-limpiador-a-vapor' }}" class="promo-img-link" {% unless section.settings.btn_link contains '/products/' %}onclick="if(document.getElementById('landing-vapor-section')){event.preventDefault();document.getElementById('landing-vapor-section').scrollIntoView({behavior:'smooth'});}"{% endunless %}>
         {%- if section.settings.promo_image != blank -%}
           <img
             src="{{ section.settings.promo_image | image_url: width: 2400 }}"
@@ -76,7 +76,7 @@
 
         <!-- BOTONES DE COMPRA -->
         <div class="promo-cta-buttons">
-          <a href="{{ section.settings.btn_link | default: '#landing-vapor-section' }}" class="btn-promo-buy" onclick="if(document.getElementById('landing-vapor-section')){event.preventDefault();document.getElementById('landing-vapor-section').scrollIntoView({behavior:'smooth'});}">
+          <a href="{{ section.settings.btn_link | default: '/products/vapor-pro-limpiador-a-vapor' }}" class="btn-promo-buy" {% unless section.settings.btn_link contains '/products/' %}onclick="if(document.getElementById('landing-vapor-section')){event.preventDefault();document.getElementById('landing-vapor-section').scrollIntoView({behavior:'smooth'});}"{% endunless %}>
             <span class="btn-buy-main">🚚 PEDIR AHORA • PAGA AL RECIBIR</span>
             <span class="btn-buy-sub">Pagas únicamente cuando recibas el paquete en tus manos</span>
           </a>
