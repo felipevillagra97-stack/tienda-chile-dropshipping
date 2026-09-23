@@ -84,7 +84,15 @@
     </div>
   {%- elsif section.settings.image_2 == blank -%}
     <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ 'banner-veltro-final.png' | asset_url | image_tag: class: 'veltro-banner-img', alt: 'VELTRO Banner', loading: 'eager', width: 1024, height: 571, style: 'width: 100%; height: 100%; object-fit: contain;' }}
+      <img
+        src="{{ 'banner-veltro-final.png' | asset_url }}"
+        alt="VELTRO Banner"
+        class="veltro-banner-img"
+        loading="eager"
+        width="1024"
+        height="571"
+        style="width: 100%; height: 100%; object-fit: contain; display: block;"
+      >
     </div>
   {%- endif -%}
   {%- if section.settings.image_2 != blank -%}
