@@ -89,42 +89,29 @@
 
   elsif prod_type == 'vapor'
     assign p_badge = '🇨🇱 ALTA DEMANDA • STOCK EN BODEGA SANTIAGO • DESPACHO 24-48 HRS'
-    assign p_rating_text = '4.9 / 5.0 • +362 clientes satisfechos en Chile'
-    assign p_title = 'Limpiadora a Vapor de Alta Presión 2500W (4 BAR) + Kit de 6 Accesorios'
-    assign p_desc = 'Derrite la grasa pegada de años, elimina hongos en juntas de baño y desinfecta bacterias en segundos con vapor continuo a 105°C. Limpia tu cocina, tapices y auto sin químicos tóxicos.'
+    assign p_rating_text = '4.9 / 5.0 (+360 clientes felices en Chile)'
+    assign p_urgency_bar = '🔥 Alta demanda: Despacho prioritario 24-48 hrs hábiles a todo Chile'
+    assign p_title = 'VaporPro™ - Limpiador a Vapor de Alta Presión 2500W'
+    assign p_desc = 'Derrite la grasa más pegada y sarro rebelde en segundos con vapor continuo a 105°C. Desinfección al 99.9% eliminando moho, hongos y ácaros sin químicos ni cloro.'
     
     assign p_price_1 = '$42.990'
     assign p_old_price_1 = '$53.990'
     assign p_discount_tag = '20% DESCUENTO'
     assign p_stock_left = '7 unidades'
-    assign p_unit_1 = '1x Limpiador 2500W + Accesorios'
+    assign p_unit_1 = '1x Limpiador VaporPro™ + Kit 6 Accesorios'
+    assign p_save_1 = 'Envío Gratis'
     
-    assign p_price_2 = '$68.790'
-    assign p_old_price_2 = '$85.980'
-    assign p_sub_2 = '($34.395 c/u)'
-    assign p_save_2 = 'Ahorras $17.190 (20% OFF)'
-    assign p_unit_2 = '2x Limpiadores (Uno para ti, uno de regalo)'
+    assign p_price_2 = '$54.990'
+    assign p_old_price_2 = '$69.990'
+    assign p_sub_2 = ''
+    assign p_save_2 = 'Ahorra $15.000 + Envío Gratis'
+    assign p_unit_2 = '1x VaporPro™ + Kit Maestro de Repuestos (Doble juego de boquillas y cepillos de acero/nylon)'
 
-    assign p_price_3 = '$97.480'
-    assign p_old_price_3 = '$128.970'
-    assign p_sub_3 = '($32.493 c/u)'
-    assign p_save_3 = 'Ahorras $31.490 (Pack Familiar)'
-    assign p_unit_3 = '3x Limpiadores Familiares'
-
-    assign sol_title = 'Una Sola Herramienta para Todo tu Hogar y tu Auto'
-    assign sol_subtitle = 'Ahorra tiempo y olvídate de frotar durante horas con productos químicos agresivos'
-    assign sol_1_icon = '🍳'
-    assign sol_1_title = 'Cocina Impecable y Libre de Grasa'
-    assign sol_1_desc = 'Disuelve en segundos la grasa acumulada en campanas extractoras, freidoras de aire, hornos y encimeras solo con calor y presión.'
-    assign sol_2_icon = '🚿'
-    assign sol_2_title = 'Baños Libres de Sarro y Hongos'
-    assign sol_2_desc = 'El vapor penetra profundamente en las junturas de azulejos, shower door y griferías, eliminando el moho negro y las bacterias sin cloro.'
-    assign sol_3_icon = '🚗'
-    assign sol_3_title = 'Interior y Motor de Automóvil'
-    assign sol_3_desc = 'Limpia tapices manchados, conductos de aire acondicionado y desengrasa componentes del motor con total control y precisión.'
-    assign sol_4_icon = '🛋️'
-    assign sol_4_title = 'Desinfección de Tapices y Colchones'
-    assign sol_4_desc = 'Elimina ácaros, malos olores y gérmenes en sofás, cojines y alfombras. Ideal para casas con niños, mascotas o alérgicos.'
+    assign p_price_3 = '$68.790'
+    assign p_old_price_3 = '$85.980'
+    assign p_sub_3 = '($34.395 c/u - Descuento 20%)'
+    assign p_save_3 = 'Descuento 20% OFF'
+    assign p_unit_3 = '2x Limpiadores VaporPro™ (Uno para ti y otro de regalo)'
 
     assign kit_title = '¿Qué Incluye tu Pedido?'
     assign kit_item_1 = '✓ 1x Equipo Limpiador a Vapor 2500W con perilla de 6 niveles'
@@ -147,16 +134,6 @@
     assign spec_5_v = '220V (Enchufe estándar chileno)'
     assign spec_6_k = 'Garantía'
     assign spec_6_v = '30 días con respaldo oficial VELTRO Chile'
-
-    assign rev_1_name = 'Isabella L.'
-    assign rev_1_city = '📍 Viña del Mar'
-    assign rev_1_text = 'Me llegó hace unos días y lo probé altiro en el sillón del living que tenía manchas antiguas. Con el vapor se fueron soltando y quedó mucho más limpio de lo que esperaba. Igual lo ocupé en la cocina y sirve caleta para la grasa de la campana. Buena compra.'
-    assign rev_2_name = 'Sebastian F.'
-    assign rev_2_city = '📍 Santiago Centro'
-    assign rev_2_text = 'Lo compré más que nada para limpiar el auto por dentro y terminó siendo útil para todo. El vapor ayuda harto a soltar la suciedad y no hay que estar usando mil productos distintos. Lo ocupé en el baño y en la cocina también. Práctico y fácil de usar.'
-    assign rev_3_name = 'Santiago C.'
-    assign rev_3_city = '📍 Concepción'
-    assign rev_3_text = 'La verdad ya había probado varios limpiadores. Probé este vapor y quedé loco, la grasa sale mucho más fácil y no tengo que estar refregando tanto rato. Lo usé también en los azulejos del baño y quedaron impeques. El repartidor de Starken llegó puntual y le pagué con CuentaRUT.'
 
   else
     assign p_badge = '🌿 FÓRMULA BOTÁNICA 2 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
@@ -291,11 +268,39 @@
           <span class="vapor-rating-text"><strong>{{ p_rating_text }}</strong></span>
         </div>
 
+        {% if p_urgency_bar != blank %}
+          <div class="vapor-urgency-banner">
+            <span>{{ p_urgency_bar }}</span>
+          </div>
+        {% endif %}
+
         <h1 class="vapor-title">{{ p_title }}</h1>
         
-        <p class="vapor-short-desc">
-          {{ p_desc }}
-        </p>
+        {% if prod_type == 'vapor' %}
+          <!-- EMOJI BENEFITS (PUNTOS CLAVE CRO) -->
+          <div class="vapor-emoji-benefits">
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">💨</span>
+              <span class="vbenefit-text"><strong>105°C de vapor continuo:</strong> Derrite la grasa más pegada y sarro rebelde en segundos.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">🛡️</span>
+              <span class="vbenefit-text"><strong>Desinfección al 99.9%:</strong> Elimina moho, hongos y ácaros sin usar químicos ni cloro.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">⚡</span>
+              <span class="vbenefit-text"><strong>Rápido y autónomo:</strong> Listo para trabajar en 15 segundos con perilla de 6 niveles de potencia.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">💵</span>
+              <span class="vbenefit-text"><strong>Pago Contra Entrega:</strong> Recibe en tu puerta y paga en efectivo o transferencia.</span>
+            </div>
+          </div>
+        {% else %}
+          <p class="vapor-short-desc">
+            {{ p_desc }}
+          </p>
+        {% endif %}
 
         <!-- CAJA DE PRECIO -->
         <div class="vapor-price-card">
@@ -450,40 +455,140 @@
           </div>
         </div>
 
+        <!-- FILAS DESPLEGABLES (COLLAPSIBLE ROWS / ACCORDION CRO) -->
+        <div class="vapor-accordion-wrap">
+          <details class="vapor-acc-item" open>
+            <summary class="vapor-acc-summary">
+              <span class="vapor-acc-title"><span>🚚</span> Envíos y Tiempos de Entrega</span>
+              <span class="vapor-acc-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="vapor-acc-content">
+              <p>Despacho prioritario y seguro a todo Chile mediante <strong>Starken, Blue Express</strong> o <strong>repartidores locales certificados</strong>. Tiempo estimado de entrega: <strong>24 a 48 horas hábiles</strong> en la Región Metropolitana (Santiago) y <strong>48 a 72 horas hábiles</strong> en otras regiones de Chile. Te contactaremos vía WhatsApp con el número de seguimiento antes de entregar.</p>
+            </div>
+          </details>
+
+          <details class="vapor-acc-item">
+            <summary class="vapor-acc-summary">
+              <span class="vapor-acc-title"><span>💵</span> Pago Seguro Contra Entrega</span>
+              <span class="vapor-acc-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="vapor-acc-content">
+              <p>Cero riesgo para ti. Pagas únicamente al recibir tu paquete en mano en tu domicilio. Medios aceptados: <strong>efectivo</strong>, <strong>transferencia bancaria inmediata (CuentaRUT o cualquier banco chileno)</strong> y <strong>débito/crédito</strong> según disponibilidad del repartidor.</p>
+            </div>
+          </details>
+
+          <details class="vapor-acc-item">
+            <summary class="vapor-acc-summary">
+              <span class="vapor-acc-title"><span>🛡️</span> Garantía Oficial VELTRO (30 Días)</span>
+              <span class="vapor-acc-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="vapor-acc-content">
+              <p>Tu compra cuenta con <strong>30 días de garantía oficial directa de VELTRO Chile</strong>. Ante cualquier defecto de fábrica o mal funcionamiento, gestionamos tu reposición inmediata o reembolso sin demoras a través de nuestra línea de soporte por WhatsApp.</p>
+            </div>
+          </details>
+        </div>
+
       </div>
 
     </div>
 
-    <!-- SECCIÓN ANTES Y DESPUÉS / SOLUCIONES -->
+    <!-- SECCIÓN ANTES Y DESPUÉS / TRANSFORMACIONES CRO -->
     <div class="vapor-solutions-section">
-      <h2 class="vsec-title">{{ sol_title }}</h2>
-      <p class="vsec-subtitle">{{ sol_subtitle }}</p>
+      {% if prod_type == 'vapor' %}
+        <h2 class="vsec-title">Transformación Inmediata en Cada Rincón</h2>
+        <p class="vsec-subtitle">Derrite la suciedad incrustada sin frotar ni utilizar químicos abrasivos</p>
 
-      <div class="vapor-solutions-grid">
-        <div class="vsol-card">
-          <div class="vsol-icon">{{ sol_1_icon }}</div>
-          <h3>{{ sol_1_title }}</h3>
-          <p>{{ sol_1_desc }}</p>
+        <div class="vapor-modular-transformations">
+          
+          <!-- BLOQUE 1: COCINA -->
+          <div class="vapor-modular-card">
+            <div class="vmod-content">
+              <div class="vmod-badge">🔥 Máxima Potencia Desengrasante</div>
+              <h3 class="vmod-title">Cocina Impecable: Disuelve Grasa Quemada en Hornos y Campanas</h3>
+              <p class="vmod-text">
+                Dile adiós a horas de fregado con esponjas abrasivas y químicos corrosivos. El vapor presurizado a 105°C penetra instantáneamente la grasa carbonizada de freidoras de aire, rejillas de campanas extractoras, encimeras y hornos, retirándola sin esfuerzo en una sola pasada.
+              </p>
+            </div>
+            <div class="vmod-media">
+              <div class="vmedia-box">
+                <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Disolución de grasa en cocina con VaporPro" loading="lazy" width="600" height="380">
+                <span class="vmedia-tag">Cocina • Antes y Después</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOQUE 2: BAÑOS -->
+          <div class="vapor-modular-card vmod-reverse">
+            <div class="vmod-content">
+              <div class="vmod-badge">💧 Higiene y Anti-Sarro Profundo</div>
+              <h3 class="vmod-title">Baños Higienizados: Elimina Hongos en Junturas y Sarro en Shower Doors</h3>
+              <p class="vmod-text">
+                El vapor a 4 BAR penetra los microporos de los azulejos y rieles de ducha donde el cloro no llega. Erradica hongos, moho negro y la cal acumulada en mamparas y griferías, desinfectando al 99.9% de forma 100% ecológica y sin vapores nocivos para tu familia o mascotas.
+              </p>
+            </div>
+            <div class="vmod-media">
+              <div class="vmedia-box">
+                <img src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Eliminación de sarro y hongos en baños" loading="lazy" width="600" height="380">
+                <span class="vmedia-tag">Baño y Griferías • 105°C Vapor</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOQUE 3: VEHÍCULOS -->
+          <div class="vapor-modular-card">
+            <div class="vmod-content">
+              <div class="vmod-badge">🚗 Detallado Automotriz Profesional</div>
+              <h3 class="vmod-title">Detallado Automotriz: Llantas, Tapices Manchados y Conductos de A/C</h3>
+              <p class="vmod-text">
+                Devuelve la vida a tu vehículo ahorrando en autolavados caros. Desprende el ferodo negro de las llantas, renueva tapices manchados por café o grasa y desinfecta los conductos del aire acondicionado para eliminar ácaros y malos olores a humedad.
+              </p>
+            </div>
+            <div class="vmod-media">
+              <div class="vmedia-box">
+                <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Limpieza de vehículos y tapices con VaporPro" loading="lazy" width="600" height="380">
+                <span class="vmedia-tag">Auto • Tapices, Llantas y Motor</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="vsol-card">
-          <div class="vsol-icon">{{ sol_2_icon }}</div>
-          <h3>{{ sol_2_title }}</h3>
-          <p>{{ sol_2_desc }}</p>
-        </div>
+      {% else %}
+        <h2 class="vsec-title">{{ sol_title }}</h2>
+        <p class="vsec-subtitle">{{ sol_subtitle }}</p>
 
-        <div class="vsol-card">
-          <div class="vsol-icon">{{ sol_3_icon }}</div>
-          <h3>{{ sol_3_title }}</h3>
-          <p>{{ sol_3_desc }}</p>
-        </div>
+        <div class="vapor-solutions-grid">
+          <div class="vsol-card">
+            <div class="vsol-icon">{{ sol_1_icon }}</div>
+            <h3>{{ sol_1_title }}</h3>
+            <p>{{ sol_1_desc }}</p>
+          </div>
 
-        <div class="vsol-card">
-          <div class="vsol-icon">{{ sol_4_icon }}</div>
-          <h3>{{ sol_4_title }}</h3>
-          <p>{{ sol_4_desc }}</p>
+          <div class="vsol-card">
+            <div class="vsol-icon">{{ sol_2_icon }}</div>
+            <h3>{{ sol_2_title }}</h3>
+            <p>{{ sol_2_desc }}</p>
+          </div>
+
+          <div class="vsol-card">
+            <div class="vsol-icon">{{ sol_3_icon }}</div>
+            <h3>{{ sol_3_title }}</h3>
+            <p>{{ sol_3_desc }}</p>
+          </div>
+
+          <div class="vsol-card">
+            <div class="vsol-icon">{{ sol_4_icon }}</div>
+            <h3>{{ sol_4_title }}</h3>
+            <p>{{ sol_4_desc }}</p>
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
 
     <!-- SECCIÓN KIT INCLUIDO -->
@@ -512,37 +617,149 @@
       </table>
     </div>
 
-    <!-- SECCIÓN TESTIMONIOS CHILE -->
+    <!-- SECCIÓN TESTIMONIOS Y RESEÑAS CHILE -->
     <div class="vapor-reviews-section">
-      <h2 class="vsec-title">Lo que Dicen Nuestros Clientes en Chile</h2>
-      <div class="vreviews-grid">
-        <div class="vrev-card">
-          <div class="vrev-header">
-            <strong>{{ rev_1_name }}</strong>
-            <span class="vrev-city">{{ rev_1_city }}</span>
-          </div>
-          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"{{ rev_1_text }}"</p>
-        </div>
+      
+      <!-- CONTENEDORES PARA WIDGETS ESTÁNDAR (Judge.me / Loox) -->
+      <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-product-title="{{ product.title | escape }}" data-id="{{ product.id }}">
+        {{ product.metafields.judgeme.widget }}
+      </div>
+      <div id="looxReviews" data-product-id="{{ product.id }}" class="loox-reviews-default">
+        {{ product.metafields.loox.reviews }}
+      </div>
 
-        <div class="vrev-card">
-          <div class="vrev-header">
-            <strong>{{ rev_2_name }}</strong>
-            <span class="vrev-city">{{ rev_2_city }}</span>
-          </div>
-          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"{{ rev_2_text }}"</p>
-        </div>
-
-        <div class="vrev-card">
-          <div class="vrev-header">
-            <strong>{{ rev_3_name }}</strong>
-            <span class="vrev-city">{{ rev_3_city }}</span>
-          </div>
-          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"{{ rev_3_text }}"</p>
+      <div class="vrev-header-center">
+        <h2 class="vsec-title">Opiniones Reales de Clientes en Chile</h2>
+        <div class="vrev-overall-badge">
+          <span class="vrev-overall-stars">⭐⭐⭐⭐⭐</span>
+          <strong>4.9 de 5.0</strong>
+          <span class="vrev-overall-count">(Basado en más de 360 compradores verificados)</span>
         </div>
       </div>
+
+      {% if prod_type == 'vapor' %}
+        <div class="vreviews-grid">
+          
+          <!-- TESTIMONIO 1 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">CR</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Camila R.</strong>
+                <span class="vrev-city">📍 Las Condes, Santiago</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Lo pedí con entrega a domicilio y pagué en efectivo al repartidor. Tenía la campana de la cocina con grasa quemada de años y con el vapor caliente se derritió al tiro sin tener que refregar con virutilla. ¡Una maravilla total!"</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Campana y cocina reluciente</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TESTIMONIO 2 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">SF</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Sebastián F.</strong>
+                <span class="vrev-city">📍 Viña del Mar</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Compré el kit con repuestos de boquillas y cepillos de acero. Lo usé para lavar las llantas y el tapiz del auto el fin de semana, soltó manchas que ningún químico sacaba. En 15 segundos ya está tirando vapor con fuerza. 10/10."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Tapiz de auto desmanchado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TESTIMONIO 3 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">CG</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Carmen Gloria M.</strong>
+                <span class="vrev-city">📍 Concepción</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"El moho negro de la silicona de la ducha era mi dolor de cabeza. Pasé la boquilla curva con vapor y salió prácticamente solo. Muy confiable que se pague con CuentaRUT cuando llega el repartidor de Starken. Excelente servicio."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Shower door sin sarro ni moho</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TESTIMONIO 4 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">PV</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Patricio V.</strong>
+                <span class="vrev-city">📍 La Serena</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Pedí la promoción de 2 unidades para regalarle una a mi suegra. Llegó a La Serena en 48 horas exactas por Blue Express. El nivel de presión que alcanza con los 2500W es impresionante para el tamaño compacto que tiene."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Equipo VaporPro desempacado</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      {% else %}
+        <div class="vreviews-grid">
+          <div class="vrev-card">
+            <div class="vrev-header">
+              <strong>{{ rev_1_name }}</strong>
+              <span class="vrev-city">{{ rev_1_city }}</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p>"{{ rev_1_text }}"</p>
+          </div>
+
+          <div class="vrev-card">
+            <div class="vrev-header">
+              <strong>{{ rev_2_name }}</strong>
+              <span class="vrev-city">{{ rev_2_city }}</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p>"{{ rev_2_text }}"</p>
+          </div>
+
+          <div class="vrev-card">
+            <div class="vrev-header">
+              <strong>{{ rev_3_name }}</strong>
+              <span class="vrev-city">{{ rev_3_city }}</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p>"{{ rev_3_text }}"</p>
+          </div>
+        </div>
+      {% endif %}
     </div>
 
   </div>
@@ -662,6 +879,49 @@
     line-height: 1.3;
     color: #0F172A;
     margin: 0 0 10px 0;
+  }
+  .vapor-urgency-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FEF2F2;
+    border: 1px solid #FCA5A5;
+    color: #B91C1C;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.35;
+  }
+  .vapor-emoji-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+  }
+  .vbenefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #334155;
+    line-height: 1.4;
+  }
+  .vbenefit-icon {
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .vbenefit-text strong {
+    color: #0F172A;
   }
   .vapor-short-desc {
     font-size: 14px;
@@ -998,7 +1258,65 @@
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
   }
 
-  /* SECCIÓN SOLUCIONES */
+  /* ACORDEÓN / FILAS DESPLEGABLES */
+  .vapor-accordion-wrap {
+    margin-top: 20px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  .vapor-acc-item {
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .vapor-acc-item:last-child {
+    border-bottom: none;
+  }
+  .vapor-acc-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0F172A;
+    cursor: pointer;
+    background: #FFFFFF;
+    list-style: none;
+    transition: background-color 0.2s ease;
+    user-select: none;
+  }
+  .vapor-acc-summary::-webkit-details-marker {
+    display: none;
+  }
+  .vapor-acc-summary:hover {
+    background: #F8FAFC;
+  }
+  .vapor-acc-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .vapor-acc-arrow {
+    display: inline-flex;
+    transition: transform 0.25s ease;
+    color: #64748B;
+  }
+  .vapor-acc-item[open] .vapor-acc-arrow {
+    transform: rotate(180deg);
+  }
+  .vapor-acc-content {
+    padding: 0 16px 14px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #475569;
+    background: #FFFFFF;
+  }
+  .vapor-acc-content p {
+    margin: 0;
+  }
+
+  /* SECCIÓN SOLUCIONES / TRANSFORMACIONES MODULARES */
   .vapor-solutions-section {
     margin-top: 50px;
     text-align: center;
@@ -1042,6 +1360,91 @@
     color: #475569;
     line-height: 1.45;
     margin: 0;
+  }
+
+  /* TRANSFORMACIONES MODULARES (H3 -> P -> MEDIA) */
+  .vapor-modular-transformations {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .vapor-modular-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 28px;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: left;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  }
+  .vapor-modular-card.vmod-reverse {
+    grid-template-columns: 1fr 1.1fr;
+  }
+  .vapor-modular-card.vmod-reverse .vmod-content {
+    order: 2;
+  }
+  .vapor-modular-card.vmod-reverse .vmod-media {
+    order: 1;
+  }
+  .vmod-badge {
+    display: inline-block;
+    background: #EFF6FF;
+    color: #1D4ED8;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .vmod-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.35;
+    margin: 0 0 10px 0;
+  }
+  .vmod-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #475569;
+    margin: 0;
+  }
+  .vmod-media {
+    width: 100%;
+  }
+  .vmedia-box {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .vmedia-box img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+  .vmedia-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
   }
 
   /* SECCIÓN KIT */
@@ -1105,9 +1508,27 @@
     margin-top: 50px;
     text-align: center;
   }
+  .vrev-header-center {
+    margin-bottom: 24px;
+  }
+  .vrev-overall-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #334155;
+    margin-top: 6px;
+  }
+  .vrev-overall-stars {
+    font-size: 16px;
+  }
+  .vrev-overall-count {
+    color: #64748B;
+    font-size: 12.5px;
+  }
   .vreviews-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-top: 24px;
   }
@@ -1119,30 +1540,70 @@
     text-align: left;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   }
-  .vrev-header {
+  .vrev-top {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 10px;
   }
-  .vrev-header strong {
+  .vrev-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0F172A;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .vrev-meta {
+    display: flex;
+    flex-direction: column;
+  }
+  .vrev-author {
     font-size: 14px;
+    font-weight: 800;
     color: #0F172A;
   }
   .vrev-city {
-    font-size: 11px;
+    font-size: 11.5px;
     color: #64748B;
+  }
+  .vrev-badge-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #DCFCE7;
+    color: #166534;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: fit-content;
   }
   .vrev-stars {
     font-size: 13px;
     margin-bottom: 8px;
   }
-  .vrev-card p {
+  .vrev-comment {
     font-size: 13px;
+    line-height: 1.5;
     color: #334155;
-    line-height: 1.45;
-    margin: 0;
+    margin: 0 0 12px 0;
     font-style: italic;
+  }
+  .vrev-photo-box {
+    margin-top: 8px;
+    background: #F8FAFC;
+    border: 1px dashed #CBD5E1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 11.5px;
+    color: #64748B;
   }
 
   @media (max-width: 900px) {
@@ -1154,6 +1615,54 @@
     }
     .vreviews-grid {
       grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 768px) {
+    .vapor-main-container {
+      padding: 14px 10px;
+    }
+    .vapor-hero-grid {
+      padding: 16px 12px;
+      gap: 20px;
+    }
+    .vapor-title {
+      font-size: 20px;
+    }
+    .vapor-urgency-banner {
+      font-size: 12px;
+      padding: 7px 10px;
+    }
+    .vapor-emoji-benefits {
+      padding: 10px 12px;
+      gap: 8px;
+    }
+    .vbenefit-item {
+      font-size: 12.5px;
+    }
+    .vapor-modular-card,
+    .vapor-modular-card.vmod-reverse {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+    .vapor-modular-card.vmod-reverse .vmod-content {
+      order: 1;
+    }
+    .vapor-modular-card.vmod-reverse .vmod-media {
+      order: 2;
+    }
+    .vmod-title {
+      font-size: 16px;
+    }
+    .vmod-text {
+      font-size: 13px;
+    }
+    .vmedia-box img {
+      max-height: 220px;
+    }
+    .vreviews-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
   }
   @media (max-width: 550px) {
@@ -1174,7 +1683,7 @@
   var unit1Text = "{{ p_unit_1 }}";
   var unit2Text = "{{ p_unit_2 }}";
   var unit3Text = "{{ p_unit_3 }}";
-  var productTitle = "{% if prod_type == 'masaje' %}Masajeador de Cuello y Espalda Shiatsu 3D{% elsif prod_type == 'vapor' %}Limpiadora a Vapor 2500W{% else %}Shampoo Colorante Negro 2 en 1 con Argán{% endif %}";
+  var productTitle = "{% if prod_type == 'masaje' %}Masajeador de Cuello y Espalda Shiatsu 3D{% elsif prod_type == 'vapor' %}VaporPro™ - Limpiador a Vapor de Alta Presión 2500W{% else %}Shampoo Colorante Negro 2 en 1 con Argán{% endif %}";
 
   function selectVaporBundle(qty, total, el) {
     document.querySelectorAll('.vapor-bundle-opt').forEach(function(o) { o.classList.remove('active'); });
@@ -1186,8 +1695,12 @@
     currentVaporTotal = total;
 
     var nameText = qty === 1 ? unit1Text : (qty === 2 ? unit2Text : unit3Text);
-    document.getElementById('vsum-name').textContent = nameText;
-    document.getElementById('vsum-total-val').textContent = total;
+    var mainPriceEl = document.getElementById('vapor-main-price');
+    if (mainPriceEl) mainPriceEl.textContent = total;
+    var sumNameEl = document.getElementById('vsum-name');
+    if (sumNameEl) sumNameEl.textContent = nameText;
+    var sumTotalEl = document.getElementById('vsum-total-val');
+    if (sumTotalEl) sumTotalEl.textContent = total;
   }
 
   function submitVaporLandingOrder() {
@@ -1207,9 +1720,10 @@
     btn.disabled = true;
     btn.textContent = 'Procesando orden...';
 
+    var nameText = currentVaporQty === 1 ? unit1Text : (currentVaporQty === 2 ? unit2Text : unit3Text);
     var waMsg = "¡Hola VELTRO! Acabo de hacer un pedido con Pago Contra Entrega en www.veltro.cl:%0A%0A"
       + "📦 *Producto:* " + encodeURIComponent(productTitle) + "%0A"
-      + "🔢 *Cantidad:* " + currentVaporQty + " unid.%0A"
+      + "🎁 *Oferta elegida:* " + encodeURIComponent(nameText) + "%0A"
       + "💰 *Total a pagar:* " + encodeURIComponent(currentVaporTotal) + "%0A"
       + "💵 *Medio de Pago:* " + encodeURIComponent(payMethod) + "%0A"
       + "👤 *Nombre:* " + encodeURIComponent(name) + "%0A"
@@ -1222,7 +1736,7 @@
     document.getElementById('vapor-landing-form').style.display = 'none';
     var succ = document.getElementById('vl-success');
     succ.style.display = 'block';
-    document.getElementById('vl-wa-link').href = "https://wa.me/56912345678?text=" + waMsg;
+    document.getElementById('vl-wa-link').href = "https://wa.me/569XXXXXXXX?text=" + waMsg;
 
     fetch('/cart/add.js', {
       method: 'POST',

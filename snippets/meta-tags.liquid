@@ -1,8 +1,12 @@
 {%- liquid
-  assign og_title = page_title | default: shop.name
+  assign brand_name = 'VELTRO Chile'
+  assign og_title = page_title | default: brand_name | replace: 'Mi tienda', brand_name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
-  assign og_description = page_description | default: shop.description | default: shop.name
+  assign og_description = page_description | default: shop.description | default: 'Tienda Oficial VELTRO Chile - Innovación y calidad para tu hogar.'
+  if og_description contains 'Mi tienda'
+    assign og_description = 'Tienda Oficial VELTRO Chile - Innovación y calidad para tu hogar con despacho prioritario y pago contra entrega.'
+  endif
 
   if request.page_type == 'product'
     assign og_type = 'product'
@@ -13,7 +17,7 @@
   endif
 %}
 
-<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:site_name" content="VELTRO Chile">
 <meta property="og:url" content="{{ og_url }}">
 <meta property="og:title" content="{{ og_title | escape }}">
 <meta property="og:type" content="{{ og_type }}">

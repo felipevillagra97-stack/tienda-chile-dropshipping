@@ -5,10 +5,22 @@
 {% endcomment %}
 
 {% if section.settings.enable_whatsapp %}
-  {% assign default_msg = section.settings.default_message %}
+  {% assign default_msg = section.settings.default_message | default: '¡Hola! Quisiera hacer una consulta' %}
+  {% assign raw_phone = section.settings.phone_number | default: '+569XXXXXXXX' %}
+  {% if raw_phone contains '56912345678' or raw_phone == blank %}
+    {% assign raw_phone = '+569XXXXXXXX' %}
+  {% endif %}
+  {% assign clean_phone = raw_phone | replace: ' ', '' | replace: '+', '' %}
+
   {% if template.name == 'product' and product %}
-    {% assign product_info = ' sobre el producto ' | append: product.title | append: ' - ' | append: shop.url | append: product.url %}
-    {% assign full_message = default_msg | append: product_info | url_encode %}
+    {% assign handle_lower = product.handle | default: '' | downcase %}
+    {% assign title_lower = product.title | default: '' | downcase %}
+    {% if handle_lower contains 'vapor' or title_lower contains 'vapor' or title_lower contains 'limpiad' %}
+      {% assign full_message = '¡Hola! Tengo una consulta sobre el Limpiador a Vapor VaporPro.' | url_encode %}
+    {% else %}
+      {% assign product_info = ' sobre el producto ' | append: product.title | append: ' - ' | append: shop.url | append: product.url %}
+      {% assign full_message = default_msg | append: product_info | url_encode %}
+    {% endif %}
   {% else %}
     {% assign full_message = default_msg | url_encode %}
   {% endif %}
@@ -23,7 +35,7 @@
       </div>
     {% endif %}
 
-    <a href="https://wa.me/{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' }}?text={{ full_message }}"
+    <a href="https://wa.me/{{ clean_phone }}?text={{ full_message }}"
        target="_blank"
        rel="noopener noreferrer"
        class="wa-btn"
@@ -107,14 +119,14 @@
       "type": "text",
       "id": "phone_number",
       "label": "Número de WhatsApp con código de país",
-      "default": "56912345678",
-      "info": "Ejemplo para Chile: 56912345678 (sin el signo +)"
+      "default": "+569XXXXXXXX",
+      "info": "Ejemplo para Chile: +569XXXXXXXX (sin espacios ni guiones)"
     },
     {
       "type": "text",
       "id": "default_message",
       "label": "Mensaje predeterminado",
-      "default": "¡Hola! Quisiera hacer una consulta"
+      "default": "¡Hola! Tengo una consulta sobre el Limpiador a Vapor VaporPro."
     },
     {
       "type": "select",

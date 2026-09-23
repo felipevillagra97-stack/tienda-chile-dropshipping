@@ -18,10 +18,10 @@
     {%- endunless -%}
 
     <title>
-      {{ page_title }}
+      {{ page_title | replace: 'Mi tienda', 'VELTRO Chile' }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless page_title contains 'VELTRO' %} &ndash; VELTRO Chile{% endunless -%}
     </title>
 
     {% if page_description %}
