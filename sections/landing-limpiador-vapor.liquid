@@ -6,9 +6,10 @@
 {% endcomment %}
 
 {%- liquid
-  assign handle = product.handle | default: ''
+  assign handle = product.handle | default: '' | downcase
+  assign title_lower = product.title | default: '' | downcase
   
-  if handle contains 'masajeador'
+  if handle contains 'masajeador' or title_lower contains 'masajeador'
     assign p_badge = '⚡ ALIVIO DE CONTRACTURAS • STOCK EN BODEGA SANTIAGO • ENVÍO 24-48 HRS'
     assign p_rating_text = '4.9 / 5.0 • +480 clientes satisfechos en Chile'
     assign p_title = 'Masajeador de Cuello y Espalda Shiatsu 3D con Calor Infrarrojo'
@@ -78,7 +79,7 @@
     assign rev_3_city = '📍 Temuco'
     assign rev_3_text = 'Compré dos, uno para mí y otro para mi mamá que sufre de lumbago. Nos alivió caleta la espalda baja. Muy fácil de usar con los botones laterales. Pagué con CuentaRUT al recibir la caja.'
 
-  elsif handle contains 'shampoo'
+  elsif handle contains 'shampoo' or title_lower contains 'shampoo'
     assign p_badge = '🌿 FÓRMULA BOTÁNICA 2 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
     assign p_rating_text = '4.9 / 5.0 • +520 clientes satisfechos en Chile'
     assign p_title = 'Shampoo Colorante Negro 2 en 1 con Colágeno y Aceite de Argán'
@@ -288,7 +289,7 @@
           <span class="vapor-rating-text"><strong>{{ p_rating_text }}</strong></span>
         </div>
 
-        <h1 class="vapor-title">{% if product != blank and product.title != blank %{{ product.title }}{% else %}{{ p_title }}{% endif %}</h1>
+        <h1 class="vapor-title">{% if p_title != blank %}{{ p_title }}{% else %}{{ product.title }}{% endif %}</h1>
         
         <p class="vapor-short-desc">
           {{ p_desc }}
