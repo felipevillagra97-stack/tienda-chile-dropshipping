@@ -1,0 +1,1053 @@
+{% comment %}
+  Section: landing-masajeador.liquid
+  Landing CRO dedicada para: Masajeador de Cuello y Espalda Shiatsu 3D con Calor Infrarrojo
+  Dropshipping Chile con Pago Contra Entrega (COD)
+{% endcomment %}
+
+{%- liquid
+  assign p_badge = '⚡ ALIVIO DE CONTRACTURAS • STOCK EN BODEGA SANTIAGO • ENVÍO 24-48 HRS'
+  assign p_rating_text = '4.9 / 5.0 • +480 clientes satisfechos en Chile'
+  assign p_title = 'Masajeador de Cuello y Espalda Shiatsu 3D con Calor Infrarrojo'
+  assign p_desc = 'Elimina contracturas, nudos musculares y el estrés diario en solo 15 minutos. Diseñado con 8 nodos de masaje bidireccional y calor terapéutico profundo. Incluye cargador de casa (220V) y adaptador para el auto (12V).'
+  
+  assign p_price_1 = '$26.990'
+  assign p_old_price_1 = '$39.990'
+  assign p_discount_tag = '32% DESCUENTO'
+  assign p_stock_left = '6 unidades'
+  assign p_unit_1 = '1x Masajeador Shiatsu 3D + 2 Cargadores'
+  
+  assign p_price_2 = '$43.990'
+  assign p_old_price_2 = '$53.980'
+  assign p_sub_2 = '($21.995 c/u)'
+  assign p_save_2 = 'Ahorras $9.990 (¡Lleva 2 y regala bienestar!)'
+  assign p_unit_2 = '2x Masajeadores (Para ti y un regalo especial)'
+
+  assign p_price_3 = '$59.990'
+  assign p_old_price_3 = '$80.970'
+  assign p_sub_3 = '($19.997 c/u)'
+  assign p_save_3 = 'Ahorras $20.980 (Pack Familiar)'
+  assign p_unit_3 = '3x Masajeadores Familiares'
+-%}
+
+<div class="vapor-landing" id="landing-masaje-section">
+  
+  <!-- BARRA DE URGENCIA Y STOCK -->
+  <div class="vapor-top-notice">
+    <div class="vapor-top-container">
+      <span class="vapor-pulse-dot"></span>
+      <span>{{ p_badge }}</span>
+    </div>
+  </div>
+
+  <div class="vapor-main-container">
+    
+    <!-- SECCIÓN HERO DE PRODUCTO -->
+    <div class="vapor-hero-grid">
+      
+      <!-- COLUMNA IMÁGENES -->
+      <div class="vapor-gallery-col">
+        <div class="vapor-main-image-wrap">
+          {%- if product != blank and product.featured_image != blank -%}
+            <img id="vapor-main-img" src="{{ product.featured_image | image_url: width: 1254 }}" alt="{{ product.title | escape }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- else -%}
+            <img id="vapor-main-img" src="//www.veltro.cl/cdn/shop/files/1761417214WhatsApp_20Image_202025-10-25_20at_2015.26.45.jpg?v=1790193314" alt="{{ p_title }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- endif -%}
+        </div>
+        <div class="vapor-thumb-row">
+          {%- if product != blank and product.images.size > 0 -%}
+            {%- for image in product.images -%}
+              <div class="vapor-thumb {% if forloop.first %}active{% endif %}" onclick="switchVaporImg('{{ image | image_url: width: 1254 }}', this)">
+                <img src="{{ image | image_url: width: 120, height: 120, crop: 'center' }}" alt="{{ product.title | escape }}" width="80" height="80">
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+
+        <!-- BADGES DE CONFIANZA BAJO GALERÍA -->
+        <div class="vapor-trust-mini">
+          <div class="vapor-mini-item">
+            <span>🚚</span> <span>Envío Gratis a Todo Chile (24-48 hrs)</span>
+          </div>
+          <div class="vapor-mini-item">
+            <span>💵</span> <span>Paga al Recibir en Casa</span>
+          </div>
+          <div class="vapor-mini-item">
+            <span>🛡️</span> <span>Garantía de Satisfacción 30 Días</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMNA DE COMPRA Y FORMULARIO COD -->
+      <div class="vapor-buy-col">
+        
+        <div class="vapor-rating">
+          <span class="vapor-stars">⭐⭐⭐⭐⭐</span>
+          <span class="vapor-rating-text"><strong>{{ p_rating_text }}</strong></span>
+        </div>
+
+        <h1 class="vapor-title">{{ p_title }}</h1>
+        
+        <p class="vapor-short-desc">
+          {{ p_desc }}
+        </p>
+
+        <!-- CAJA DE PRECIO -->
+        <div class="vapor-price-card">
+          <div class="vapor-price-flex">
+            <span class="vapor-current-price" id="vapor-main-price">{{ p_price_1 }}</span>
+            <span class="vapor-old-price">{{ p_old_price_1 }}</span>
+            <span class="vapor-discount-tag">{{ p_discount_tag }}</span>
+          </div>
+          <div class="vapor-stock-alert">
+            <div class="vapor-stock-bar"><div class="vapor-stock-fill"></div></div>
+            <span class="vapor-stock-text">🔥 Solamente quedan <strong>{{ p_stock_left }}</strong> con despacho gratis hoy.</span>
+          </div>
+        </div>
+
+        <!-- SELECTOR DE OFERTAS POR CANTIDAD (BUNDLES) -->
+        <div class="vapor-bundle-section">
+          <label class="vapor-bundle-title">ELIGE TU OFERTA ESPECIAL:</label>
+          <div class="vapor-bundle-list">
+            
+            <!-- OPCION 1 -->
+            <div class="vapor-bundle-opt active" data-qty="1" data-total="{{ p_price_1 }}" onclick="selectVaporBundle(1, '{{ p_price_1 }}', this)">
+              <input type="radio" name="vapor_pack" value="1" checked>
+              <div class="vapor-opt-info">
+                <strong>{{ p_unit_1 }}</strong>
+                <span class="vapor-free-ship">Envío Gratis</span>
+              </div>
+              <div class="vapor-opt-price">{{ p_price_1 }}</div>
+            </div>
+
+            <!-- OPCION 2 -->
+            <div class="vapor-bundle-opt popular" data-qty="2" data-total="{{ p_price_2 }}" onclick="selectVaporBundle(2, '{{ p_price_2 }}', this)">
+              <div class="vapor-ribbon">MÁS ELEGIDO 🔥</div>
+              <input type="radio" name="vapor_pack" value="2">
+              <div class="vapor-opt-info">
+                <strong>{{ p_unit_2 }}</strong>
+                <span class="vapor-save-tag">{{ p_save_2 }}</span>
+              </div>
+              <div class="vapor-opt-price">
+                <span class="vapor-opt-main">{{ p_price_2 }}</span>
+                <span class="vapor-opt-sub">{{ p_sub_2 }}</span>
+              </div>
+            </div>
+
+            <!-- OPCION 3 -->
+            <div class="vapor-bundle-opt" data-qty="3" data-total="{{ p_price_3 }}" onclick="selectVaporBundle(3, '{{ p_price_3 }}', this)">
+              <div class="vapor-ribbon-best">MEJOR PRECIO ⭐</div>
+              <input type="radio" name="vapor_pack" value="3">
+              <div class="vapor-opt-info">
+                <strong>{{ p_unit_3 }}</strong>
+                <span class="vapor-save-tag">{{ p_save_3 }}</span>
+              </div>
+              <div class="vapor-opt-price">
+                <span class="vapor-opt-main">{{ p_price_3 }}</span>
+                <span class="vapor-opt-sub">{{ p_sub_3 }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FORMULARIO DIRECTO COD CHILE -->
+        <div class="vapor-form-box">
+          <div class="vapor-form-title">
+            <span>📦 Completa tus datos para el Despacho</span>
+            <small>Pagas al recibir en la puerta de tu casa</small>
+          </div>
+
+          <form id="vapor-landing-form" onsubmit="event.preventDefault(); submitVaporLandingOrder();">
+            <div class="vform-row">
+              <label>Nombre y Apellido *</label>
+              <input type="text" id="vl_name" required placeholder="Ej: Juan Pérez">
+            </div>
+
+            <div class="vform-row">
+              <label>Teléfono WhatsApp *</label>
+              <div class="vform-phone">
+                <span>+56</span>
+                <input type="tel" id="vl_phone" required placeholder="9 1234 5678" maxlength="12">
+              </div>
+              <small class="vform-hint">Te confirmaremos antes de la entrega por WhatsApp.</small>
+            </div>
+
+            <div class="vform-row">
+              <label>Región de Chile *</label>
+              <select id="vl_region" required>
+                <option value="" disabled selected>Selecciona tu región...</option>
+                <option value="Región Metropolitana">Región Metropolitana de Santiago</option>
+                <option value="Valparaíso">Región de Valparaíso</option>
+                <option value="Biobío">Región del Biobío</option>
+                <option value="Coquimbo">Región de Coquimbo</option>
+                <option value="Antofagasta">Región de Antofagasta</option>
+                <option value="O'Higgins">Región de O'Higgins</option>
+                <option value="Maule">Región del Maule</option>
+                <option value="La Araucanía">Región de La Araucanía</option>
+                <option value="Los Lagos">Región de Los Lagos</option>
+                <option value="Tarapacá">Región de Tarapacá</option>
+                <option value="Atacama">Región de Atacama</option>
+                <option value="Los Ríos">Región de Los Ríos</option>
+                <option value="Arica y Parinacota">Región de Arica y Parinacota</option>
+                <option value="Ñuble">Región de Ñuble</option>
+                <option value="Aysén">Región de Aysén</option>
+                <option value="Magallanes">Región de Magallanes</option>
+              </select>
+            </div>
+
+            <div class="vform-row">
+              <label>Comuna / Ciudad *</label>
+              <input type="text" id="vl_city" required placeholder="Ej: Las Condes, Maipú, Viña del Mar, Concepción...">
+            </div>
+
+            <div class="vform-row">
+              <label>Dirección exacta (Calle, Número, Depto/Casa) *</label>
+              <input type="text" id="vl_address" required placeholder="Ej: Av. Providencia 1234, Depto 402">
+            </div>
+
+            <div class="vform-row">
+              <label>¿Cómo pagarás al recibir? *</label>
+              <div class="vform-payment-radios">
+                <label><input type="radio" name="vl_pay" value="Efectivo al recibir" checked> 💵 Efectivo al repartidor</label>
+                <label><input type="radio" name="vl_pay" value="Transferencia al recibir"> 📱 Transferencia bancaria (CuentaRUT / Banco)</label>
+              </div>
+            </div>
+
+            <!-- TOTAL SUMMARY -->
+            <div class="vform-summary">
+              <div class="vsum-row">
+                <span>Producto:</span>
+                <span id="vsum-name">{{ p_unit_1 }}</span>
+              </div>
+              <div class="vsum-row">
+                <span>Despacho Blue Express / Starken:</span>
+                <span class="vsum-free">¡GRATIS! 🎉</span>
+              </div>
+              <div class="vsum-total">
+                <span>Total a Pagar en tu Puerta:</span>
+                <strong id="vsum-total-val">{{ p_price_1 }}</strong>
+              </div>
+            </div>
+
+            <button type="submit" class="vapor-btn-submit" id="vl_submit_btn">
+              <span class="vbtn-main">🚚 PEDIR AHORA • PAGO CONTRA ENTREGA</span>
+              <span class="vbtn-sub">Pagas únicamente cuando recibas el paquete en tus manos</span>
+            </button>
+          </form>
+
+          <div id="vl-success" class="vl-success-box" style="display: none;">
+            <div class="vl-success-emoji">🎉</div>
+            <h3>¡Tu Pedido ha sido Recibido!</h3>
+            <p>Hemos ingresado tu orden para <strong>pago contra entrega</strong>.</p>
+            <p>Por favor confirma tu envío por WhatsApp para asignarte un repartidor de inmediato:</p>
+            <a id="vl-wa-link" href="#" target="_blank" class="vl-wa-btn">📲 Confirmar Despacho por WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN ANTES Y DESPUÉS / SOLUCIONES -->
+    <div class="vapor-solutions-section">
+      <h2 class="vsec-title">Alivio Clínico para Todo tu Cuerpo en Casa o en el Auto</h2>
+      <p class="vsec-subtitle">Olvídate de gastar miles de pesos en sesiones de masajista cada semana</p>
+
+      <div class="vapor-solutions-grid">
+        <div class="vsol-card">
+          <div class="vsol-icon">💆</div>
+          <h3>Cuello y Cervicales sin Contracturas</h3>
+          <p>Sus 8 nodos ergonómicos amasan profundamente la zona cervical, aliviando la rigidez causada por mala postura o estrés laboral.</p>
+        </div>
+
+        <div class="vsol-card">
+          <div class="vsol-icon">♨️</div>
+          <h3>Calor Infrarrojo Terapéutico</h3>
+          <p>El calor suave penetra las fibras musculares tensas, activando la circulación sanguínea y disolviendo nudos rebeldes.</p>
+        </div>
+
+        <div class="vsol-card">
+          <div class="vsol-icon">🚗</div>
+          <h3>Doble Conexión: Casa y Auto</h3>
+          <p>Incluye enchufe de pared 220V y conector de 12V para encendedor de auto. Alivia el estrés durante el taco o en tu escritorio.</p>
+        </div>
+
+        <div class="vsol-card">
+          <div class="vsol-icon">🧘</div>
+          <h3>Multizona: Espalda, Lumbares y Piernas</h3>
+          <p>Sus agarraderas permiten posicionarlo con la presión exacta en cuello, zona lumbar, glúteos, muslos y pantorrillas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN KIT DE ACCESORIOS INCLUIDOS -->
+    <div class="vapor-kit-section">
+      <h2 class="vsec-title">¿Qué Incluye tu Paquete?</h2>
+      <div class="vapor-kit-box">
+        <div class="vkit-item">✓ 1x Masajeador Cervical Shiatsu 3D con panel de control integrado</div>
+        <div class="vkit-item">✓ 1x Adaptador de corriente 220V para enchufe chileno</div>
+        <div class="vkit-item">✓ 1x Adaptador de 12V para encendedor de automóvil</div>
+        <div class="vkit-item">✓ 1x Manual de instrucciones en español</div>
+        <div class="vkit-item">✓ Apagado automático de seguridad inteligente a los 15 minutos</div>
+        <div class="vkit-item">✓ Malla transpirable antitranspirante y cuero PU premium reforzado</div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN ESPECIFICACIONES -->
+    <div class="vapor-specs-section">
+      <h2 class="vsec-title">Ficha Técnica Oficial</h2>
+      <table class="vspecs-table">
+        <tr><td><strong>Tipo de Masaje:</strong></td><td>Shiatsu 3D Bidireccional con rotación automática</td></tr>
+        <tr><td><strong>Terapia de Calor:</strong></td><td>Luz infrarroja calmante (aprox. 40°C - 45°C)</td></tr>
+        <tr><td><strong>Nodos de Masaje:</strong></td><td>8 cabezales rotatorios con 3 niveles de velocidad</td></tr>
+        <tr><td><strong>Temporizador:</strong></td><td>Apagado automático inteligente a los 15 minutos</td></tr>
+        <tr><td><strong>Alimentación:</strong></td><td>220V (Hogar) + 12V (Auto) - Ambos cables incluidos</td></tr>
+        <tr><td><strong>Garantía:</strong></td><td>30 días de satisfacción oficial VELTRO Chile</td></tr>
+      </table>
+    </div>
+
+    <!-- SECCIÓN TESTIMONIOS CHILE -->
+    <div class="vapor-reviews-section">
+      <h2 class="vsec-title">Lo que Dicen Nuestros Clientes en Chile</h2>
+      <div class="vreviews-grid">
+        <div class="vrev-card">
+          <div class="vrev-header">
+            <strong>Claudia M.</strong>
+            <span class="vrev-city">📍 Providencia, Santiago</span>
+          </div>
+          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Paso 8 horas sentada frente al computador y terminaba el día con un dolor de cuello y hombros insoportable. Con 15 minutos de este masajeador con calor quedo relajadísima. El repartidor de Blue Express llegó súper rápido y pagué en efectivo al recibir."</p>
+        </div>
+
+        <div class="vrev-card">
+          <div class="vrev-header">
+            <strong>Rodrigo H.</strong>
+            <span class="vrev-city">📍 Viña del Mar</span>
+          </div>
+          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Excelente compra, lo conecto en el auto camino a la pega y en el sillón viendo tele. La función de calor es lo mejor para soltar los nudos de la espalda. Muy buena potencia en los motores."</p>
+        </div>
+
+        <div class="vrev-card">
+          <div class="vrev-header">
+            <strong>Marcela S.</strong>
+            <span class="vrev-city">📍 Temuco</span>
+          </div>
+          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Compré dos, uno para mí y otro para mi mamá que sufre de lumbago. Nos alivió caleta la espalda baja. Muy fácil de usar con los botones laterales. Pagué con CuentaRUT al recibir la caja."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<style>
+  .vapor-landing {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1F2937;
+    background: #F8FAFC;
+    padding-bottom: 60px;
+  }
+  .vapor-top-notice {
+    background: #030712;
+    color: #FFFFFF;
+    padding: 10px 16px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .vapor-top-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .vapor-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+    animation: vPulse 1.8s infinite;
+  }
+  @keyframes vPulse {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  }
+  .vapor-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .vapor-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 36px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  .vapor-main-image-wrap {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+  }
+  .vapor-main-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .vapor-thumb-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .vapor-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: #F1F5F9;
+  }
+  .vapor-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .vapor-thumb.active {
+    border-color: #2563EB;
+  }
+  .vapor-trust-mini {
+    margin-top: 18px;
+    padding: 12px;
+    background: #EFF6FF;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1E40AF;
+  }
+  .vapor-mini-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .vapor-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 8px;
+  }
+  .vapor-rating strong {
+    color: #111827;
+  }
+  .vapor-title {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #0F172A;
+    margin: 0 0 10px 0;
+  }
+  .vapor-short-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4B5563;
+    margin: 0 0 16px 0;
+  }
+  .vapor-price-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+  .vapor-price-flex {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .vapor-current-price {
+    font-size: 26px;
+    font-weight: 900;
+    color: #0F172A;
+  }
+  .vapor-old-price {
+    font-size: 16px;
+    color: #94A3B8;
+    text-decoration: line-through;
+  }
+  .vapor-discount-tag {
+    background: #DCFCE7;
+    color: #15803D;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .vapor-stock-alert {
+    margin-top: 10px;
+  }
+  .vapor-stock-bar {
+    width: 100%;
+    height: 6px;
+    background: #E2E8F0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .vapor-stock-fill {
+    width: 25%;
+    height: 100%;
+    background: #EF4444;
+    border-radius: 3px;
+    animation: vStock 2s infinite ease-in-out;
+  }
+  @keyframes vStock {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+  }
+  .vapor-stock-text {
+    font-size: 12px;
+    color: #64748B;
+  }
+  .vapor-stock-text strong {
+    color: #EF4444;
+  }
+  .vapor-bundle-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #334155;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .vapor-bundle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .vapor-bundle-opt {
+    position: relative;
+    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: #FFFFFF;
+    transition: all 0.2s ease;
+  }
+  .vapor-bundle-opt:hover {
+    border-color: #2563EB;
+  }
+  .vapor-bundle-opt.active {
+    border-color: #2563EB;
+    background: #EFF6FF;
+  }
+  .vapor-bundle-opt input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #2563EB;
+  }
+  .vapor-opt-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .vapor-opt-info strong {
+    font-size: 13px;
+    color: #0F172A;
+  }
+  .vapor-free-ship {
+    font-size: 11px;
+    color: #16A34A;
+    font-weight: 700;
+  }
+  .vapor-save-tag {
+    font-size: 11px;
+    color: #2563EB;
+    font-weight: 700;
+  }
+  .vapor-opt-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0F172A;
+    text-align: right;
+  }
+  .vapor-opt-main {
+    display: block;
+  }
+  .vapor-opt-sub {
+    font-size: 11px;
+    color: #64748B;
+    font-weight: 500;
+  }
+  .vapor-ribbon {
+    position: absolute;
+    top: -9px;
+    right: 14px;
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .vapor-ribbon-best {
+    position: absolute;
+    top: -9px;
+    right: 14px;
+    background: #F59E0B;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .vapor-form-box {
+    border: 2px solid #2563EB;
+    border-radius: 12px;
+    padding: 18px;
+    background: #FFFFFF;
+  }
+  .vapor-form-title {
+    margin-bottom: 14px;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 8px;
+  }
+  .vapor-form-title span {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #1E40AF;
+  }
+  .vapor-form-title small {
+    font-size: 12px;
+    color: #64748B;
+  }
+  .vform-row {
+    margin-bottom: 10px;
+  }
+  .vform-row label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 3px;
+  }
+  .vform-row input,
+  .vform-row select {
+    width: 100%;
+    padding: 9px 10px;
+    font-size: 13px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .vform-phone {
+    display: flex;
+  }
+  .vform-phone span {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    border-right: none;
+    padding: 9px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    border-radius: 6px 0 0 6px;
+  }
+  .vform-phone input {
+    border-radius: 0 6px 6px 0;
+  }
+  .vform-hint {
+    font-size: 11px;
+    color: #64748B;
+  }
+  .vform-payment-radios {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .vform-payment-radios label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1E293B;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  .vform-summary {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 14px 0;
+  }
+  .vsum-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #64748B;
+    margin-bottom: 4px;
+  }
+  .vsum-free {
+    color: #16A34A;
+    font-weight: 800;
+  }
+  .vsum-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #CBD5E1;
+    padding-top: 6px;
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #0F172A;
+  }
+  .vsum-total strong {
+    font-size: 17px;
+    color: #1E40AF;
+  }
+  .vapor-btn-submit {
+    width: 100%;
+    background: #16A34A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+    transition: background 0.2s;
+    animation: vPulseBtn 2s infinite;
+  }
+  .vapor-btn-submit:hover {
+    background: #15803D;
+  }
+  @keyframes vPulseBtn {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+  .vbtn-main {
+    display: block;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+  }
+  .vbtn-sub {
+    display: block;
+    font-size: 11px;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+  .vl-success-box {
+    text-align: center;
+    padding: 20px;
+    background: #F0FDF4;
+    border-radius: 10px;
+    border: 1px solid #BBF7D0;
+  }
+  .vl-success-emoji {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .vl-success-box h3 {
+    font-size: 18px;
+    color: #15803D;
+    margin: 0 0 8px 0;
+  }
+  .vl-success-box p {
+    font-size: 13px;
+    color: #374151;
+    margin: 0 0 14px 0;
+  }
+  .vl-wa-btn {
+    display: inline-block;
+    background: #25D366;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  }
+
+  /* SECCIÓN SOLUCIONES */
+  .vapor-solutions-section {
+    margin-top: 50px;
+    text-align: center;
+  }
+  .vsec-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #0F172A;
+    margin: 0 0 8px 0;
+  }
+  .vsec-subtitle {
+    font-size: 14px;
+    color: #64748B;
+    margin: 0 0 30px 0;
+  }
+  .vapor-solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .vsol-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 22px 18px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+  .vsol-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .vsol-card h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0F172A;
+    margin: 0 0 8px 0;
+  }
+  .vsol-card p {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* SECCIÓN KIT */
+  .vapor-kit-section {
+    margin-top: 50px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 30px 24px;
+  }
+  .vapor-kit-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .vkit-item {
+    background: #F8FAFC;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1E293B;
+    border: 1px solid #F1F5F9;
+  }
+
+  /* SECCIÓN ESPECIFICACIONES */
+  .vapor-specs-section {
+    margin-top: 50px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 30px 24px;
+  }
+  .vspecs-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .vspecs-table tr {
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .vspecs-table tr:last-child {
+    border-bottom: none;
+  }
+  .vspecs-table td {
+    padding: 12px 14px;
+  }
+  .vspecs-table td:first-child {
+    width: 35%;
+    color: #64748B;
+  }
+  .vspecs-table td:last-child {
+    color: #0F172A;
+    font-weight: 600;
+  }
+
+  /* SECCIÓN REVIEWS */
+  .vapor-reviews-section {
+    margin-top: 50px;
+    text-align: center;
+  }
+  .vreviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .vrev-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+  .vrev-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .vrev-header strong {
+    font-size: 14px;
+    color: #0F172A;
+  }
+  .vrev-city {
+    font-size: 11px;
+    color: #64748B;
+  }
+  .vrev-stars {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .vrev-card p {
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.45;
+    margin: 0;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .vapor-hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .vapor-solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .vreviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 550px) {
+    .vapor-solutions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<script>
+  function switchVaporImg(src, thumbEl) {
+    document.getElementById('vapor-main-img').src = src;
+    document.querySelectorAll('.vapor-thumb').forEach(function(t) { t.classList.remove('active'); });
+    thumbEl.classList.add('active');
+  }
+
+  var currentVaporQty = 1;
+  var currentVaporTotal = "{{ p_price_1 }}";
+  var unit1Text = "{{ p_unit_1 }}";
+  var unit2Text = "{{ p_unit_2 }}";
+  var unit3Text = "{{ p_unit_3 }}";
+  var productTitle = "Masajeador de Cuello y Espalda Shiatsu 3D";
+
+  function selectVaporBundle(qty, total, el) {
+    document.querySelectorAll('.vapor-bundle-opt').forEach(function(o) { o.classList.remove('active'); });
+    el.classList.add('active');
+    var r = el.querySelector('input[type="radio"]');
+    if (r) r.checked = true;
+
+    currentVaporQty = qty;
+    currentVaporTotal = total;
+
+    var nameText = qty === 1 ? unit1Text : (qty === 2 ? unit2Text : unit3Text);
+    document.getElementById('vsum-name').textContent = nameText;
+    document.getElementById('vsum-total-val').textContent = total;
+  }
+
+  function submitVaporLandingOrder() {
+    var name = document.getElementById('vl_name').value.trim();
+    var phone = document.getElementById('vl_phone').value.trim();
+    var region = document.getElementById('vl_region').value;
+    var city = document.getElementById('vl_city').value.trim();
+    var address = document.getElementById('vl_address').value.trim();
+    var payMethod = document.querySelector('input[name="vl_pay"]:checked')?.value || 'Efectivo al recibir';
+
+    if (!name || !phone || !region || !city || !address) {
+      alert('Por favor completa todos los campos requeridos para tu entrega.');
+      return;
+    }
+
+    var btn = document.getElementById('vl_submit_btn');
+    btn.disabled = true;
+    btn.textContent = 'Procesando orden...';
+
+    var waMsg = "¡Hola VELTRO! Acabo de hacer un pedido con Pago Contra Entrega en www.veltro.cl:%0A%0A"
+      + "📦 *Producto:* " + encodeURIComponent(productTitle) + "%0A"
+      + "🔢 *Cantidad:* " + currentVaporQty + " unid.%0A"
+      + "💰 *Total a pagar:* " + encodeURIComponent(currentVaporTotal) + "%0A"
+      + "💵 *Medio de Pago:* " + encodeURIComponent(payMethod) + "%0A"
+      + "👤 *Nombre:* " + encodeURIComponent(name) + "%0A"
+      + "📞 *Teléfono:* +56 " + encodeURIComponent(phone) + "%0A"
+      + "📍 *Región:* " + encodeURIComponent(region) + "%0A"
+      + "🏙️ *Comuna:* " + encodeURIComponent(city) + "%0A"
+      + "🏠 *Dirección:* " + encodeURIComponent(address) + "%0A%0A"
+      + "¿Me pueden confirmar cuándo sale el despacho con Blue Express / Starken? ¡Muchas gracias!";
+
+    document.getElementById('vapor-landing-form').style.display = 'none';
+    var succ = document.getElementById('vl-success');
+    succ.style.display = 'block';
+    document.getElementById('vl-wa-link').href = "https://wa.me/56912345678?text=" + waMsg;
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: {{ product.selected_or_first_available_variant.id | default: product.variants.first.id | default: 0 }},
+        quantity: currentVaporQty,
+        properties: {
+          'Modalidad': 'Pago Contra Entrega (COD)',
+          'Nombre Cliente': name,
+          'Teléfono': '+56 ' + phone,
+          'Región': region,
+          'Comuna': city,
+          'Dirección': address,
+          'Medio Pago': payMethod
+        }
+      })
+    }).catch(function(e) { console.log('Cart notification', e); });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Landing Masajeador Shiatsu",
+  "tag": "section",
+  "class": "section-landing-masajeador",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Landing Masajeador Shiatsu"
+    }
+  ]
+}
+{% endschema %}
