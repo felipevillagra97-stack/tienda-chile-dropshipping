@@ -1,0 +1,926 @@
+{% comment %}
+  Section: landing-limpiador-vapor.liquid
+  Página de producto dedicada de alta conversión para la Limpiadora a Vapor 2500W.
+  Diseñada específicamente para dropshipping local en Chile con Pago Contra Entrega (COD).
+{% endcomment %}
+
+<div class="vapor-landing">
+  
+  <!-- BARRA DE URGENCIA Y STOCK -->
+  <div class="vapor-top-notice">
+    <div class="vapor-top-container">
+      <span class="vapor-pulse-dot"></span>
+      <span>🇨🇱 <strong>ALTA DEMANDA:</strong> Stock disponible en bodega Santiago • Despacho en 24 a 48 hrs con Blue Express y Starken</span>
+    </div>
+  </div>
+
+  <div class="vapor-main-container">
+    
+    <!-- SECCIÓN HERO DE PRODUCTO -->
+    <div class="vapor-hero-grid">
+      
+      <!-- COLUMNA IMÁGENES -->
+      <div class="vapor-gallery-col">
+        <div class="vapor-main-image-wrap">
+          <img id="vapor-main-img" src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Limpiadora a Vapor 2500W 4 BAR" class="vapor-main-img" loading="eager" width="1254" height="1254">
+        </div>
+        <div class="vapor-thumb-row">
+          <div class="vapor-thumb active" onclick="switchVaporImg('{{ 'producto-limpiador-vapor.png' | asset_url }}', this)">
+            <img src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Unidad principal" width="80" height="80">
+          </div>
+          <div class="vapor-thumb" onclick="switchVaporImg('{{ 'banner-limpiador-vapor.png' | asset_url }}', this)">
+            <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Kit y accesorios" width="80" height="80">
+          </div>
+        </div>
+
+        <!-- BADGES DE CONFIANZA BAJO GALERÍA -->
+        <div class="vapor-trust-mini">
+          <div class="vapor-mini-item">
+            <span>🚚</span> <span>Envío Gratis a Todo Chile</span>
+          </div>
+          <div class="vapor-mini-item">
+            <span>💵</span> <span>Paga al Recibir en Casa</span>
+          </div>
+          <div class="vapor-mini-item">
+            <span>🛡️</span> <span>Garantía de 30 Días</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMNA DE COMPRA Y FORMULARIO COD -->
+      <div class="vapor-buy-col">
+        
+        <div class="vapor-rating">
+          <span class="vapor-stars">⭐⭐⭐⭐⭐</span>
+          <span class="vapor-rating-text"><strong>4.9 / 5.0</strong> • +362 clientes satisfechos en Chile</span>
+        </div>
+
+        <h1 class="vapor-title">Limpiadora a Vapor de Alta Presión 2500W (4 BAR) + Kit de 6 Accesorios</h1>
+        
+        <p class="vapor-short-desc">
+          Derrite la grasa pegada de años, elimina hongos en juntas de baño y desinfecta bacterias en segundos con vapor continuo a <strong>105°C</strong>. Limpia tu cocina, tapices y auto sin gastar en productos químicos tóxicos.
+        </p>
+
+        <!-- CAJA DE PRECIO -->
+        <div class="vapor-price-card">
+          <div class="vapor-price-flex">
+            <span class="vapor-current-price">$42.990</span>
+            <span class="vapor-old-price">$53.990</span>
+            <span class="vapor-discount-tag">20% DESCUENTO</span>
+          </div>
+          <div class="vapor-stock-alert">
+            <div class="vapor-stock-bar"><div class="vapor-stock-fill"></div></div>
+            <span class="vapor-stock-text">🔥 Solamente quedan <strong>9 unidades</strong> con envío gratis hoy.</span>
+          </div>
+        </div>
+
+        <!-- SELECTOR DE OFERTAS POR CANTIDAD (BUNDLES) -->
+        <div class="vapor-bundle-section">
+          <label class="vapor-bundle-title">ELIGE TU OFERTA ESPECIAL:</label>
+          <div class="vapor-bundle-list">
+            
+            <!-- OPCION 1 -->
+            <div class="vapor-bundle-opt active" data-qty="1" data-total="$42.990" onclick="selectVaporBundle(1, '$42.990', this)">
+              <input type="radio" name="vapor_pack" value="1" checked>
+              <div class="vapor-opt-info">
+                <strong>1x Limpiador 2500W + Accesorios</strong>
+                <span class="vapor-free-ship">Envío Gratis</span>
+              </div>
+              <div class="vapor-opt-price">$42.990</div>
+            </div>
+
+            <!-- OPCION 2 -->
+            <div class="vapor-bundle-opt popular" data-qty="2" data-total="$68.790" onclick="selectVaporBundle(2, '$68.790', this)">
+              <div class="vapor-ribbon">MÁS ELEGIDO 🔥</div>
+              <input type="radio" name="vapor_pack" value="2">
+              <div class="vapor-opt-info">
+                <strong>2x Limpiadores (Uno para ti, uno de regalo)</strong>
+                <span class="vapor-save-tag">Ahorras $17.190 (20% OFF)</span>
+              </div>
+              <div class="vapor-opt-price">
+                <span class="vapor-opt-main">$68.790</span>
+                <span class="vapor-opt-sub">($34.395 c/u)</span>
+              </div>
+            </div>
+
+            <!-- OPCION 3 -->
+            <div class="vapor-bundle-opt" data-qty="3" data-total="$97.480" onclick="selectVaporBundle(3, '$97.480', this)">
+              <div class="vapor-ribbon-best">MEJOR PRECIO ⭐</div>
+              <input type="radio" name="vapor_pack" value="3">
+              <div class="vapor-opt-info">
+                <strong>3x Limpiadores Familiares</strong>
+                <span class="vapor-save-tag">Ahorras $31.490</span>
+              </div>
+              <div class="vapor-opt-price">
+                <span class="vapor-opt-main">$97.480</span>
+                <span class="vapor-opt-sub">($32.493 c/u)</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FORMULARIO DIRECTO COD CHILE -->
+        <div class="vapor-form-box">
+          <div class="vapor-form-title">
+            <span>📦 Completa tus datos para el Despacho</span>
+            <small>Pagas al recibir en la puerta de tu casa</small>
+          </div>
+
+          <form id="vapor-landing-form" onsubmit="event.preventDefault(); submitVaporLandingOrder();">
+            <div class="vform-row">
+              <label>Nombre y Apellido *</label>
+              <input type="text" id="vl_name" required placeholder="Ej: Juan Pérez">
+            </div>
+
+            <div class="vform-row">
+              <label>Teléfono WhatsApp *</label>
+              <div class="vform-phone">
+                <span>+56</span>
+                <input type="tel" id="vl_phone" required placeholder="9 1234 5678" maxlength="12">
+              </div>
+              <small class="vform-hint">Te mandaremos confirmación previa por WhatsApp.</small>
+            </div>
+
+            <div class="vform-row">
+              <label>Región de Chile *</label>
+              <select id="vl_region" required>
+                <option value="" disabled selected>Selecciona tu región...</option>
+                <option value="Región Metropolitana">Región Metropolitana de Santiago</option>
+                <option value="Valparaíso">Región de Valparaíso</option>
+                <option value="Biobío">Región del Biobío</option>
+                <option value="Coquimbo">Región de Coquimbo</option>
+                <option value="Antofagasta">Región de Antofagasta</option>
+                <option value="O'Higgins">Región de O'Higgins</option>
+                <option value="Maule">Región del Maule</option>
+                <option value="La Araucanía">Región de La Araucanía</option>
+                <option value="Los Lagos">Región de Los Lagos</option>
+                <option value="Tarapacá">Región de Tarapacá</option>
+                <option value="Atacama">Región de Atacama</option>
+                <option value="Los Ríos">Región de Los Ríos</option>
+                <option value="Arica y Parinacota">Región de Arica y Parinacota</option>
+                <option value="Ñuble">Región de Ñuble</option>
+                <option value="Aysén">Región de Aysén</option>
+                <option value="Magallanes">Región de Magallanes</option>
+              </select>
+            </div>
+
+            <div class="vform-row">
+              <label>Comuna / Ciudad *</label>
+              <input type="text" id="vl_city" required placeholder="Ej: Las Condes, Maipú, Viña del Mar, Concepción...">
+            </div>
+
+            <div class="vform-row">
+              <label>Dirección exacta (Calle, Número, Depto/Casa) *</label>
+              <input type="text" id="vl_address" required placeholder="Ej: Av. Providencia 1234, Depto 402">
+            </div>
+
+            <div class="vform-row">
+              <label>¿Cómo pagarás al recibir? *</label>
+              <div class="vform-payment-radios">
+                <label><input type="radio" name="vl_pay" value="Efectivo al recibir" checked> 💵 Efectivo al repartidor</label>
+                <label><input type="radio" name="vl_pay" value="Transferencia al recibir"> 📱 Transferencia bancaria (CuentaRUT / Banco)</label>
+              </div>
+            </div>
+
+            <!-- TOTAL SUMMARY -->
+            <div class="vform-summary">
+              <div class="vsum-row">
+                <span>Producto:</span>
+                <span id="vsum-name">1x Limpiadora a Vapor 2500W</span>
+              </div>
+              <div class="vsum-row">
+                <span>Despacho Blue Express / Starken:</span>
+                <span class="vsum-free">¡GRATIS! 🎉</span>
+              </div>
+              <div class="vsum-total">
+                <span>Total a Pagar en tu Puerta:</span>
+                <strong id="vsum-total-val">$42.990</strong>
+              </div>
+            </div>
+
+            <button type="submit" class="vapor-btn-submit" id="vl_submit_btn">
+              <span class="vbtn-main">🚚 PEDIR AHORA • PAGO CONTRA ENTREGA</span>
+              <span class="vbtn-sub">Pagas únicamente cuando recibas el paquete en tus manos</span>
+            </button>
+          </form>
+
+          <div id="vl-success" class="vl-success-box" style="display: none;">
+            <div class="vl-success-emoji">🎉</div>
+            <h3>¡Tu Pedido ha sido Recibido!</h3>
+            <p>Hemos ingresado tu orden para <strong>pago contra entrega</strong>.</p>
+            <p>Por favor confirma tu envío por WhatsApp para asignarte un repartidor de inmediato:</p>
+            <a id="vl-wa-link" href="#" target="_blank" class="vl-wa-btn">📲 Confirmar Despacho por WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN ANTES Y DESPUÉS / SOLUCIONES -->
+    <div class="vapor-solutions-section">
+      <h2 class="vsec-title">Una Sola Herramienta para Todo tu Hogar y tu Auto</h2>
+      <p class="vsec-subtitle">Ahorra tiempo y olvídate de frotar durante horas con productos químicos agresivos</p>
+
+      <div class="vapor-solutions-grid">
+        <div class="vsol-card">
+          <div class="vsol-icon">🍳</div>
+          <h3>Cocina Impecable y Libre de Grasa</h3>
+          <p>Disuelve en segundos la grasa acumulada en campanas extractoras, freidoras de aire, hornos y encimeras solo con calor y presión.</p>
+        </div>
+
+        <div class="vsol-card">
+          <div class="vsol-icon">🚿</div>
+          <h3>Baños Libres de Sarro y Hongos</h3>
+          <p>El vapor penetra profundamente en las junturas de azulejos, shower door y griferías, eliminando el moho negro y las bacterias sin cloro.</p>
+        </div>
+
+        <div class="vsol-card">
+          <div class="vsol-icon">🚗</div>
+          <h3>Interior y Motor de Automóvil</h3>
+          <p>Limpia tapices manchados, conductos de aire acondicionado y desengrasa componentes del motor con total control y precisión.</p>
+        </div>
+
+        <div class="vsol-card">
+          <div class="vsol-icon">🛋️</div>
+          <h3>Desinfección de Tapices y Colchones</h3>
+          <p>Elimina ácaros, malos olores y gérmenes en sofás, cojines y alfombras. Ideal para casas con niños, mascotas o alérgicos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN KIT DE ACCESORIOS INCLUIDOS -->
+    <div class="vapor-kit-section">
+      <h2 class="vsec-title">¿Qué Incluye tu Pedido?</h2>
+      <div class="vapor-kit-box">
+        <div class="vkit-item">✓ 1x Equipo Limpiador a Vapor 2500W con perilla de 6 niveles</div>
+        <div class="vkit-item">✓ 1x Boquilla curva extendida para rincones difíciles</div>
+        <div class="vkit-item">✓ 1x Boquilla recta de alta presión</div>
+        <div class="vkit-item">✓ 1x Cepillo circular de acero reforzado (para grasa rebelde)</div>
+        <div class="vkit-item">✓ 1x Cepillo circular grande de nylon</div>
+        <div class="vkit-item">✓ 1x Cepillo circular pequeño de precisión</div>
+        <div class="vkit-item">✓ Manguera flexible resistente a alta temperatura y cable largo</div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN ESPECIFICACIONES -->
+    <div class="vapor-specs-section">
+      <h2 class="vsec-title">Ficha Técnica Oficial</h2>
+      <table class="vspecs-table">
+        <tr><td><strong>Potencia Eléctrica:</strong></td><td>2.500 Watts de alto rendimiento</td></tr>
+        <tr><td><strong>Presión de Trabajo:</strong></td><td>4 BAR constantes</td></tr>
+        <tr><td><strong>Temperatura de Vapor:</strong></td><td>105°C (Desinfección antibacteriana)</td></tr>
+        <tr><td><strong>Regulación:</strong></td><td>6 niveles de potencia ajustable</td></tr>
+        <tr><td><strong>Voltaje:</strong></td><td>220V (Enchufe estándar chileno)</td></tr>
+        <tr><td><strong>Garantía:</strong></td><td>30 días con respaldo oficial VELTRO Chile</td></tr>
+      </table>
+    </div>
+
+    <!-- SECCIÓN TESTIMONIOS CHILE -->
+    <div class="vapor-reviews-section">
+      <h2 class="vsec-title">Lo que Dicen Nuestros Clientes en Chile</h2>
+      <div class="vreviews-grid">
+        <div class="vrev-card">
+          <div class="vrev-header">
+            <strong>Isabella L.</strong>
+            <span class="vrev-city">📍 Viña del Mar</span>
+          </div>
+          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Me llegó hace unos días y lo probé altiro en el sillón del living que tenía manchas antiguas. Con el vapor se fueron soltando y quedó mucho más limpio de lo que esperaba. Igual lo ocupé en la cocina y sirve caleta para la grasa de la campana. Buena compra."</p>
+        </div>
+
+        <div class="vrev-card">
+          <div class="vrev-header">
+            <strong>Sebastian F.</strong>
+            <span class="vrev-city">📍 Santiago Centro</span>
+          </div>
+          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Lo compré más que nada para limpiar el auto por dentro y terminó siendo útil para todo. El vapor ayuda harto a soltar la suciedad y no hay que estar usando mil productos distintos. Lo ocupé en el baño y en la cocina también. Práctico y fácil de usar."</p>
+        </div>
+
+        <div class="vrev-card">
+          <div class="vrev-header">
+            <strong>Santiago C.</strong>
+            <span class="vrev-city">📍 Concepción</span>
+          </div>
+          <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+          <p>"La verdad ya había probado varios limpiadores. Probé este vapor y quedé loco, la grasa sale mucho más fácil y no tengo que estar refregando tanto rato. Lo usé también en los azulejos del baño y quedaron impeques. El repartidor de Starken llegó puntual y le pagué con CuentaRUT."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .vapor-landing {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1F2937;
+    background: #F8FAFC;
+    padding-bottom: 60px;
+  }
+  .vapor-top-notice {
+    background: #030712;
+    color: #FFFFFF;
+    padding: 10px 16px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .vapor-top-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .vapor-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+    animation: vPulse 1.8s infinite;
+  }
+  @keyframes vPulse {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  }
+  .vapor-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .vapor-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 36px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  .vapor-main-image-wrap {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+  }
+  .vapor-main-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .vapor-thumb-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .vapor-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: #F1F5F9;
+  }
+  .vapor-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .vapor-thumb.active {
+    border-color: #2563EB;
+  }
+  .vapor-trust-mini {
+    margin-top: 18px;
+    padding: 12px;
+    background: #EFF6FF;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1E40AF;
+  }
+  .vapor-mini-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .vapor-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 8px;
+  }
+  .vapor-rating strong {
+    color: #111827;
+  }
+  .vapor-title {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #0F172A;
+    margin: 0 0 10px 0;
+  }
+  .vapor-short-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4B5563;
+    margin: 0 0 16px 0;
+  }
+  .vapor-price-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+  .vapor-price-flex {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .vapor-current-price {
+    font-size: 30px;
+    font-weight: 900;
+    color: #2563EB;
+  }
+  .vapor-old-price {
+    font-size: 16px;
+    color: #94A3B8;
+    text-decoration: line-through;
+  }
+  .vapor-discount-tag {
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .vapor-stock-alert {
+    margin-top: 10px;
+  }
+  .vapor-stock-bar {
+    width: 100%;
+    height: 6px;
+    background: #E2E8F0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .vapor-stock-fill {
+    width: 25%;
+    height: 100%;
+    background: #F59E0B;
+  }
+  .vapor-stock-text {
+    display: block;
+    font-size: 12px;
+    color: #B45309;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .vapor-bundle-section {
+    margin-bottom: 20px;
+  }
+  .vapor-bundle-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #374151;
+    margin-bottom: 8px;
+    letter-spacing: 0.4px;
+  }
+  .vapor-bundle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .vapor-bundle-opt {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #FFFFFF;
+    transition: all 0.2s;
+  }
+  .vapor-bundle-opt input {
+    margin-right: 12px;
+    accent-color: #2563EB;
+  }
+  .vapor-bundle-opt.active {
+    border-color: #2563EB;
+    background: #EFF6FF;
+  }
+  .vapor-bundle-opt.popular {
+    border-color: #F97316;
+  }
+  .vapor-bundle-opt.popular.active {
+    background: #FFF7ED;
+  }
+  .vapor-ribbon {
+    position: absolute;
+    top: -9px;
+    right: 12px;
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  .vapor-ribbon-best {
+    position: absolute;
+    top: -9px;
+    right: 12px;
+    background: #16A34A;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  .vapor-opt-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+  }
+  .vapor-free-ship {
+    color: #16A34A;
+    font-weight: 700;
+    font-size: 11px;
+  }
+  .vapor-save-tag {
+    color: #DC2626;
+    font-weight: 700;
+    font-size: 11px;
+  }
+  .vapor-opt-price {
+    text-align: right;
+    font-weight: 900;
+    font-size: 15px;
+    color: #0F172A;
+  }
+  .vapor-opt-sub {
+    display: block;
+    font-size: 11px;
+    color: #64748B;
+    font-weight: normal;
+  }
+  .vapor-form-box {
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+    padding: 16px;
+    background: #FFFFFF;
+  }
+  .vapor-form-title {
+    margin-bottom: 14px;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 8px;
+  }
+  .vapor-form-title span {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #1E40AF;
+  }
+  .vapor-form-title small {
+    font-size: 12px;
+    color: #64748B;
+  }
+  .vform-row {
+    margin-bottom: 10px;
+  }
+  .vform-row label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 3px;
+  }
+  .vform-row input,
+  .vform-row select {
+    width: 100%;
+    padding: 9px 10px;
+    font-size: 13px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .vform-phone {
+    display: flex;
+  }
+  .vform-phone span {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    border-right: none;
+    padding: 9px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    border-radius: 6px 0 0 6px;
+  }
+  .vform-phone input {
+    border-radius: 0 6px 6px 0;
+  }
+  .vform-hint {
+    font-size: 11px;
+    color: #64748B;
+  }
+  .vform-payment-radios {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+  }
+  .vform-payment-radios label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    background: #F8FAFC;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #E2E8F0;
+    cursor: pointer;
+  }
+  .vform-summary {
+    background: #F8FAFC;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .vsum-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    color: #475569;
+  }
+  .vsum-free {
+    color: #16A34A;
+    font-weight: 700;
+  }
+  .vsum-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #CBD5E1;
+    padding-top: 6px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0F172A;
+  }
+  .vsum-total strong {
+    font-size: 18px;
+    color: #2563EB;
+  }
+  .vapor-btn-submit {
+    width: 100%;
+    background: #16A34A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .vbtn-main {
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .vbtn-sub {
+    font-size: 11px;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+  .vl-success-box {
+    text-align: center;
+    padding: 20px;
+  }
+  .vl-success-emoji {
+    font-size: 38px;
+  }
+  .vl-wa-btn {
+    display: inline-block;
+    background: #25D366;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: 800;
+    margin-top: 10px;
+  }
+  .vsec-title {
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    margin: 40px 0 6px 0;
+    color: #0F172A;
+  }
+  .vsec-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 24px;
+  }
+  .vapor-solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .vsol-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .vsol-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .vsol-card h3 {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    color: #1E293B;
+  }
+  .vsol-card p {
+    font-size: 13px;
+    color: #64748B;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .vapor-kit-box {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #334155;
+  }
+  .vkit-item {
+    font-weight: 600;
+  }
+  .vspecs-table {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .vspecs-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 13px;
+  }
+  .vspecs-table tr:nth-child(even) {
+    background: #F8FAFC;
+  }
+  .vreviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .vrev-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .vrev-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .vrev-city {
+    font-size: 12px;
+    color: #64748B;
+  }
+  .vrev-stars {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .vrev-card p {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.45;
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .vapor-hero-grid {
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+    .vapor-solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .vreviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 550px) {
+    .vapor-solutions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  function switchVaporImg(src, thumbEl) {
+    document.getElementById('vapor-main-img').src = src;
+    document.querySelectorAll('.vapor-thumb').forEach(function(t) { t.classList.remove('active'); });
+    thumbEl.classList.add('active');
+  }
+
+  var currentVaporQty = 1;
+  var currentVaporTotal = "$42.990";
+
+  function selectVaporBundle(qty, total, el) {
+    document.querySelectorAll('.vapor-bundle-opt').forEach(function(o) { o.classList.remove('active'); });
+    el.classList.add('active');
+    var r = el.querySelector('input[type="radio"]');
+    if (r) r.checked = true;
+
+    currentVaporQty = qty;
+    currentVaporTotal = total;
+
+    var nameText = qty + "x Limpiadora a Vapor 2500W" + (qty > 1 ? " (Kit Ahorro)" : "");
+    document.getElementById('vsum-name').textContent = nameText;
+    document.getElementById('vsum-total-val').textContent = total;
+  }
+
+  function submitVaporLandingOrder() {
+    var name = document.getElementById('vl_name').value.trim();
+    var phone = document.getElementById('vl_phone').value.trim();
+    var region = document.getElementById('vl_region').value;
+    var city = document.getElementById('vl_city').value.trim();
+    var address = document.getElementById('vl_address').value.trim();
+    var payMethod = document.querySelector('input[name="vl_pay"]:checked')?.value || 'Efectivo al recibir';
+
+    if (!name || !phone || !region || !city || !address) {
+      alert('Por favor completa todos los campos requeridos.');
+      return;
+    }
+
+    var btn = document.getElementById('vl_submit_btn');
+    btn.disabled = true;
+    btn.textContent = 'Procesando orden...';
+
+    var waMsg = "¡Hola VELTRO! Acabo de hacer un pedido con Pago Contra Entrega:%0A%0A"
+      + "🔥 *Producto:* Limpiadora a Vapor 2500W%0A"
+      + "🔢 *Cantidad:* " + currentVaporQty + " unid.%0A"
+      + "💰 *Total a pagar:* " + encodeURIComponent(currentVaporTotal) + "%0A"
+      + "💵 *Medio de Pago:* " + encodeURIComponent(payMethod) + "%0A"
+      + "👤 *Nombre:* " + encodeURIComponent(name) + "%0A"
+      + "📞 *Teléfono:* +56 " + encodeURIComponent(phone) + "%0A"
+      + "📍 *Región:* " + encodeURIComponent(region) + "%0A"
+      + "🏙️ *Comuna:* " + encodeURIComponent(city) + "%0A"
+      + "🏠 *Dirección:* " + encodeURIComponent(address) + "%0A%0A"
+      + "¿Me confirman el despacho por Blue Express / Starken? ¡Gracias!";
+
+    document.getElementById('vapor-landing-form').style.display = 'none';
+    var succ = document.getElementById('vl-success');
+    succ.style.display = 'block';
+    document.getElementById('vl-wa-link').href = "https://wa.me/56912345678?text=" + waMsg;
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Landing Limpiador Vapor",
+  "tag": "section",
+  "class": "section-landing-vapor",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Landing Limpiador a Vapor 2500W"
+    }
+  ]
+}
+{% endschema %}
