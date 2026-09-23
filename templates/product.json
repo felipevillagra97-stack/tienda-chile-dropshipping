@@ -80,6 +80,14 @@
         "description": {
           "type": "description"
         },
+        "chile_cod_express": {
+          "type": "chile_cod_express",
+          "settings": {}
+        },
+        "chile_cod_faq": {
+          "type": "chile_cod_faq",
+          "settings": {}
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -91,14 +99,16 @@
         "vendor",
         "title",
         "price",
+        "chile_urgency",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "chile_urgency",
+        "chile_cod_express",
         "chile_delivery",
         "chile_payments",
         "chile_shipping",
         "description",
+        "chile_cod_faq",
         "share"
       ],
       "settings": {

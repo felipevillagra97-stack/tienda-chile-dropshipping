@@ -11,14 +11,7 @@
           height="{{ section.settings.banner_image.height }}"
         >
       {%- else -%}
-        <img
-          src="{{ 'banner-veltro-final.png' | asset_url }}"
-          alt="VELTRO.cl - Soluciones para tu Hogar • Paga al Recibir"
-          class="veltro-img"
-          loading="eager"
-          width="1024"
-          height="571"
-        >
+        {{ 'banner-veltro-final.png' | asset_url | image_tag: class: 'veltro-img', alt: 'VELTRO.cl - Soluciones para tu Hogar • Paga al Recibir', loading: 'eager', width: 1024, height: 571, style: 'width: 100%; height: auto; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;' }}
       {%- endif -%}
     </a>
   </div>
@@ -30,16 +23,13 @@
     background: #030712;
     overflow: hidden;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
   }
   .veltro-banner-container {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    display: block;
   }
   .veltro-banner-click {
     display: block;
@@ -48,8 +38,8 @@
     text-decoration: none;
   }
   .veltro-img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     max-height: 85vh;
     object-fit: contain;
     display: block;

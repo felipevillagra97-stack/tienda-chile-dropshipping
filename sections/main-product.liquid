@@ -507,6 +507,10 @@
                   {%- render 'chile-delivery-estimator', block: block -%}
                 {%- when 'chile_urgency_timer' -%}
                   {%- render 'chile-urgency-timer', block: block -%}
+                {%- when 'chile_cod_express' -%}
+                  {%- render 'chile-cod-express-box', block: block, product: product -%}
+                {%- when 'chile_cod_faq' -%}
+                  {%- render 'chile-cod-faq', block: block -%}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
                     <div class="rating-wrapper">
@@ -985,6 +989,18 @@
           "default": 12
         }
       ]
+    },
+    {
+      "type": "chile_cod_express",
+      "name": "🚚 Formulario Pago Contra Entrega",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "chile_cod_faq",
+      "name": "❓ Preguntas Frecuentes COD",
+      "limit": 1,
+      "settings": []
     },
     {
       "type": "text",

@@ -215,6 +215,14 @@
       var stickyBtn = document.getElementById('sticky-atc-button');
       if (stickyBtn) {
         stickyBtn.addEventListener('click', function() {
+          var codBox = document.querySelector('.chile-cod-box');
+          if (codBox) {
+            codBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var nameField = document.getElementById('cod_name');
+            if (nameField) setTimeout(function() { nameField.focus(); }, 400);
+            return;
+          }
+
           var variantId = variantSelect ? variantSelect.value : (document.getElementById('sticky-atc-variant-id') ? document.getElementById('sticky-atc-variant-id').value : null);
           if (!variantId) {
             var idInput = document.querySelector('input[name="id"]');
@@ -260,7 +268,7 @@
       "type": "text",
       "id": "btn_text",
       "label": "Texto del botón",
-      "default": "COMPRAR AHORA"
+      "default": "PEDIR CONTRA ENTREGA • PAGA EN CASA"
     },
     {
       "type": "color",
