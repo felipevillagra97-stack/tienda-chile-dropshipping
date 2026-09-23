@@ -6,14 +6,13 @@
 {
   "sections": {
     "landing": {
-      "type": "landing-masajeador",
-      "settings": {
-      }
+      "type": "landing-shampoo",
+      "settings": {}
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "Recomendados Masajeador Shiatsu",
+        "heading": "Otros Productos Recomendados",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,

@@ -11,7 +11,17 @@
   "sections": {
     "landing": {
       "type": "landing-shampoo",
-      "settings": {}
+      "settings": {
+        "gif_1_image": "shopify://shop_images/0923.gif",
+        "gif_1_url": "",
+        "gif_1_badge": "✨ RESULTADOS EN 10 MIN",
+        "gif_1_title": "Cubre el 100% de las canas al instante",
+        "gif_1_desc": "",
+        "gif_2_url": "",
+        "gif_2_badge": "🌿 CERO MANCHAS",
+        "gif_2_title": "No mancha la piel ni las orejas",
+        "gif_2_desc": ""
+      }
     },
     "related-products": {
       "type": "related-products",
@@ -20,13 +30,13 @@
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
       }
