@@ -22,15 +22,30 @@
       <!-- COLUMNA IMÁGENES -->
       <div class="vapor-gallery-col">
         <div class="vapor-main-image-wrap">
-          <img id="vapor-main-img" src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Limpiadora a Vapor 2500W 4 BAR" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- if product != blank and product.featured_image != blank -%}
+            <img id="vapor-main-img" src="{{ product.featured_image | image_url: width: 1254 }}" alt="{{ product.title | escape }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- else -%}
+            <img id="vapor-main-img" src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Limpiadora a Vapor 2500W 4 BAR" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- endif -%}
         </div>
         <div class="vapor-thumb-row">
-          <div class="vapor-thumb active" onclick="switchVaporImg('{{ 'producto-limpiador-vapor.png' | asset_url }}', this)">
-            <img src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Unidad principal" width="80" height="80">
-          </div>
-          <div class="vapor-thumb" onclick="switchVaporImg('{{ 'banner-limpiador-vapor.png' | asset_url }}', this)">
-            <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Kit y accesorios" width="80" height="80">
-          </div>
+          {%- if product != blank and product.images.size > 0 -%}
+            {%- for image in product.images -%}
+              <div class="vapor-thumb {% if forloop.first %}active{% endif %}" onclick="switchVaporImg('{{ image | image_url: width: 1254 }}', this)">
+                <img src="{{ image | image_url: width: 120, height: 120, crop: 'center' }}" alt="{{ product.title | escape }}" width="80" height="80">
+              </div>
+            {%- endfor -%}
+            <div class="vapor-thumb" onclick="switchVaporImg('{{ 'banner-limpiador-vapor.png' | asset_url }}', this)">
+              <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Kit y accesorios" width="80" height="80">
+            </div>
+          {%- else -%}
+            <div class="vapor-thumb active" onclick="switchVaporImg('{{ 'producto-limpiador-vapor.png' | asset_url }}', this)">
+              <img src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="Unidad principal" width="80" height="80">
+            </div>
+            <div class="vapor-thumb" onclick="switchVaporImg('{{ 'banner-limpiador-vapor.png' | asset_url }}', this)">
+              <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Kit y accesorios" width="80" height="80">
+            </div>
+          {%- endif -%}
         </div>
 
         <!-- BADGES DE CONFIANZA BAJO GALERÍA -->
