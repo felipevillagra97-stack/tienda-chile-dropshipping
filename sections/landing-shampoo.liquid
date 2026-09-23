@@ -136,28 +136,29 @@
     assign spec_6_v = '30 días con respaldo oficial VELTRO Chile'
 
   else
-    assign p_badge = '🌿 FÓRMULA BOTÁNICA 2 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
+    assign p_badge = '🌿 FÓRMULA BOTÁNICA 3 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
     assign p_rating_text = '4.9 / 5.0 • +520 clientes satisfechos en Chile'
-    assign p_title = 'Shampoo Colorante Negro 2 en 1 con Colágeno y Aceite de Argán'
+    assign p_urgency_bar = '🔥 Alta demanda: Despacho prioritario 24-48 hrs hábiles a todo Chile'
+    assign p_title = 'Shampoo Colorante Negro 3 en 1 con Colágeno y Argán - Cubre Canas en 10 Minutos'
     assign p_desc = 'Cubre el 100% de las canas en solo 10 a 15 minutos durante la ducha. Fórmula nutritiva que no mancha la piel ni el cuero cabelludo. Apto para cabello, barba y bigote tanto en hombres como mujeres.'
     
     assign p_price_1 = '$22.990'
     assign p_old_price_1 = '$32.990'
     assign p_discount_tag = '30% DESCUENTO'
-    assign p_stock_left = '8 unidades'
-    assign p_unit_1 = '1x Botella Familiar Shampoo Colorante + Guantes'
+    assign p_stock_left = '7 frascos'
+    assign p_unit_1 = '1x Frasco Familiar 500ml + Guantes de Aplicación'
     
     assign p_price_2 = '$36.990'
     assign p_old_price_2 = '$45.980'
     assign p_sub_2 = '($18.495 c/u)'
     assign p_save_2 = 'Ahorras $8.990 (Tratamiento Semestral)'
-    assign p_unit_2 = '2x Botellas Familiares (Tratamiento para 6 meses)'
+    assign p_unit_2 = '2x Frascos Familiares 500ml (Tratamiento 6 meses) + Doble Kit de Guantes'
 
     assign p_price_3 = '$49.990'
     assign p_old_price_3 = '$68.970'
     assign p_sub_3 = '($16.663 c/u)'
     assign p_save_3 = 'Ahorras $18.980 (Pack Ahorro Familiar)'
-    assign p_unit_3 = '3x Botellas (Pack Ahorro Familiar)'
+    assign p_unit_3 = '3x Frascos Familiares 500ml (Pack Ahorro Anual / Familiar) + Kit Completo'
 
     assign sol_title = 'Cobertura Total de Canas sin Químicos Agresivos'
     assign sol_subtitle = 'Ahorra más de $150.000 al año en peluquerías tiñéndote tú mismo en la ducha'
@@ -294,6 +295,30 @@
             <div class="vbenefit-item">
               <span class="vbenefit-icon">💵</span>
               <span class="vbenefit-text"><strong>Pago Contra Entrega:</strong> Recibe en tu puerta y paga en efectivo o transferencia.</span>
+            </div>
+          </div>
+        {% elsif prod_type == 'shampoo' %}
+          <!-- EMOJI BENEFITS SHAMPOO (PUNTOS CLAVE CRO) -->
+          <div class="vapor-emoji-benefits">
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">🌿</span>
+              <span class="vbenefit-text"><strong>Fórmula Botánica con Colágeno y Argán:</strong> Nutre, aporta brillo y repara sin resecar ni quebrar el cabello.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">⏱️</span>
+              <span class="vbenefit-text"><strong>Cubre 100% de Canas en 10-15 Min:</strong> Aplícalo como un shampoo común en la ducha sin manchar manos ni frente.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">🚫</span>
+              <span class="vbenefit-text"><strong>Sin Amoníaco ni Olor Fuerte:</strong> Cero ardor, sin vapores tóxicos ni resequedad de tintura tradicional.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">🧔</span>
+              <span class="vbenefit-text"><strong>Unisex para Cabello, Barba y Bigote:</strong> Negro natural homogéneo que rinde entre 10 y 15 aplicaciones.</span>
+            </div>
+            <div class="vbenefit-item">
+              <span class="vbenefit-icon">💵</span>
+              <span class="vbenefit-text"><strong>Pago Contra Entrega:</strong> Recibe en tu puerta y paga en efectivo, transferencia o CuentaRUT al repartidor.</span>
             </div>
           </div>
         {% else %}
@@ -492,6 +517,22 @@
               <p>Tu compra cuenta con <strong>30 días de garantía oficial directa de VELTRO Chile</strong>. Ante cualquier defecto de fábrica o mal funcionamiento, gestionamos tu reposición inmediata o reembolso sin demoras a través de nuestra línea de soporte por WhatsApp.</p>
             </div>
           </details>
+
+          {% if prod_type == 'shampoo' %}
+            <details class="vapor-acc-item">
+              <summary class="vapor-acc-summary">
+                <span class="vapor-acc-title"><span>💆</span> Modo de Uso en 3 Pasos (Cabello y Barba)</span>
+                <span class="vapor-acc-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </summary>
+              <div class="vapor-acc-content">
+                <p><strong>Paso 1:</strong> Colócate los guantes protectores incluidos y presiona el dosificador pump sobre la palma de tu mano.<br>
+                <strong>Paso 2:</strong> Aplica uniformemente sobre el cabello o barba ligeramente húmeda o seca, masajeando durante 5 minutos para que la espuma penetre raíces y canas.<br>
+                <strong>Paso 3:</strong> Deja actuar de <strong>10 a 15 minutos</strong> (puedes enjabonarte el cuerpo en la ducha mientras tanto) y enjuaga con abundante agua tibia. ¡Listo! Canas 100% cubiertas con color negro natural y brillo sedoso que dura de 3 a 4 semanas.</p>
+              </div>
+            </details>
+          {% endif %}
         </div>
 
       </div>
@@ -553,6 +594,77 @@
               <div class="vmedia-box">
                 <img src="{{ 'banner-limpiador-vapor.png' | asset_url }}" alt="Limpieza de vehículos y tapices con VaporPro" loading="lazy" width="600" height="380">
                 <span class="vmedia-tag">Auto • Tapices, Llantas y Motor</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      {% elsif prod_type == 'shampoo' %}
+        <h2 class="vsec-title">Transformación Inmediata en Solo 10 Minutos</h2>
+        <p class="vsec-subtitle">Cubre el 100% de las canas y rejuvenece tu imagen de forma natural en la comodidad de tu ducha</p>
+
+        <div class="vapor-modular-transformations">
+          
+          <!-- BLOQUE 1: COBERTURA TOTAL DE CANAS -->
+          <div class="vapor-modular-card">
+            <div class="vmod-content">
+              <div class="vmod-badge">⏱️ Cobertura Rápida en 10-15 Minutos</div>
+              <h3 class="vmod-title">Cubre el 100% de las Canas al Instante sin Peluquerías</h3>
+              <p class="vmod-text">
+                Despídete de los mechones blancos o grises en sienes, patillas, coronilla y barba. Sus micro-pigmentos botánicos con colágeno hidrolizado penetran de manera homogénea la cutícula capilar, devolviendo un color negro juvenil y lleno de vida desde la primera aplicación, sin verse tieso ni artificial.
+              </p>
+            </div>
+            <div class="vmod-media">
+              <div class="vmedia-box">
+                {%- if product != blank and product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 600 }}" alt="Cobertura total de canas con Shampoo Colorante" loading="lazy" width="600" height="380">
+                {%- else -%}
+                  <img src="//www.veltro.cl/cdn/shop/files/1785283236ChatGPT_20Image_2028_20jul_202026_2019_59_13.png?v=1790193787" alt="Cobertura total de canas" loading="lazy" width="600" height="380">
+                {%- endif -%}
+                <span class="vmedia-tag">Antes y Después • 10 Minutos en Ducha</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOQUE 2: NUTRICIÓN Y CERO AMONÍACO -->
+          <div class="vapor-modular-card vmod-reverse">
+            <div class="vmod-content">
+              <div class="vmod-badge">🌿 Cuidado Capilar con Colágeno y Argán</div>
+              <h3 class="vmod-title">Nutrición Profunda: Fortalece y Da Brillo en Vez de Resecar</h3>
+              <p class="vmod-text">
+                A diferencia de las tinturas comunes que contienen amoníaco corrosivo que quema el cuero cabelludo y deja el pelo como paja, nuestro shampoo incorpora aceite de argán marroquí y colágeno natural. Sella las puntas, previene la caída y deja un brillo sedoso y suave al tacto.
+              </p>
+            </div>
+            <div class="vmod-media">
+              <div class="vmedia-box">
+                {%- if product != blank and product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 600 }}" alt="Nutrición capilar con argán y colágeno" loading="lazy" width="600" height="380">
+                {%- else -%}
+                  <img src="//www.veltro.cl/cdn/shop/files/1785283236ChatGPT_20Image_2028_20jul_202026_2019_59_13.png?v=1790193787" alt="Nutrición capilar con argán y colágeno" loading="lazy" width="600" height="380">
+                {%- endif -%}
+                <span class="vmedia-tag">Fórmula Botánica • 100% Sin Amoníaco</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOQUE 3: VERSATILIDAD BARBA Y PELO -->
+          <div class="vapor-modular-card">
+            <div class="vmod-content">
+              <div class="vmod-badge">🧔 Unisex: Cabello, Barba, Bigote y Patillas</div>
+              <h3 class="vmod-title">Ahorra Más de $150.000 al Año en Peluquerías y Barberías</h3>
+              <p class="vmod-text">
+                Fórmula inteligente que no mancha la piel de la frente ni las orejas: solo se adhiere a la queratina capilar. Con su frasco familiar de 500ml obtienes entre 10 y 15 aplicaciones completas. Cada aplicación dura de 3 a 4 semanas, brindándote cobertura impecable todo el año por una fracción del costo de un salón.
+              </p>
+            </div>
+            <div class="vmod-media">
+              <div class="vmedia-box">
+                {%- if product != blank and product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 600 }}" alt="Uso en barba y cabello con Shampoo Colorante" loading="lazy" width="600" height="380">
+                {%- else -%}
+                  <img src="//www.veltro.cl/cdn/shop/files/1785283236ChatGPT_20Image_2028_20jul_202026_2019_59_13.png?v=1790193787" alt="Uso en barba y cabello" loading="lazy" width="600" height="380">
+                {%- endif -%}
+                <span class="vmedia-tag">Pelo y Barba • Rinde hasta 15 Usos</span>
               </div>
             </div>
           </div>
@@ -633,7 +745,7 @@
         <div class="vrev-overall-badge">
           <span class="vrev-overall-stars">⭐⭐⭐⭐⭐</span>
           <strong>4.9 de 5.0</strong>
-          <span class="vrev-overall-count">(Basado en más de 360 compradores verificados)</span>
+          <span class="vrev-overall-count">(Basado en más de {% if prod_type == 'shampoo' %}520{% else %}360{% endif %} compradores verificados)</span>
         </div>
       </div>
 
@@ -724,6 +836,99 @@
             <div class="vrev-photo-box">
               <div class="vrev-photo-placeholder">
                 <span>📸 Foto de cliente: Equipo VaporPro desempacado</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      {% elsif prod_type == 'shampoo' %}
+        <div class="vreviews-grid">
+          
+          <!-- TESTIMONIO 1 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">PV</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Patricio V.</strong>
+                <span class="vrev-city">📍 Las Condes, Santiago</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Impresionante lo fácil que es. En 10 minutos en la ducha me tapó todas las canas de los lados y la barba. No mancha las orejas ni la frente como las tinturas normales de farmacia. Además el pelo queda súper suave por el argán. Envío rápido por Blue Express."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Barba y cabello con negro natural</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TESTIMONIO 2 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">CG</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Carmen Gloria M.</strong>
+                <span class="vrev-city">📍 Concepción</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Se lo compré a mi esposo porque no le gustaba ir a la peluquería a teñirse y le quedó impecable, un negro natural sin verse tieso. Luego lo probé yo en mis raíces y cubrió perfecto. Tiene aroma exquisito y no pica nada el cuero cabelludo. Pagué en efectivo al repartidor."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Raíces sin canas y cabello brillante</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TESTIMONIO 3 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">MG</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Mauricio G.</strong>
+                <span class="vrev-city">📍 Viña del Mar</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Ahorro más de 40 lucas al mes que me cobraba el barbero por tinturarme la barba. La botella de 500ml rinde muchísimo porque con dos bombeos alcanza de sobra para toda la barba y patillas. Llegó en 48 horas a Viña, 100% recomendado."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Frasco 500ml y guantes de aplicación</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TESTIMONIO 4 -->
+          <div class="vrev-card">
+            <div class="vrev-top">
+              <div class="vrev-avatar">LT</div>
+              <div class="vrev-meta">
+                <strong class="vrev-author">Lorena T.</strong>
+                <span class="vrev-city">📍 La Serena</span>
+              </div>
+            </div>
+            <div class="vrev-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compra Verificada • Pago Contra Entrega</span>
+            </div>
+            <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
+            <p class="vrev-comment">"Llegó en 48 horas a La Serena con Starken y pagué con CuentaRUT al repartidor. Es muy fácil de usar, no mancha la piel y deja el pelo brillante y sin frizz. Pedí la oferta de 2 frascos y le regalé uno a mi mamá. Excelente atención por WhatsApp."</p>
+            <div class="vrev-photo-box">
+              <div class="vrev-photo-placeholder">
+                <span>📸 Foto de cliente: Pedido recibido en su caja en La Serena</span>
               </div>
             </div>
           </div>
@@ -1683,7 +1888,7 @@
   var unit1Text = "{{ p_unit_1 }}";
   var unit2Text = "{{ p_unit_2 }}";
   var unit3Text = "{{ p_unit_3 }}";
-  var productTitle = "{% if prod_type == 'masaje' %}Masajeador de Cuello y Espalda Shiatsu 3D{% elsif prod_type == 'vapor' %}VaporPro™ - Limpiador a Vapor de Alta Presión 2500W{% else %}Shampoo Colorante Negro 2 en 1 con Argán{% endif %}";
+  var productTitle = "{% if prod_type == 'masaje' %}Masajeador de Cuello y Espalda Shiatsu 3D{% elsif prod_type == 'vapor' %}VaporPro™ - Limpiador a Vapor de Alta Presión 2500W{% else %}Shampoo Colorante Negro 3 en 1 con Colágeno y Argán{% endif %}";
 
   function selectVaporBundle(qty, total, el) {
     document.querySelectorAll('.vapor-bundle-opt').forEach(function(o) { o.classList.remove('active'); });

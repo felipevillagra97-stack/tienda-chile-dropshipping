@@ -17,6 +17,8 @@
     {% assign title_lower = product.title | default: '' | downcase %}
     {% if handle_lower contains 'vapor' or title_lower contains 'vapor' or title_lower contains 'limpiad' %}
       {% assign full_message = '¡Hola! Tengo una consulta sobre el Limpiador a Vapor VaporPro.' | url_encode %}
+    {% elsif handle_lower contains 'shampoo' or title_lower contains 'shampoo' or title_lower contains 'colorante' %}
+      {% assign full_message = '¡Hola! Tengo una consulta sobre el Shampoo Colorante Negro.' | url_encode %}
     {% else %}
       {% assign product_info = ' sobre el producto ' | append: product.title | append: ' - ' | append: shop.url | append: product.url %}
       {% assign full_message = default_msg | append: product_info | url_encode %}
