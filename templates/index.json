@@ -14,6 +14,7 @@
       "blocks": {
         "heading": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Browse our latest products",
             "heading_size": "h0"
@@ -21,6 +22,7 @@
         },
         "button": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify://collections/all",
@@ -40,7 +42,7 @@
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
@@ -76,10 +78,38 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "veltro_trust_bar_eFtmPf": {
+      "type": "veltro-trust-bar",
+      "name": "Barra de Confianza Chile",
+      "settings": {
+        "p1_title": "Envíos a Todo Chile",
+        "p1_desc": "Despacho rápido 24-48 hrs con Blue Express y Starken.",
+        "p2_title": "Paga al Recibir en Casa",
+        "p2_desc": "Paga en efectivo o transferencia cuando llegue tu paquete.",
+        "p3_title": "Garantía de Satisfacción",
+        "p3_desc": "30 días de respaldo oficial. Compra 100% garantizada.",
+        "p4_title": "Soporte vía WhatsApp",
+        "p4_desc": "Atención personalizada para resolver todas tus dudas."
+      }
+    },
+    "veltro_promo_product_banner_KVR7eA": {
+      "type": "veltro-promo-product-banner",
+      "name": "Banner Producto Estrella Veltro",
+      "settings": {
+        "badge_text": "⚡ OFERTA DESTACADA DE LA SEMANA • STOCK EN BODEGA SANTIAGO",
+        "heading": "Limpiadora a Vapor Multifuncional 2500W + 6 Accesorios",
+        "subheading": "Disuelve grasa quemada, hongos en junturas de baño y suciedad en motores de auto en segundos con vapor continuo a 105°C y 4 BAR de presión.",
+        "price": "$42.990",
+        "old_price": "$53.990",
+        "btn_link": "shopify://collections/all"
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "veltro_trust_bar_eFtmPf",
+    "veltro_promo_product_banner_KVR7eA"
   ]
 }
