@@ -259,6 +259,134 @@
             <span>🛡️</span> <span>Garantía de Satisfacción 30 Días</span>
           </div>
         </div>
+
+        <!-- CONTENEDOR DE GIFS / VIDEOS DEMOSTRATIVOS (ESPACIO BAJO GALERÍA) -->
+        <div class="vapor-gallery-gifs" id="vapor-gallery-gifs-container">
+          
+          {%- comment -%} BLOQUES DINÁMICOS AGREGADOS DESDE EL PERSONALIZADOR {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'gif_item' -%}
+              {%- assign b_src = '' -%}
+              {%- if block.settings.url != blank -%}
+                {%- assign b_src = block.settings.url -%}
+              {%- elsif block.settings.image != blank -%}
+                {%- assign b_src = block.settings.image | image_url: width: 800 -%}
+              {%- endif -%}
+
+              {%- if b_src != blank -%}
+                <div class="vapor-gif-card" {{ block.shopify_attributes }}>
+                  {%- if block.settings.badge != blank -%}
+                    <div class="vgif-header">
+                      <span class="vgif-badge">{{ block.settings.badge }}</span>
+                    </div>
+                  {%- endif -%}
+                  <div class="vgif-media">
+                    {%- if b_src contains '.mp4' or b_src contains '.webm' -%}
+                      <video src="{{ b_src }}" autoplay loop muted playsinline class="vgif-video"></video>
+                    {%- else -%}
+                      <img src="{{ b_src }}" alt="{{ block.settings.title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.title != blank or block.settings.desc != blank -%}
+                    <div class="vgif-footer">
+                      {%- if block.settings.title != blank -%}
+                        <h4 class="vgif-title">{{ block.settings.title }}</h4>
+                      {%- endif -%}
+                      {%- if block.settings.desc != blank -%}
+                        <p class="vgif-desc">{{ block.settings.desc }}</p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- comment -%} GIF 1 DESDE AJUSTES DE SECCIÓN {%- endcomment -%}
+          {%- assign g1_src = '' -%}
+          {%- if section.settings.gif_1_url != blank -%}
+            {%- assign g1_src = section.settings.gif_1_url -%}
+          {%- elsif section.settings.gif_1_image != blank -%}
+            {%- assign g1_src = section.settings.gif_1_image | image_url: width: 800 -%}
+          {%- endif -%}
+
+          {%- if g1_src != blank -%}
+            <div class="vapor-gif-card">
+              {%- if section.settings.gif_1_badge != blank -%}
+                <div class="vgif-header">
+                  <span class="vgif-badge">{{ section.settings.gif_1_badge }}</span>
+                </div>
+              {%- endif -%}
+              <div class="vgif-media">
+                {%- if g1_src contains '.mp4' or g1_src contains '.webm' -%}
+                  <video src="{{ g1_src }}" autoplay loop muted playsinline class="vgif-video"></video>
+                {%- else -%}
+                  <img src="{{ g1_src }}" alt="{{ section.settings.gif_1_title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                {%- endif -%}
+              </div>
+              {%- if section.settings.gif_1_title != blank or section.settings.gif_1_desc != blank -%}
+                <div class="vgif-footer">
+                  {%- if section.settings.gif_1_title != blank -%}
+                    <h4 class="vgif-title">{{ section.settings.gif_1_title }}</h4>
+                  {%- endif -%}
+                  {%- if section.settings.gif_1_desc != blank -%}
+                    <p class="vgif-desc">{{ section.settings.gif_1_desc }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} GIF 2 DESDE AJUSTES DE SECCIÓN {%- endcomment -%}
+          {%- assign g2_src = '' -%}
+          {%- if section.settings.gif_2_url != blank -%}
+            {%- assign g2_src = section.settings.gif_2_url -%}
+          {%- elsif section.settings.gif_2_image != blank -%}
+            {%- assign g2_src = section.settings.gif_2_image | image_url: width: 800 -%}
+          {%- endif -%}
+
+          {%- if g2_src != blank -%}
+            <div class="vapor-gif-card">
+              {%- if section.settings.gif_2_badge != blank -%}
+                <div class="vgif-header">
+                  <span class="vgif-badge">{{ section.settings.gif_2_badge }}</span>
+                </div>
+              {%- endif -%}
+              <div class="vgif-media">
+                {%- if g2_src contains '.mp4' or g2_src contains '.webm' -%}
+                  <video src="{{ g2_src }}" autoplay loop muted playsinline class="vgif-video"></video>
+                {%- else -%}
+                  <img src="{{ g2_src }}" alt="{{ section.settings.gif_2_title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                {%- endif -%}
+              </div>
+              {%- if section.settings.gif_2_title != blank or section.settings.gif_2_desc != blank -%}
+                <div class="vgif-footer">
+                  {%- if section.settings.gif_2_title != blank -%}
+                    <h4 class="vgif-title">{{ section.settings.gif_2_title }}</h4>
+                  {%- endif -%}
+                  {%- if section.settings.gif_2_desc != blank -%}
+                    <p class="vgif-desc">{{ section.settings.gif_2_desc }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} GUÍA VISUAL EN EL EDITOR DE SHOPIFY CUANDO AÚN NO SE HAN CARGADO GIFS {%- endcomment -%}
+          {%- if request.design_mode and g1_src == blank and g2_src == blank and section.blocks.size == 0 -%}
+            <div class="vapor-gif-card vgif-placeholder-card">
+              <div class="vgif-header">
+                <span class="vgif-badge">🎬 ESPACIO PARA GIFS</span>
+              </div>
+              <div class="vgif-placeholder-body">
+                <div class="vgif-ph-icon">🎞️</div>
+                <h4 class="vgif-ph-title">Sube tus GIFs aquí</h4>
+                <p class="vgif-ph-text">Puedes subir GIFs desde la barra lateral derecha haciendo clic en la sección, o agregar bloques con <strong>+ Agregar bloque</strong> a la izquierda.</p>
+              </div>
+            </div>
+          {%- endif -%}
+
+        </div>
       </div>
 
       <!-- COLUMNA DE COMPRA Y FORMULARIO COD -->
@@ -1066,6 +1194,104 @@
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+  /* CONTENEDOR DE GIFS / VIDEOS BAJO GALERÍA */
+  .vapor-gallery-gifs {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  .vapor-gif-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .vapor-gif-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+  .vgif-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .vgif-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #EFF6FF;
+    color: #1D4ED8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  .vgif-media {
+    position: relative;
+    width: 100%;
+    background: #0F172A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .vgif-media img,
+  .vgif-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .vgif-footer {
+    padding: 10px 14px;
+    background: #FFFFFF;
+  }
+  .vgif-title {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1E293B;
+    line-height: 1.4;
+  }
+  .vgif-desc {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    color: #64748B;
+    line-height: 1.35;
+  }
+  .vgif-placeholder-card {
+    border: 2px dashed #93C5FD;
+    background: #F0F7FF;
+  }
+  .vgif-placeholder-body {
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .vgif-ph-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .vgif-ph-title {
+    margin: 0 0 6px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E40AF;
+  }
+  .vgif-ph-text {
+    margin: 0;
+    font-size: 12px;
+    color: #3B82F6;
+    line-height: 1.4;
   }
   .vapor-rating {
     display: flex;
@@ -1968,10 +2194,115 @@
   "name": "Landing Shampoo Colorante",
   "tag": "section",
   "class": "section-landing-shampoo",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎞️ GIFs / Videos Demostrativos (Bajo Galería)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Sube tus GIFs o imágenes demostrativas para mostrar el producto en acción debajo de la galería. También puedes hacer clic en '+ Agregar bloque' en el menú de la izquierda."
+    },
+    {
+      "type": "image_picker",
+      "id": "gif_1_image",
+      "label": "GIF o Imagen 1 (Desde tu equipo)"
+    },
+    {
+      "type": "text",
+      "id": "gif_1_url",
+      "label": "O Enlace directo del GIF / Video 1",
+      "info": "Pega aquí un enlace directo (ej: https://.../animacion.gif o video .mp4)"
+    },
+    {
+      "type": "text",
+      "id": "gif_1_badge",
+      "label": "Etiqueta / Badge GIF 1",
+      "default": "✨ RESULTADOS EN 10 MIN"
+    },
+    {
+      "type": "text",
+      "id": "gif_1_title",
+      "label": "Título GIF 1",
+      "default": "Cubre el 100% de las canas al instante"
+    },
+    {
+      "type": "text",
+      "id": "gif_1_desc",
+      "label": "Descripción corta GIF 1 (opcional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "gif_2_image",
+      "label": "GIF o Imagen 2 (Desde tu equipo)"
+    },
+    {
+      "type": "text",
+      "id": "gif_2_url",
+      "label": "O Enlace directo del GIF / Video 2"
+    },
+    {
+      "type": "text",
+      "id": "gif_2_badge",
+      "label": "Etiqueta / Badge GIF 2",
+      "default": "🌿 CERO MANCHAS"
+    },
+    {
+      "type": "text",
+      "id": "gif_2_title",
+      "label": "Título GIF 2",
+      "default": "No mancha la piel ni las orejas"
+    },
+    {
+      "type": "text",
+      "id": "gif_2_desc",
+      "label": "Descripción corta GIF 2 (opcional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gif_item",
+      "name": "GIF / Video Demostración",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Seleccionar GIF o Imagen"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "O Enlace directo del GIF / MP4",
+          "info": "Enlace directo de Contenido > Archivos o Giphy"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Etiqueta / Badge",
+          "default": "🔥 DEMOSTRACIÓN EN VIVO"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Demostración de uso en la ducha"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Descripción corta (opcional)"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Landing Shampoo Colorante"
+      "name": "Landing Shampoo Colorante",
+      "blocks": [
+        {
+          "type": "gif_item"
+        }
+      ]
     }
   ]
 }
