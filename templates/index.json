@@ -3,7 +3,7 @@
     "hero_banner": {
       "type": "veltro-hero-banner",
       "settings": {
-        "banner_link": "/collections/all"
+        "banner_link": "#landing-vapor-section"
       }
     },
     "trust_bar": {
@@ -19,16 +19,31 @@
         "p4_desc": "Atención personalizada para resolver todas tus dudas."
       }
     },
+    "promo_banner": {
+      "type": "veltro-promo-product-banner",
+      "settings": {
+        "badge_text": "⚡ OFERTA DESTACADA DE LA SEMANA • STOCK EN BODEGA SANTIAGO",
+        "heading": "Limpiadora a Vapor Multifuncional 2500W + 6 Accesorios",
+        "subheading": "Disuelve grasa quemada, hongos en junturas de baño y suciedad en motores de auto en segundos con vapor continuo a 105°C y 4 BAR de presión.",
+        "price": "$42.990",
+        "old_price": "$53.990",
+        "btn_link": "#landing-vapor-section"
+      }
+    },
+    "landing_product": {
+      "type": "landing-limpiador-vapor",
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Productos Destacados",
-        "heading_size": "h1",
-        "description": "Aprovecha nuestras ofertas exclusivas con despacho express y pago contra entrega en todo Chile.",
+        "title": "Otros Productos Recomendados",
+        "heading_size": "h2",
+        "description": "Explora nuestro catálogo con pago contra entrega en todo Chile.",
         "show_description": true,
         "description_style": "body",
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "full_width": false,
@@ -43,26 +58,16 @@
         "show_rating": true,
         "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 48,
+        "padding_top": 40,
         "padding_bottom": 48
-      }
-    },
-    "promo_banner": {
-      "type": "veltro-promo-product-banner",
-      "settings": {
-        "badge_text": "⚡ OFERTA DESTACADA DE LA SEMANA • STOCK EN BODEGA SANTIAGO",
-        "heading": "Limpiadora a Vapor Multifuncional 2500W + 6 Accesorios",
-        "subheading": "Disuelve grasa quemada, hongos en junturas de baño y suciedad en motores de auto en segundos con vapor continuo a 105°C y 4 BAR de presión.",
-        "price": "$42.990",
-        "old_price": "$53.990",
-        "btn_link": "/collections/all"
       }
     }
   },
   "order": [
     "hero_banner",
     "trust_bar",
-    "featured_collection",
-    "promo_banner"
+    "promo_banner",
+    "landing_product",
+    "featured_collection"
   ]
 }
