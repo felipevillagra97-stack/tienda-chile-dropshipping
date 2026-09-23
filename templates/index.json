@@ -1,73 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero_banner": {
-      "type": "veltro-hero-banner",
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
       "settings": {
-        "banner_link": "/products/vapor-pro-limpiador-a-vapor"
+        "image": "shopify://shop_images/banner-veltro-final.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
       }
-    },
-    "trust_bar": {
-      "type": "veltro-trust-bar",
-      "settings": {
-        "p1_title": "Envíos a Todo Chile",
-        "p1_desc": "Despacho rápido 24-48 hrs con Blue Express y Starken.",
-        "p2_title": "Paga al Recibir en Casa",
-        "p2_desc": "Paga en efectivo o transferencia cuando llegue tu paquete.",
-        "p3_title": "Garantía de Satisfacción",
-        "p3_desc": "30 días de respaldo oficial. Compra 100% garantizada.",
-        "p4_title": "Soporte vía WhatsApp",
-        "p4_desc": "Atención personalizada para resolver todas tus dudas."
-      }
-    },
-    "promo_banner": {
-      "type": "veltro-promo-product-banner",
-      "settings": {
-        "badge_text": "⚡ OFERTA DESTACADA DE LA SEMANA • STOCK EN BODEGA SANTIAGO",
-        "heading": "Limpiadora a Vapor Multifuncional 2500W + 6 Accesorios",
-        "subheading": "Disuelve grasa quemada, hongos en junturas de baño y suciedad en motores de auto en segundos con vapor continuo a 105°C y 4 BAR de presión.",
-        "price": "$42.990",
-        "old_price": "$53.990",
-        "btn_link": "/products/vapor-pro-limpiador-a-vapor"
-      }
-    },
-    "landing_product": {
-      "type": "landing-limpiador-vapor",
-      "settings": {}
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Otros Productos Recomendados",
-        "heading_size": "h2",
-        "description": "Explora nuestro catálogo con pago contra entrega en todo Chile.",
-        "show_description": true,
-        "description_style": "body",
         "collection": "all",
-        "products_to_show": 4,
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "square",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
+        "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 40,
-        "padding_bottom": 48
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "hero_banner",
-    "trust_bar",
-    "promo_banner",
-    "landing_product",
+    "image_banner",
     "featured_collection"
   ]
 }
