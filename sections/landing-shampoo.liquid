@@ -9,12 +9,14 @@
   assign title_lower = product.title | default: '' | downcase
 
   if handle contains 'masaje' or title_lower contains 'masaje' or title_lower contains 'cuello'
-    assign is_masaje = true
+    assign prod_type = 'masaje'
+  elsif handle contains 'vapor' or title_lower contains 'vapor' or title_lower contains 'limpiad'
+    assign prod_type = 'vapor'
   else
-    assign is_masaje = false
+    assign prod_type = 'shampoo'
   endif
 
-  if is_masaje
+  if prod_type == 'masaje'
     assign p_badge = '⚡ ALIVIO DE CONTRACTURAS • STOCK EN BODEGA SANTIAGO • ENVÍO 24-48 HRS'
     assign p_rating_text = '4.9 / 5.0 • +480 clientes satisfechos en Chile'
     assign p_title = 'Masajeador de Cuello y Espalda Shiatsu 3D con Calor Infrarrojo'
@@ -84,6 +86,77 @@
     assign rev_3_name = 'Marcela S.'
     assign rev_3_city = '📍 Temuco'
     assign rev_3_text = 'Compré dos, uno para mí y otro para mi mamá que sufre de lumbago. Nos alivió caleta la espalda baja. Muy fácil de usar con los botones laterales. Pagué con CuentaRUT al recibir la caja.'
+
+  elsif prod_type == 'vapor'
+    assign p_badge = '🇨🇱 ALTA DEMANDA • STOCK EN BODEGA SANTIAGO • DESPACHO 24-48 HRS'
+    assign p_rating_text = '4.9 / 5.0 • +362 clientes satisfechos en Chile'
+    assign p_title = 'Limpiadora a Vapor de Alta Presión 2500W (4 BAR) + Kit de 6 Accesorios'
+    assign p_desc = 'Derrite la grasa pegada de años, elimina hongos en juntas de baño y desinfecta bacterias en segundos con vapor continuo a 105°C. Limpia tu cocina, tapices y auto sin químicos tóxicos.'
+    
+    assign p_price_1 = '$42.990'
+    assign p_old_price_1 = '$53.990'
+    assign p_discount_tag = '20% DESCUENTO'
+    assign p_stock_left = '7 unidades'
+    assign p_unit_1 = '1x Limpiador 2500W + Accesorios'
+    
+    assign p_price_2 = '$68.790'
+    assign p_old_price_2 = '$85.980'
+    assign p_sub_2 = '($34.395 c/u)'
+    assign p_save_2 = 'Ahorras $17.190 (20% OFF)'
+    assign p_unit_2 = '2x Limpiadores (Uno para ti, uno de regalo)'
+
+    assign p_price_3 = '$97.480'
+    assign p_old_price_3 = '$128.970'
+    assign p_sub_3 = '($32.493 c/u)'
+    assign p_save_3 = 'Ahorras $31.490 (Pack Familiar)'
+    assign p_unit_3 = '3x Limpiadores Familiares'
+
+    assign sol_title = 'Una Sola Herramienta para Todo tu Hogar y tu Auto'
+    assign sol_subtitle = 'Ahorra tiempo y olvídate de frotar durante horas con productos químicos agresivos'
+    assign sol_1_icon = '🍳'
+    assign sol_1_title = 'Cocina Impecable y Libre de Grasa'
+    assign sol_1_desc = 'Disuelve en segundos la grasa acumulada en campanas extractoras, freidoras de aire, hornos y encimeras solo con calor y presión.'
+    assign sol_2_icon = '🚿'
+    assign sol_2_title = 'Baños Libres de Sarro y Hongos'
+    assign sol_2_desc = 'El vapor penetra profundamente en las junturas de azulejos, shower door y griferías, eliminando el moho negro y las bacterias sin cloro.'
+    assign sol_3_icon = '🚗'
+    assign sol_3_title = 'Interior y Motor de Automóvil'
+    assign sol_3_desc = 'Limpia tapices manchados, conductos de aire acondicionado y desengrasa componentes del motor con total control y precisión.'
+    assign sol_4_icon = '🛋️'
+    assign sol_4_title = 'Desinfección de Tapices y Colchones'
+    assign sol_4_desc = 'Elimina ácaros, malos olores y gérmenes en sofás, cojines y alfombras. Ideal para casas con niños, mascotas o alérgicos.'
+
+    assign kit_title = '¿Qué Incluye tu Pedido?'
+    assign kit_item_1 = '✓ 1x Equipo Limpiador a Vapor 2500W con perilla de 6 niveles'
+    assign kit_item_2 = '✓ 1x Boquilla curva extendida para rincones difíciles'
+    assign kit_item_3 = '✓ 1x Boquilla recta de alta presión'
+    assign kit_item_4 = '✓ 1x Cepillo circular de acero reforzado (para grasa rebelde)'
+    assign kit_item_5 = '✓ 1x Cepillo circular grande de nylon'
+    assign kit_item_6 = '✓ 1x Cepillo circular pequeño de precisión y manguera térmica'
+
+    assign specs_title = 'Ficha Técnica Oficial'
+    assign spec_1_k = 'Potencia Eléctrica'
+    assign spec_1_v = '2.500 Watts de alto rendimiento'
+    assign spec_2_k = 'Presión de Trabajo'
+    assign spec_2_v = '4 BAR constantes'
+    assign spec_3_k = 'Temperatura de Vapor'
+    assign spec_3_v = '105°C (Desinfección antibacteriana)'
+    assign spec_4_k = 'Regulación'
+    assign spec_4_v = '6 niveles de potencia ajustable'
+    assign spec_5_k = 'Voltaje'
+    assign spec_5_v = '220V (Enchufe estándar chileno)'
+    assign spec_6_k = 'Garantía'
+    assign spec_6_v = '30 días con respaldo oficial VELTRO Chile'
+
+    assign rev_1_name = 'Isabella L.'
+    assign rev_1_city = '📍 Viña del Mar'
+    assign rev_1_text = 'Me llegó hace unos días y lo probé altiro en el sillón del living que tenía manchas antiguas. Con el vapor se fueron soltando y quedó mucho más limpio de lo que esperaba. Igual lo ocupé en la cocina y sirve caleta para la grasa de la campana. Buena compra.'
+    assign rev_2_name = 'Sebastian F.'
+    assign rev_2_city = '📍 Santiago Centro'
+    assign rev_2_text = 'Lo compré más que nada para limpiar el auto por dentro y terminó siendo útil para todo. El vapor ayuda harto a soltar la suciedad y no hay que estar usando mil productos distintos. Lo ocupé en el baño y en la cocina también. Práctico y fácil de usar.'
+    assign rev_3_name = 'Santiago C.'
+    assign rev_3_city = '📍 Concepción'
+    assign rev_3_text = 'La verdad ya había probado varios limpiadores. Probé este vapor y quedé loco, la grasa sale mucho más fácil y no tengo que estar refregando tanto rato. Lo usé también en los azulejos del baño y quedaron impeques. El repartidor de Starken llegó puntual y le pagué con CuentaRUT.'
 
   else
     assign p_badge = '🌿 FÓRMULA BOTÁNICA 2 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
@@ -178,8 +251,10 @@
         <div class="vapor-main-image-wrap">
           {%- if product != blank and product.featured_image != blank -%}
             <img id="vapor-main-img" src="{{ product.featured_image | image_url: width: 1254 }}" alt="{{ product.title | escape }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
-          {%- elsif is_masaje -%}
+          {%- elsif prod_type == 'masaje' -%}
             <img id="vapor-main-img" src="//www.veltro.cl/cdn/shop/files/1761417214WhatsApp_20Image_202025-10-25_20at_2015.26.45.jpg?v=1790193314" alt="{{ p_title }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- elsif prod_type == 'vapor' -%}
+            <img id="vapor-main-img" src="{{ 'producto-limpiador-vapor.png' | asset_url }}" alt="{{ p_title }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
           {%- else -%}
             <img id="vapor-main-img" src="//www.veltro.cl/cdn/shop/files/1785283236ChatGPT_20Image_2028_20jul_202026_2019_59_13.png?v=1790193787" alt="{{ p_title }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
           {%- endif -%}
@@ -1099,7 +1174,7 @@
   var unit1Text = "{{ p_unit_1 }}";
   var unit2Text = "{{ p_unit_2 }}";
   var unit3Text = "{{ p_unit_3 }}";
-  var productTitle = "{% if is_masaje %}Masajeador de Cuello y Espalda Shiatsu 3D{% else %}Shampoo Colorante Negro 2 en 1 con Argán{% endif %}";
+  var productTitle = "{% if prod_type == 'masaje' %}Masajeador de Cuello y Espalda Shiatsu 3D{% elsif prod_type == 'vapor' %}Limpiadora a Vapor 2500W{% else %}Shampoo Colorante Negro 2 en 1 con Argán{% endif %}";
 
   function selectVaporBundle(qty, total, el) {
     document.querySelectorAll('.vapor-bundle-opt').forEach(function(o) { o.classList.remove('active'); });
