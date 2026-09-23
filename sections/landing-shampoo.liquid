@@ -5,28 +5,157 @@
 {% endcomment %}
 
 {%- liquid
-  assign p_badge = '🌿 FÓRMULA BOTÁNICA 2 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
-  assign p_rating_text = '4.9 / 5.0 • +521 clientes satisfechos en Chile'
-  assign p_title = 'Shampoo Colorante Negro 2 en 1 con Colágeno y Aceite de Argán'
-  assign p_desc = 'Cubre el 100% de las canas en solo 10 a 15 minutos durante la ducha. Fórmula nutritiva que no mancha la piel ni el cuero cabelludo. Apto para cabello, barba y bigote tanto en hombres como mujeres.'
-  
-  assign p_price_1 = '$22.990'
-  assign p_old_price_1 = '$32.990'
-  assign p_discount_tag = '30% DESCUENTO'
-  assign p_stock_left = '8 unidades'
-  assign p_unit_1 = '1x Botella Familiar Shampoo Colorante + Guantes'
-  
-  assign p_price_2 = '$36.990'
-  assign p_old_price_2 = '$45.980'
-  assign p_sub_2 = '($18.495 c/u)'
-  assign p_save_2 = 'Ahorras $8.990 (Tratamiento Semestral)'
-  assign p_unit_2 = '2x Botellas Familiares (Tratamiento para 6 meses)'
+  assign handle = product.handle | default: '' | downcase
+  assign title_lower = product.title | default: '' | downcase
 
-  assign p_price_3 = '$49.990'
-  assign p_old_price_3 = '$68.970'
-  assign p_sub_3 = '($16.663 c/u)'
-  assign p_save_3 = 'Ahorras $18.980 (Pack Ahorro Familiar)'
-  assign p_unit_3 = '3x Botellas (Pack Ahorro Familiar)'
+  if handle contains 'masaje' or title_lower contains 'masaje' or title_lower contains 'cuello'
+    assign is_masaje = true
+  else
+    assign is_masaje = false
+  endif
+
+  if is_masaje
+    assign p_badge = '⚡ ALIVIO DE CONTRACTURAS • STOCK EN BODEGA SANTIAGO • ENVÍO 24-48 HRS'
+    assign p_rating_text = '4.9 / 5.0 • +480 clientes satisfechos en Chile'
+    assign p_title = 'Masajeador de Cuello y Espalda Shiatsu 3D con Calor Infrarrojo'
+    assign p_desc = 'Elimina contracturas, nudos musculares y el estrés diario en solo 15 minutos. Diseñado con 8 nodos de masaje bidireccional y calor terapéutico profundo. Incluye cargador de casa (220V) y adaptador para el auto (12V).'
+    
+    assign p_price_1 = '$26.990'
+    assign p_old_price_1 = '$39.990'
+    assign p_discount_tag = '32% DESCUENTO'
+    assign p_stock_left = '6 unidades'
+    assign p_unit_1 = '1x Masajeador Shiatsu 3D + 2 Cargadores'
+    
+    assign p_price_2 = '$43.990'
+    assign p_old_price_2 = '$53.980'
+    assign p_sub_2 = '($21.995 c/u)'
+    assign p_save_2 = 'Ahorras $9.990 (Lleva 2 y regala bienestar)'
+    assign p_unit_2 = '2x Masajeadores (Para ti y un regalo especial)'
+
+    assign p_price_3 = '$59.990'
+    assign p_old_price_3 = '$80.970'
+    assign p_sub_3 = '($19.997 c/u)'
+    assign p_save_3 = 'Ahorras $20.980 (Pack Familiar)'
+    assign p_unit_3 = '3x Masajeadores Familiares'
+
+    assign sol_title = 'Alivio Clínico para Todo tu Cuerpo en Casa o en el Auto'
+    assign sol_subtitle = 'Olvídate de gastar miles de pesos en sesiones de masajista cada semana'
+    assign sol_1_icon = '💆'
+    assign sol_1_title = 'Cuello y Cervicales sin Contracturas'
+    assign sol_1_desc = 'Sus 8 nodos ergonómicos amasan profundamente la zona cervical, aliviando la rigidez causada por mala postura o estrés laboral.'
+    assign sol_2_icon = '♨️'
+    assign sol_2_title = 'Calor Infrarrojo Terapéutico'
+    assign sol_2_desc = 'El calor suave penetra las fibras musculares tensas, activando la circulación sanguínea y disolviendo nudos rebeldes.'
+    assign sol_3_icon = '🚗'
+    assign sol_3_title = 'Doble Conexión: Casa y Auto'
+    assign sol_3_desc = 'Incluye enchufe de pared 220V y conector de 12V para encendedor de auto. Alivia el estrés durante el taco o en tu escritorio.'
+    assign sol_4_icon = '🧘'
+    assign sol_4_title = 'Multizona: Espalda, Lumbares y Piernas'
+    assign sol_4_desc = 'Sus agarraderas permiten posicionarlo con la presión exacta en cuello, zona lumbar, glúteos, muslos y pantorrillas.'
+
+    assign kit_title = '¿Qué Incluye tu Paquete?'
+    assign kit_item_1 = '✓ 1x Masajeador Cervical Shiatsu 3D con panel de control integrado'
+    assign kit_item_2 = '✓ 1x Adaptador de corriente 220V para enchufe chileno'
+    assign kit_item_3 = '✓ 1x Adaptador de 12V para encendedor de automóvil'
+    assign kit_item_4 = '✓ 1x Manual de instrucciones en español'
+    assign kit_item_5 = '✓ Apagado automático de seguridad inteligente a los 15 minutos'
+    assign kit_item_6 = '✓ Malla transpirable antitranspirante y cuero PU premium reforzado'
+
+    assign specs_title = 'Ficha Técnica Oficial'
+    assign spec_1_k = 'Tipo de Masaje'
+    assign spec_1_v = 'Shiatsu 3D Bidireccional con rotación automática'
+    assign spec_2_k = 'Terapia de Calor'
+    assign spec_2_v = 'Luz infrarroja calmante (aprox. 40°C - 45°C)'
+    assign spec_3_k = 'Nodos de Masaje'
+    assign spec_3_v = '8 cabezales rotatorios con 3 niveles de velocidad'
+    assign spec_4_k = 'Temporizador'
+    assign spec_4_v = 'Apagado automático inteligente a los 15 minutos'
+    assign spec_5_k = 'Alimentación'
+    assign spec_5_v = '220V (Hogar) + 12V (Auto) - Ambos cables incluidos'
+    assign spec_6_k = 'Garantía'
+    assign spec_6_v = '30 días de satisfacción oficial VELTRO Chile'
+
+    assign rev_1_name = 'Claudia M.'
+    assign rev_1_city = '📍 Providencia, Santiago'
+    assign rev_1_text = 'Paso 8 horas sentada frente al computador y terminaba el día con un dolor de cuello y hombros insoportable. Con 15 minutos de este masajeador con calor quedo relajadísima. El repartidor de Blue Express llegó súper rápido y pagué en efectivo al recibir.'
+    assign rev_2_name = 'Rodrigo H.'
+    assign rev_2_city = '📍 Viña del Mar'
+    assign rev_2_text = 'Excelente compra, lo conecto en el auto camino a la pega y en el sillón viendo tele. La función de calor es lo mejor para soltar los nudos de la espalda. Muy buena potencia en los motores.'
+    assign rev_3_name = 'Marcela S.'
+    assign rev_3_city = '📍 Temuco'
+    assign rev_3_text = 'Compré dos, uno para mí y otro para mi mamá que sufre de lumbago. Nos alivió caleta la espalda baja. Muy fácil de usar con los botones laterales. Pagué con CuentaRUT al recibir la caja.'
+
+  else
+    assign p_badge = '🌿 FÓRMULA BOTÁNICA 2 EN 1 • SIN AMONÍACO • RESULTADOS EN 10 MIN'
+    assign p_rating_text = '4.9 / 5.0 • +520 clientes satisfechos en Chile'
+    assign p_title = 'Shampoo Colorante Negro 2 en 1 con Colágeno y Aceite de Argán'
+    assign p_desc = 'Cubre el 100% de las canas en solo 10 a 15 minutos durante la ducha. Fórmula nutritiva que no mancha la piel ni el cuero cabelludo. Apto para cabello, barba y bigote tanto en hombres como mujeres.'
+    
+    assign p_price_1 = '$22.990'
+    assign p_old_price_1 = '$32.990'
+    assign p_discount_tag = '30% DESCUENTO'
+    assign p_stock_left = '8 unidades'
+    assign p_unit_1 = '1x Botella Familiar Shampoo Colorante + Guantes'
+    
+    assign p_price_2 = '$36.990'
+    assign p_old_price_2 = '$45.980'
+    assign p_sub_2 = '($18.495 c/u)'
+    assign p_save_2 = 'Ahorras $8.990 (Tratamiento Semestral)'
+    assign p_unit_2 = '2x Botellas Familiares (Tratamiento para 6 meses)'
+
+    assign p_price_3 = '$49.990'
+    assign p_old_price_3 = '$68.970'
+    assign p_sub_3 = '($16.663 c/u)'
+    assign p_save_3 = 'Ahorras $18.980 (Pack Ahorro Familiar)'
+    assign p_unit_3 = '3x Botellas (Pack Ahorro Familiar)'
+
+    assign sol_title = 'Cobertura Total de Canas sin Químicos Agresivos'
+    assign sol_subtitle = 'Ahorra más de $150.000 al año en peluquerías tiñéndote tú mismo en la ducha'
+    assign sol_1_icon = '⏱️'
+    assign sol_1_title = 'Resultados Rápidos en 10-15 Minutos'
+    assign sol_1_desc = 'Aplícalo como un shampoo normal en la ducha, deja actuar de 10 a 15 minutos y enjuaga con agua. Canas 100% negras al instante.'
+    assign sol_2_icon = '💧'
+    assign sol_2_title = 'Nutrición con Colágeno y Argán'
+    assign sol_2_desc = 'A diferencia de las tinturas comunes que queman y resecan, este shampoo fortalece la fibra capilar, previene la caída y deja un brillo sedoso.'
+    assign sol_3_icon = '🚫'
+    assign sol_3_title = 'Cero Manchas en Frente y Cuero Cabelludo'
+    assign sol_3_desc = 'Fórmula inteligente de base botánica que se adhiere selectivamente a la queratina capilar sin manchar tu piel, orejas ni manos.'
+    assign sol_4_icon = '🧔'
+    assign sol_4_title = 'Ideal para Cabello, Barba y Bigote'
+    assign sol_4_desc = 'Color negro natural uniforme sin efecto artificial o tieso. Rinde entre 10 y 15 aplicaciones por botella y dura 3 a 4 semanas.'
+
+    assign kit_title = '¿Qué Incluye tu Pedido?'
+    assign kit_item_1 = '✓ 1x Botella Familiar Shampoo Colorante Max Belle con dosificador pump'
+    assign kit_item_2 = '✓ 1x Par de guantes protectores de aplicación'
+    assign kit_item_3 = '✓ Extractos activos: Colágeno hidrolizado + Aceite puro de Argán'
+    assign kit_item_4 = '✓ 100% Libre de amoníaco, parabenos y sulfatos agresivos'
+    assign kit_item_5 = '✓ Duración del color: 3 a 4 semanas por cada lavado'
+    assign kit_item_6 = '✓ Cruelty Free (No testeado en animales)'
+
+    assign specs_title = 'Ficha Técnica Oficial'
+    assign spec_1_k = 'Fórmula Activa'
+    assign spec_1_v = 'Extractos naturales con Colágeno y Aceite de Argán'
+    assign spec_2_k = 'Cobertura de Canas'
+    assign spec_2_v = '100% de efectividad en tono Negro Natural'
+    assign spec_3_k = 'Tiempo de Aplicación'
+    assign spec_3_v = '10 a 15 minutos'
+    assign spec_4_k = 'Zonas de Uso'
+    assign spec_4_v = 'Cabello, barba, bigote y patillas (Unisex)'
+    assign spec_5_k = 'Rendimiento'
+    assign spec_5_v = '10 a 15 aplicaciones completas por envase'
+    assign spec_6_k = 'Garantía'
+    assign spec_6_v = '30 días de satisfacción oficial VELTRO Chile'
+
+    assign rev_1_name = 'Andrés M.'
+    assign rev_1_city = '📍 Las Condes, Santiago'
+    assign rev_1_text = 'Impresionante lo fácil que es. En 10 minutos en la ducha me tapó todas las canas de los lados y la barba. No mancha las orejas como las tinturas normales. Envío súper rápido.'
+    assign rev_2_name = 'Patricio V.'
+    assign rev_2_city = '📍 Concepción'
+    assign rev_2_text = 'Lo ocupé en la barba y el pelo. Quedó un negro súper natural, nada de ese color tieso de las tinturas de farmacia. Además tiene aroma rico y deja el pelo suave por el argán. Le pagué al repartidor de Starken al recibir.'
+    assign rev_3_name = 'Lorena T.'
+    assign rev_3_city = '📍 La Serena'
+    assign rev_3_text = 'Llegó súper rápido a La Serena. Muy fácil de aplicar, no arde nada y deja el pelo brillante y sin frizz. Ya le encargué otro frasco a mi mamá.'
+  endif
 -%}
 
 <div class="vapor-landing" id="landing-shampoo-section">
@@ -49,6 +178,8 @@
         <div class="vapor-main-image-wrap">
           {%- if product != blank and product.featured_image != blank -%}
             <img id="vapor-main-img" src="{{ product.featured_image | image_url: width: 1254 }}" alt="{{ product.title | escape }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
+          {%- elsif is_masaje -%}
+            <img id="vapor-main-img" src="//www.veltro.cl/cdn/shop/files/1761417214WhatsApp_20Image_202025-10-25_20at_2015.26.45.jpg?v=1790193314" alt="{{ p_title }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
           {%- else -%}
             <img id="vapor-main-img" src="//www.veltro.cl/cdn/shop/files/1785283236ChatGPT_20Image_2028_20jul_202026_2019_59_13.png?v=1790193787" alt="{{ p_title }}" class="vapor-main-img" loading="eager" width="1254" height="1254">
           {%- endif -%}
@@ -250,59 +381,59 @@
 
     <!-- SECCIÓN ANTES Y DESPUÉS / SOLUCIONES -->
     <div class="vapor-solutions-section">
-      <h2 class="vsec-title">Cobertura Total de Canas sin Químicos Agresivos</h2>
-      <p class="vsec-subtitle">Ahorra más de $150.000 al año en peluquerías tiñéndote tú mismo en la ducha</p>
+      <h2 class="vsec-title">{{ sol_title }}</h2>
+      <p class="vsec-subtitle">{{ sol_subtitle }}</p>
 
       <div class="vapor-solutions-grid">
         <div class="vsol-card">
-          <div class="vsol-icon">⏱️</div>
-          <h3>Resultados Rápidos en 10-15 Minutos</h3>
-          <p>Aplícalo como un shampoo normal en la ducha, deja actuar de 10 a 15 minutos y enjuaga con agua. Canas 100% negras al instante.</p>
+          <div class="vsol-icon">{{ sol_1_icon }}</div>
+          <h3>{{ sol_1_title }}</h3>
+          <p>{{ sol_1_desc }}</p>
         </div>
 
         <div class="vsol-card">
-          <div class="vsol-icon">💧</div>
-          <h3>Nutrición con Colágeno y Argán</h3>
-          <p>A diferencia de las tinturas comunes que queman y resecan, este shampoo fortalece la fibra capilar, previene la caída y deja un brillo sedoso.</p>
+          <div class="vsol-icon">{{ sol_2_icon }}</div>
+          <h3>{{ sol_2_title }}</h3>
+          <p>{{ sol_2_desc }}</p>
         </div>
 
         <div class="vsol-card">
-          <div class="vsol-icon">🚫</div>
-          <h3>Cero Manchas en Frente y Cuero Cabelludo</h3>
-          <p>Fórmula inteligente de base botánica que se adhiere selectivamente a la queratina capilar sin manchar tu piel, orejas ni manos.</p>
+          <div class="vsol-icon">{{ sol_3_icon }}</div>
+          <h3>{{ sol_3_title }}</h3>
+          <p>{{ sol_3_desc }}</p>
         </div>
 
         <div class="vsol-card">
-          <div class="vsol-icon">🧔</div>
-          <h3>Ideal para Cabello, Barba y Bigote</h3>
-          <p>Color negro natural uniforme sin efecto artificial o tieso. Rinde entre 10 y 15 aplicaciones por botella y dura 3 a 4 semanas.</p>
+          <div class="vsol-icon">{{ sol_4_icon }}</div>
+          <h3>{{ sol_4_title }}</h3>
+          <p>{{ sol_4_desc }}</p>
         </div>
       </div>
     </div>
 
     <!-- SECCIÓN KIT INCLUIDO -->
     <div class="vapor-kit-section">
-      <h2 class="vsec-title">¿Qué Incluye tu Pedido?</h2>
+      <h2 class="vsec-title">{{ kit_title }}</h2>
       <div class="vapor-kit-box">
-        <div class="vkit-item">✓ 1x Botella Familiar Shampoo Colorante Max Belle con dosificador pump</div>
-        <div class="vkit-item">✓ 1x Par de guantes protectores de aplicación</div>
-        <div class="vkit-item">✓ Extractos activos: Colágeno hidrolizado + Aceite puro de Argán</div>
-        <div class="vkit-item">✓ 100% Libre de amoníaco, parabenos y sulfatos agresivos</div>
-        <div class="vkit-item">✓ Duración del color: 3 a 4 semanas por cada lavado</div>
-        <div class="vkit-item">✓ Cruelty Free (No testeado en animales)</div>
+        <div class="vkit-item">{{ kit_item_1 }}</div>
+        <div class="vkit-item">{{ kit_item_2 }}</div>
+        <div class="vkit-item">{{ kit_item_3 }}</div>
+        <div class="vkit-item">{{ kit_item_4 }}</div>
+        <div class="vkit-item">{{ kit_item_5 }}</div>
+        <div class="vkit-item">{{ kit_item_6 }}</div>
       </div>
     </div>
 
     <!-- SECCIÓN ESPECIFICACIONES -->
     <div class="vapor-specs-section">
-      <h2 class="vsec-title">Ficha Técnica Oficial</h2>
+      <h2 class="vsec-title">{{ specs_title }}</h2>
       <table class="vspecs-table">
-        <tr><td><strong>Fórmula Activa:</strong></td><td>Extractos naturales con Colágeno y Aceite de Argán</td></tr>
-        <tr><td><strong>Cobertura de Canas:</strong></td><td>100% de efectividad en tono Negro Natural</td></tr>
-        <tr><td><strong>Tiempo de Aplicación:</strong></td><td>10 a 15 minutos</td></tr>
-        <tr><td><strong>Zonas de Uso:</strong></td><td>Cabello, barba, bigote y patillas (Unisex)</td></tr>
-        <tr><td><strong>Rendimiento:</strong></td><td>10 a 15 aplicaciones completas por envase</td></tr>
-        <tr><td><strong>Garantía:</strong></td><td>30 días de satisfacción oficial VELTRO Chile</td></tr>
+        <tr><td><strong>{{ spec_1_k }}:</strong></td><td>{{ spec_1_v }}</td></tr>
+        <tr><td><strong>{{ spec_2_k }}:</strong></td><td>{{ spec_2_v }}</td></tr>
+        <tr><td><strong>{{ spec_3_k }}:</strong></td><td>{{ spec_3_v }}</td></tr>
+        <tr><td><strong>{{ spec_4_k }}:</strong></td><td>{{ spec_4_v }}</td></tr>
+        <tr><td><strong>{{ spec_5_k }}:</strong></td><td>{{ spec_5_v }}</td></tr>
+        <tr><td><strong>{{ spec_6_k }}:</strong></td><td>{{ spec_6_v }}</td></tr>
       </table>
     </div>
 
@@ -312,29 +443,29 @@
       <div class="vreviews-grid">
         <div class="vrev-card">
           <div class="vrev-header">
-            <strong>Andrés M.</strong>
-            <span class="vrev-city">📍 Las Condes, Santiago</span>
+            <strong>{{ rev_1_name }}</strong>
+            <span class="vrev-city">{{ rev_1_city }}</span>
           </div>
           <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Impresionante lo fácil que es. En 10 minutos en la ducha me tapó todas las canas de los lados y la barba. No mancha las orejas como las tinturas normales. Envío súper rápido."</p>
+          <p>"{{ rev_1_text }}"</p>
         </div>
 
         <div class="vrev-card">
           <div class="vrev-header">
-            <strong>Patricio V.</strong>
-            <span class="vrev-city">📍 Concepción</span>
+            <strong>{{ rev_2_name }}</strong>
+            <span class="vrev-city">{{ rev_2_city }}</span>
           </div>
           <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Lo ocupé en la barba y el pelo. Quedó un negro súper natural, nada de ese color tieso de las tinturas de farmacia. Además tiene aroma rico y deja el pelo suave por el argán. Le pagué al repartidor de Starken al recibir."</p>
+          <p>"{{ rev_2_text }}"</p>
         </div>
 
         <div class="vrev-card">
           <div class="vrev-header">
-            <strong>Lorena T.</strong>
-            <span class="vrev-city">📍 La Serena</span>
+            <strong>{{ rev_3_name }}</strong>
+            <span class="vrev-city">{{ rev_3_city }}</span>
           </div>
           <div class="vrev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Llegó súper rápido a La Serena. Muy fácil de aplicar, no arde nada y deja el pelo brillante y sin frizz. Ya le encargué otro frasco a mi mamá."</p>
+          <p>"{{ rev_3_text }}"</p>
         </div>
       </div>
     </div>
@@ -968,7 +1099,7 @@
   var unit1Text = "{{ p_unit_1 }}";
   var unit2Text = "{{ p_unit_2 }}";
   var unit3Text = "{{ p_unit_3 }}";
-  var productTitle = "Shampoo Colorante Negro 2 en 1 con Argán";
+  var productTitle = "{% if is_masaje %}Masajeador de Cuello y Espalda Shiatsu 3D{% else %}Shampoo Colorante Negro 2 en 1 con Argán{% endif %}";
 
   function selectVaporBundle(qty, total, el) {
     document.querySelectorAll('.vapor-bundle-opt').forEach(function(o) { o.classList.remove('active'); });
