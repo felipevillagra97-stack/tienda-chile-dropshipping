@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "image_banner": {
@@ -41,7 +32,6 @@
         "image": "shopify://shop_images/banner-veltro-final.png",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
@@ -68,38 +58,37 @@
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
-        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 44,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "enable_quick_add": false
       }
     },
     "veltro_trust_bar_eFtmPf": {
       "type": "veltro-trust-bar",
       "name": "Barra de Confianza Chile",
       "settings": {
-        "p1_title": "Envíos a Todo Chile",
-        "p1_desc": "Despacho rápido 24-48 hrs con Blue Express y Starken.",
+        "p1_title": "Env\u00edos a Todo Chile",
+        "p1_desc": "Despacho r\u00e1pido 24-48 hrs con Blue Express y Starken.",
         "p2_title": "Paga al Recibir en Casa",
         "p2_desc": "Paga en efectivo o transferencia cuando llegue tu paquete.",
-        "p3_title": "Garantía de Satisfacción",
-        "p3_desc": "30 días de respaldo oficial. Compra 100% garantizada.",
-        "p4_title": "Soporte vía WhatsApp",
-        "p4_desc": "Atención personalizada para resolver todas tus dudas."
+        "p3_title": "Garant\u00eda de Satisfacci\u00f3n",
+        "p3_desc": "30 d\u00edas de respaldo oficial. Compra 100% garantizada.",
+        "p4_title": "Soporte v\u00eda WhatsApp",
+        "p4_desc": "Atenci\u00f3n personalizada para resolver todas tus dudas."
       }
     },
     "veltro_promo_product_banner_KVR7eA": {
       "type": "veltro-promo-product-banner",
       "name": "Banner Producto Estrella Veltro",
       "settings": {
-        "badge_text": "⚡ OFERTA DESTACADA DE LA SEMANA • STOCK EN BODEGA SANTIAGO",
+        "badge_text": "\u26a1 OFERTA DESTACADA DE LA SEMANA \u2022 STOCK EN BODEGA SANTIAGO",
         "heading": "Limpiadora a Vapor Multifuncional 2500W + 6 Accesorios",
-        "subheading": "Disuelve grasa quemada, hongos en junturas de baño y suciedad en motores de auto en segundos con vapor continuo a 105°C y 4 BAR de presión.",
+        "subheading": "Disuelve grasa quemada, hongos en junturas de ba\u00f1o y suciedad en motores de auto en segundos con vapor continuo a 105\u00b0C y 4 BAR de presi\u00f3n.",
         "price": "$42.990",
         "old_price": "$53.990",
         "btn_link": "shopify://collections/all"
