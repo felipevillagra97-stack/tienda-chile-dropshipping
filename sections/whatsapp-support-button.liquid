@@ -6,9 +6,9 @@
 
 {% if section.settings.enable_whatsapp %}
   {% assign default_msg = section.settings.default_message | default: '¡Hola! Quisiera hacer una consulta' %}
-  {% assign raw_phone = section.settings.phone_number | default: '+569XXXXXXXX' %}
-  {% if raw_phone contains '56912345678' or raw_phone == blank %}
-    {% assign raw_phone = '+569XXXXXXXX' %}
+  {% assign raw_phone = section.settings.phone_number | default: '+56942542278' %}
+  {% if raw_phone contains '56912345678' or raw_phone == blank or raw_phone contains 'XXXXXXXX' %}
+    {% assign raw_phone = '+56942542278' %}
   {% endif %}
   {% assign clean_phone = raw_phone | replace: ' ', '' | replace: '+', '' %}
 
@@ -121,7 +121,7 @@
       "type": "text",
       "id": "phone_number",
       "label": "Número de WhatsApp con código de país",
-      "default": "+569XXXXXXXX",
+      "default": "+56942542278",
       "info": "Ejemplo para Chile: +569XXXXXXXX (sin espacios ni guiones)"
     },
     {
