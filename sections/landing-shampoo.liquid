@@ -263,126 +263,176 @@
         <!-- CONTENEDOR DE GIFS / VIDEOS DEMOSTRATIVOS (ESPACIO BAJO GALERÍA) -->
         <div class="vapor-gallery-gifs" id="vapor-gallery-gifs-container">
           
-          {%- comment -%} BLOQUES DINÁMICOS AGREGADOS DESDE EL PERSONALIZADOR {%- endcomment -%}
+          {%- comment -%} 
+            AISLAMIENTO ESTRICTO DE GIFS SEGÚN EL PRODUCTO ACTIVO:
+            El GIF de Shampoo NUNCA debe aparecer en la página de VaporPro ni viceversa.
+          {%- endcomment -%}
+
+          {%- assign g1_src = '' -%}
+          {%- assign g1_badge = '' -%}
+          {%- assign g1_title = '' -%}
+          {%- assign g1_desc = '' -%}
+
+          {%- assign g2_src = '' -%}
+          {%- assign g2_badge = '' -%}
+          {%- assign g2_title = '' -%}
+          {%- assign g2_desc = '' -%}
+
+          {%- if prod_type == 'shampoo' -%}
+            {%- comment -%} GIFS EXCLUSIVOS PARA SHAMPOO COLORANTE {%- endcomment -%}
+            {%- if section.settings.shampoo_gif_1_url != blank -%}
+              {%- assign g1_src = section.settings.shampoo_gif_1_url -%}
+            {%- elsif section.settings.shampoo_gif_1_image != blank -%}
+              {%- assign g1_src = section.settings.shampoo_gif_1_image | image_url: width: 800 -%}
+            {%- elsif section.settings.gif_1_url != blank -%}
+              {%- assign g1_src = section.settings.gif_1_url -%}
+            {%- elsif section.settings.gif_1_image != blank -%}
+              {%- assign g1_src = section.settings.gif_1_image | image_url: width: 800 -%}
+            {%- endif -%}
+            {%- assign g1_badge = section.settings.shampoo_gif_1_badge | default: section.settings.gif_1_badge | default: '✨ RESULTADOS EN 10 MIN' -%}
+            {%- assign g1_title = section.settings.shampoo_gif_1_title | default: section.settings.gif_1_title | default: 'Cubre el 100% de las canas al instante' -%}
+            {%- assign g1_desc = section.settings.shampoo_gif_1_desc | default: section.settings.gif_1_desc -%}
+
+            {%- if section.settings.shampoo_gif_2_url != blank -%}
+              {%- assign g2_src = section.settings.shampoo_gif_2_url -%}
+            {%- elsif section.settings.shampoo_gif_2_image != blank -%}
+              {%- assign g2_src = section.settings.shampoo_gif_2_image | image_url: width: 800 -%}
+            {%- elsif section.settings.gif_2_url != blank -%}
+              {%- assign g2_src = section.settings.gif_2_url -%}
+            {%- elsif section.settings.gif_2_image != blank -%}
+              {%- assign g2_src = section.settings.gif_2_image | image_url: width: 800 -%}
+            {%- endif -%}
+            {%- assign g2_badge = section.settings.shampoo_gif_2_badge | default: section.settings.gif_2_badge | default: '🌿 CERO MANCHAS' -%}
+            {%- assign g2_title = section.settings.shampoo_gif_2_title | default: section.settings.gif_2_title | default: 'No mancha la piel ni las orejas' -%}
+            {%- assign g2_desc = section.settings.shampoo_gif_2_desc | default: section.settings.gif_2_desc -%}
+
+          {%- elsif prod_type == 'vapor' -%}
+            {%- comment -%} GIFS EXCLUSIVOS PARA LIMPIADOR A VAPOR VAPORPRO (NUNCA MOSTRAR EL DE SHAMPOO) {%- endcomment -%}
+            {%- if section.settings.vapor_gif_1_url != blank -%}
+              {%- assign g1_src = section.settings.vapor_gif_1_url -%}
+            {%- elsif section.settings.vapor_gif_1_image != blank -%}
+              {%- assign g1_src = section.settings.vapor_gif_1_image | image_url: width: 800 -%}
+            {%- endif -%}
+            {%- assign g1_badge = section.settings.vapor_gif_1_badge | default: '🔥 105°C DE VAPOR' -%}
+            {%- assign g1_title = section.settings.vapor_gif_1_title | default: 'Derrite grasa y suciedad en segundos' -%}
+            {%- assign g1_desc = section.settings.vapor_gif_1_desc -%}
+
+            {%- if section.settings.vapor_gif_2_url != blank -%}
+              {%- assign g2_src = section.settings.vapor_gif_2_url -%}
+            {%- elsif section.settings.vapor_gif_2_image != blank -%}
+              {%- assign g2_src = section.settings.vapor_gif_2_image | image_url: width: 800 -%}
+            {%- endif -%}
+            {%- assign g2_badge = section.settings.vapor_gif_2_badge | default: '⚡ POTENCIA 2500W' -%}
+            {%- assign g2_title = section.settings.vapor_gif_2_title | default: 'Listo en 15 segundos con 6 niveles' -%}
+            {%- assign g2_desc = section.settings.vapor_gif_2_desc -%}
+
+          {%- elsif prod_type == 'masaje' -%}
+            {%- comment -%} GIFS EXCLUSIVOS PARA MASAJEADOR SHIATSU {%- endcomment -%}
+            {%- if section.settings.masaje_gif_1_url != blank -%}
+              {%- assign g1_src = section.settings.masaje_gif_1_url -%}
+            {%- elsif section.settings.masaje_gif_1_image != blank -%}
+              {%- assign g1_src = section.settings.masaje_gif_1_image | image_url: width: 800 -%}
+            {%- endif -%}
+            {%- assign g1_badge = section.settings.masaje_gif_1_badge | default: '⚡ ALIVIO INMEDIATO' -%}
+            {%- assign g1_title = section.settings.masaje_gif_1_title | default: 'Masaje Shiatsu 3D profundo con calor' -%}
+            {%- assign g1_desc = section.settings.masaje_gif_1_desc -%}
+          {%- endif -%}
+
+          {%- comment -%} BLOQUES DINÁMICOS FILTRADOS POR PRODUCTO {%- endcomment -%}
           {%- for block in section.blocks -%}
             {%- if block.type == 'gif_item' -%}
-              {%- assign b_src = '' -%}
-              {%- if block.settings.url != blank -%}
-                {%- assign b_src = block.settings.url -%}
-              {%- elsif block.settings.image != blank -%}
-                {%- assign b_src = block.settings.image | image_url: width: 800 -%}
-              {%- endif -%}
+              {%- assign b_target = block.settings.target_product | default: 'shampoo' -%}
+              {%- if b_target == 'all' or b_target == prod_type -%}
+                {%- assign b_src = '' -%}
+                {%- if block.settings.url != blank -%}
+                  {%- assign b_src = block.settings.url -%}
+                {%- elsif block.settings.image != blank -%}
+                  {%- assign b_src = block.settings.image | image_url: width: 800 -%}
+                {%- endif -%}
 
-              {%- if b_src != blank -%}
-                <div class="vapor-gif-card" {{ block.shopify_attributes }}>
-                  {%- if block.settings.badge != blank -%}
-                    <div class="vgif-header">
-                      <span class="vgif-badge">{{ block.settings.badge }}</span>
+                {%- if b_src != blank -%}
+                  <div class="vapor-gif-card" {{ block.shopify_attributes }}>
+                    {%- if block.settings.badge != blank -%}
+                      <div class="vgif-header">
+                        <span class="vgif-badge">{{ block.settings.badge }}</span>
+                      </div>
+                    {%- endif -%}
+                    <div class="vgif-media">
+                      {%- if b_src contains '.mp4' or b_src contains '.webm' -%}
+                        <video src="{{ b_src }}" autoplay loop muted playsinline class="vgif-video"></video>
+                      {%- else -%}
+                        <img src="{{ b_src }}" alt="{{ block.settings.title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                      {%- endif -%}
                     </div>
-                  {%- endif -%}
-                  <div class="vgif-media">
-                    {%- if b_src contains '.mp4' or b_src contains '.webm' -%}
-                      <video src="{{ b_src }}" autoplay loop muted playsinline class="vgif-video"></video>
-                    {%- else -%}
-                      <img src="{{ b_src }}" alt="{{ block.settings.title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                    {%- if block.settings.title != blank or block.settings.desc != blank -%}
+                      <div class="vgif-footer">
+                        {%- if block.settings.title != blank -%}
+                          <h4 class="vgif-title">{{ block.settings.title }}</h4>
+                        {%- endif -%}
+                        {%- if block.settings.desc != blank -%}
+                          <p class="vgif-desc">{{ block.settings.desc }}</p>
+                        {%- endif -%}
+                      </div>
                     {%- endif -%}
                   </div>
-                  {%- if block.settings.title != blank or block.settings.desc != blank -%}
-                    <div class="vgif-footer">
-                      {%- if block.settings.title != blank -%}
-                        <h4 class="vgif-title">{{ block.settings.title }}</h4>
-                      {%- endif -%}
-                      {%- if block.settings.desc != blank -%}
-                        <p class="vgif-desc">{{ block.settings.desc }}</p>
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                </div>
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
           {%- endfor -%}
 
-          {%- comment -%} GIF 1 DESDE AJUSTES DE SECCIÓN {%- endcomment -%}
-          {%- assign g1_src = '' -%}
-          {%- if section.settings.gif_1_url != blank -%}
-            {%- assign g1_src = section.settings.gif_1_url -%}
-          {%- elsif section.settings.gif_1_image != blank -%}
-            {%- assign g1_src = section.settings.gif_1_image | image_url: width: 800 -%}
-          {%- endif -%}
-
+          {%- comment -%} GIF 1 DEL PRODUCTO ACTIVO {%- endcomment -%}
           {%- if g1_src != blank -%}
             <div class="vapor-gif-card">
-              {%- if section.settings.gif_1_badge != blank -%}
+              {%- if g1_badge != blank -%}
                 <div class="vgif-header">
-                  <span class="vgif-badge">{{ section.settings.gif_1_badge }}</span>
+                  <span class="vgif-badge">{{ g1_badge }}</span>
                 </div>
               {%- endif -%}
               <div class="vgif-media">
                 {%- if g1_src contains '.mp4' or g1_src contains '.webm' -%}
                   <video src="{{ g1_src }}" autoplay loop muted playsinline class="vgif-video"></video>
                 {%- else -%}
-                  <img src="{{ g1_src }}" alt="{{ section.settings.gif_1_title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                  <img src="{{ g1_src }}" alt="{{ g1_title | default: product.title | escape }}" loading="lazy" class="vgif-img">
                 {%- endif -%}
               </div>
-              {%- if section.settings.gif_1_title != blank or section.settings.gif_1_desc != blank -%}
+              {%- if g1_title != blank or g1_desc != blank -%}
                 <div class="vgif-footer">
-                  {%- if section.settings.gif_1_title != blank -%}
-                    <h4 class="vgif-title">{{ section.settings.gif_1_title }}</h4>
+                  {%- if g1_title != blank -%}
+                    <h4 class="vgif-title">{{ g1_title }}</h4>
                   {%- endif -%}
-                  {%- if section.settings.gif_1_desc != blank -%}
-                    <p class="vgif-desc">{{ section.settings.gif_1_desc }}</p>
+                  {%- if g1_desc != blank -%}
+                    <p class="vgif-desc">{{ g1_desc }}</p>
                   {%- endif -%}
                 </div>
               {%- endif -%}
             </div>
           {%- endif -%}
 
-          {%- comment -%} GIF 2 DESDE AJUSTES DE SECCIÓN {%- endcomment -%}
-          {%- assign g2_src = '' -%}
-          {%- if section.settings.gif_2_url != blank -%}
-            {%- assign g2_src = section.settings.gif_2_url -%}
-          {%- elsif section.settings.gif_2_image != blank -%}
-            {%- assign g2_src = section.settings.gif_2_image | image_url: width: 800 -%}
-          {%- endif -%}
-
+          {%- comment -%} GIF 2 DEL PRODUCTO ACTIVO {%- endcomment -%}
           {%- if g2_src != blank -%}
             <div class="vapor-gif-card">
-              {%- if section.settings.gif_2_badge != blank -%}
+              {%- if g2_badge != blank -%}
                 <div class="vgif-header">
-                  <span class="vgif-badge">{{ section.settings.gif_2_badge }}</span>
+                  <span class="vgif-badge">{{ g2_badge }}</span>
                 </div>
               {%- endif -%}
               <div class="vgif-media">
                 {%- if g2_src contains '.mp4' or g2_src contains '.webm' -%}
                   <video src="{{ g2_src }}" autoplay loop muted playsinline class="vgif-video"></video>
                 {%- else -%}
-                  <img src="{{ g2_src }}" alt="{{ section.settings.gif_2_title | default: product.title | escape }}" loading="lazy" class="vgif-img">
+                  <img src="{{ g2_src }}" alt="{{ g2_title | default: product.title | escape }}" loading="lazy" class="vgif-img">
                 {%- endif -%}
               </div>
-              {%- if section.settings.gif_2_title != blank or section.settings.gif_2_desc != blank -%}
+              {%- if g2_title != blank or g2_desc != blank -%}
                 <div class="vgif-footer">
-                  {%- if section.settings.gif_2_title != blank -%}
-                    <h4 class="vgif-title">{{ section.settings.gif_2_title }}</h4>
+                  {%- if g2_title != blank -%}
+                    <h4 class="vgif-title">{{ g2_title }}</h4>
                   {%- endif -%}
-                  {%- if section.settings.gif_2_desc != blank -%}
-                    <p class="vgif-desc">{{ section.settings.gif_2_desc }}</p>
+                  {%- if g2_desc != blank -%}
+                    <p class="vgif-desc">{{ g2_desc }}</p>
                   {%- endif -%}
                 </div>
               {%- endif -%}
-            </div>
-          {%- endif -%}
-
-          {%- comment -%} GUÍA VISUAL EN EL EDITOR DE SHOPIFY CUANDO AÚN NO SE HAN CARGADO GIFS {%- endcomment -%}
-          {%- if request.design_mode and g1_src == blank and g2_src == blank and section.blocks.size == 0 -%}
-            <div class="vapor-gif-card vgif-placeholder-card">
-              <div class="vgif-header">
-                <span class="vgif-badge">🎬 ESPACIO PARA GIFS</span>
-              </div>
-              <div class="vgif-placeholder-body">
-                <div class="vgif-ph-icon">🎞️</div>
-                <h4 class="vgif-ph-title">Sube tus GIFs aquí</h4>
-                <p class="vgif-ph-text">Puedes subir GIFs desde la barra lateral derecha haciendo clic en la sección, o agregar bloques con <strong>+ Agregar bloque</strong> a la izquierda.</p>
-              </div>
             </div>
           {%- endif -%}
 
@@ -2197,66 +2247,128 @@
   "settings": [
     {
       "type": "header",
-      "content": "🎞️ GIFs / Videos Demostrativos (Bajo Galería)"
+      "content": "🌿 GIFs Demostrativos - Shampoo Colorante"
     },
     {
       "type": "paragraph",
-      "content": "Sube tus GIFs o imágenes demostrativas para mostrar el producto en acción debajo de la galería. También puedes hacer clic en '+ Agregar bloque' en el menú de la izquierda."
+      "content": "Estos GIFs se mostrarán ÚNICAMENTE en la página del Shampoo Colorante Negro."
     },
     {
       "type": "image_picker",
       "id": "gif_1_image",
-      "label": "GIF o Imagen 1 (Desde tu equipo)"
+      "label": "GIF o Imagen 1 (Shampoo)"
     },
     {
       "type": "text",
       "id": "gif_1_url",
-      "label": "O Enlace directo del GIF / Video 1",
+      "label": "O Enlace directo GIF 1 (Shampoo)",
       "info": "Pega aquí un enlace directo (ej: https://.../animacion.gif o video .mp4)"
     },
     {
       "type": "text",
       "id": "gif_1_badge",
-      "label": "Etiqueta / Badge GIF 1",
+      "label": "Etiqueta / Badge GIF 1 (Shampoo)",
       "default": "✨ RESULTADOS EN 10 MIN"
     },
     {
       "type": "text",
       "id": "gif_1_title",
-      "label": "Título GIF 1",
+      "label": "Título GIF 1 (Shampoo)",
       "default": "Cubre el 100% de las canas al instante"
     },
     {
       "type": "text",
       "id": "gif_1_desc",
-      "label": "Descripción corta GIF 1 (opcional)"
+      "label": "Descripción corta GIF 1 (Shampoo)"
     },
     {
       "type": "image_picker",
       "id": "gif_2_image",
-      "label": "GIF o Imagen 2 (Desde tu equipo)"
+      "label": "GIF o Imagen 2 (Shampoo)"
     },
     {
       "type": "text",
       "id": "gif_2_url",
-      "label": "O Enlace directo del GIF / Video 2"
+      "label": "O Enlace directo GIF 2 (Shampoo)"
     },
     {
       "type": "text",
       "id": "gif_2_badge",
-      "label": "Etiqueta / Badge GIF 2",
+      "label": "Etiqueta / Badge GIF 2 (Shampoo)",
       "default": "🌿 CERO MANCHAS"
     },
     {
       "type": "text",
       "id": "gif_2_title",
-      "label": "Título GIF 2",
+      "label": "Título GIF 2 (Shampoo)",
       "default": "No mancha la piel ni las orejas"
     },
     {
       "type": "text",
       "id": "gif_2_desc",
-      "label": "Descripción corta GIF 2 (opcional)"
+      "label": "Descripción corta GIF 2 (Shampoo)"
+    },
+    {
+      "type": "header",
+      "content": "💨 GIFs Demostrativos - Limpiador a Vapor (VaporPro)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Estos GIFs se mostrarán ÚNICAMENTE en la página del Limpiador a Vapor VaporPro."
+    },
+    {
+      "type": "image_picker",
+      "id": "vapor_gif_1_image",
+      "label": "GIF o Imagen 1 (VaporPro)"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_1_url",
+      "label": "O Enlace directo GIF 1 (VaporPro)"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_1_badge",
+      "label": "Etiqueta / Badge GIF 1 (VaporPro)",
+      "default": "🔥 105°C DE VAPOR"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_1_title",
+      "label": "Título GIF 1 (VaporPro)",
+      "default": "Derrite grasa y suciedad en segundos"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_1_desc",
+      "label": "Descripción corta GIF 1 (VaporPro)"
+    },
+    {
+      "type": "image_picker",
+      "id": "vapor_gif_2_image",
+      "label": "GIF o Imagen 2 (VaporPro)"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_2_url",
+      "label": "O Enlace directo GIF 2 (VaporPro)"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_2_badge",
+      "label": "Etiqueta / Badge GIF 2 (VaporPro)",
+      "default": "⚡ POTENCIA 2500W"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_2_title",
+      "label": "Título GIF 2 (VaporPro)",
+      "default": "Listo en 15 segundos con 6 niveles"
+    },
+    {
+      "type": "text",
+      "id": "vapor_gif_2_desc",
+      "label": "Descripción corta GIF 2 (VaporPro)"
     }
   ],
   "blocks": [
@@ -2264,6 +2376,17 @@
       "type": "gif_item",
       "name": "GIF / Video Demostración",
       "settings": [
+        {
+          "type": "select",
+          "id": "target_product",
+          "label": "¿En qué producto mostrar este GIF?",
+          "options": [
+            { "value": "shampoo", "label": "Solo en Shampoo Colorante" },
+            { "value": "vapor", "label": "Solo en Limpiador a Vapor VaporPro" },
+            { "value": "all", "label": "En todos los productos" }
+          ],
+          "default": "shampoo"
+        },
         {
           "type": "image_picker",
           "id": "image",
@@ -2279,13 +2402,13 @@
           "type": "text",
           "id": "badge",
           "label": "Etiqueta / Badge",
-          "default": "🔥 DEMOSTRACIÓN EN VIVO"
+          "default": "✨ DEMOSTRACIÓN"
         },
         {
           "type": "text",
           "id": "title",
           "label": "Título",
-          "default": "Demostración de uso en la ducha"
+          "default": "Demostración en acción"
         },
         {
           "type": "text",
